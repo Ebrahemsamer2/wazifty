@@ -31,6 +31,9 @@
 	margin-top: 5px;
 }
 
+.text-grey {
+	color: #b5b7b9;
+}
 /* Jobs Style */
 
 .job {
@@ -47,4 +50,30 @@
 
 form.hidden {
 	display: none;
+}
+
+
+/* Applications */
+
+.all-applications {
+	margin-top: 20px;
+}
+
+.all-applications .application {
+	margin-left: 5px;
+}
+
+.all-applications .application .card .card-body .application-time {
+	opacity: .8;
+	font-size: 10px;
+	margin-bottom: 2px;
+}
+.all-applications .application .card .card-footer {
+	padding: 5px;
+}
+.all-applications .application .card .card-title {
+	font-size: 11px;
+}
+.all-applications .application .card .card-text {
+	font-size: 13px;
 }

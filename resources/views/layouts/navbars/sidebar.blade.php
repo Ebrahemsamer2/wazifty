@@ -79,13 +79,13 @@
             </form>
             <!-- Navigation -->
             <ul class="navbar-nav">
-                <li class="nav-item">
+                <li class="nav-item <?php if(\Request::is('admin/dashboard')) echo 'active' ?>">
                     <a class="nav-link" href="{{ route('dashboard') }}">
                         <i class="ni ni-tv-2 text-primary"></i> {{ __('Dashboard') }}
                     </a>
                 </li>
                 @if(auth()->user()->isOwner())
-                <li class="nav-item">
+                <li class="nav-item <?php if(\Request::is('admin/admins*')) echo 'active' ?>">
                     <a class="nav-link" href="#admins" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
                         <i class="fas fa-user-secret" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Admin') }}</span>
@@ -107,7 +107,7 @@
                     </div>
                 </li>
                 @endif
-                <li class="nav-item">
+                <li class="nav-item <?php if(\Request::is('admin/users*')) echo 'active' ?>">
                     <a class="nav-link" href="#users" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="users">
                         <i class="fas fa-users text-blue"></i>
                         <span class="nav-link-text">{{ __('Users') }}</span>
@@ -129,7 +129,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?php if(\Request::is('admin/jobs*')) echo 'active' ?>">
                     <a class="nav-link" href="#jobs" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="users">
                         <i class="fas fa-briefcase text-blue"></i>
                         <span class="nav-link-text">{{ __('Jobs') }}</span>
@@ -151,7 +151,7 @@
                     </div>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item <?php if(\Request::is('admin/applications*')) echo 'active' ?>">
                     <a class="nav-link" href="/admin/applications">
                         <i class="fas fa-poll-h text-blue"></i> {{ __('Applications') }}
                     </a>

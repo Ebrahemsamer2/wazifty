@@ -41,5 +41,7 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 	Route::resource('admin/jobs', 'admin\JobController');
 
+	Route::resource('admin/applications', 'admin\ApplicationController', ['except' => ['create']]);
+
 });
 

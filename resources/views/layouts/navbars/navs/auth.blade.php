@@ -2,7 +2,19 @@
 <nav class="navbar navbar-top navbar-expand-md navbar-dark" id="navbar-main">
     <div class="container-fluid">
         <!-- Brand -->
-        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('home') }}">{{ __('Dashboard') }}</a>
+        <a class="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block" href="{{ route('home') }}">
+            @if(\Request::is('admin/dashboard*')) 
+                Dashboard 
+            @elseif(\Request::is('admin/admins*'))
+                Admins
+            @elseif(\Request::is('admin/users*'))
+                Users
+            @elseif(\Request::is('admin/jobs*'))
+                Jobs
+            @elseif(\Request::is('admin/applications*'))
+                Applications
+            @endif
+        </a>
         <!-- Form -->
         <form class="navbar-search navbar-search-dark form-inline mr-3 d-none d-md-flex ml-lg-auto">
             <div class="form-group mb-0">
