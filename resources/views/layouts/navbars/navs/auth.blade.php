@@ -19,9 +19,15 @@
             <li class="nav-item dropdown">
                 <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="media align-items-center">
+                        @if(auth()->user()->picture)
                         <span class="avatar avatar-sm rounded-circle">
-                            <img alt="Image placeholder" src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg">
+                            <img alt="Image placeholder" src="{{ asset('images') }}/{{ auth()->user()->picture->filename }}">
                         </span>
+                        @else
+                        <span class="avatar avatar-sm rounded-circle">
+                            <img alt="Image placeholder" src="{{ asset('images') }}/user.jpg">
+                        </span>
+                        @endif
                         <div class="media-body ml-2 d-none d-lg-block">
                             <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
                         </div>
@@ -36,7 +42,7 @@
                         <span>{{ __('My profile') }}</span>
                     </a>
                     <a href="/admin/profile/jobs" class="dropdown-item">
-                        <i class="ni ni-settings-gear-65"></i>
+                        <i class="fas fa-briefcase "></i>
                         <span>{{ __('My Jobs') }}</span>
                     </a>
                     <a href="#" class="dropdown-item">

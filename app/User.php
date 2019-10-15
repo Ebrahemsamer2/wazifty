@@ -35,6 +35,10 @@ class User extends Authenticatable
     public function answers() {
         return $this->hasMany('App\Answer');
     }
+    
+    public function myJobs() {
+        return $this->hasMany('App\Job');
+    }
 
     public function jobs() {
         return $this->belongsToMany('App\Job');

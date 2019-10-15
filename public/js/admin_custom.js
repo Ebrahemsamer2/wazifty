@@ -64,4 +64,25 @@ $(function() {
 		return true;
 	});
 
+
+	// Uploading a Picture in Admin Profile
+
+	$("#uplaodButton").click(function() {
+		if($("#uplaodButton").text() === 'Update picture') {
+			$("#uploadBox").trigger('click');
+		}
+	});
+
+	$("#uploadBox").on('change', function() {
+		$("#uplaodButton").text("Save");
+	});
+
+	$("#uplaodButton").click(function() {
+
+		if($("#uplaodButton").text() === 'Save') {
+			$(this).next("form").submit();
+		}
+
+	});
+
 });

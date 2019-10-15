@@ -33,6 +33,8 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	
 	Route::put('admin/profile/password', ['as' => 'profile.password', 'uses' => 'admin\ProfileController@password']);
 
+	Route::post('/admin/profile', ['as' => 'profile.updatePicture', 'uses' => 'admin\ProfileController@updatePicture']);
+
 	Route::get('admin/profile/jobs', 'admin\ProfileController@jobs');
 	
 	Route::resource('admin/admins', 'admin\AdminController');

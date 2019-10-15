@@ -15,14 +15,24 @@
                         <div class="col-lg-3 order-lg-2">
                             <div class="card-profile-image">
                                 <a href="#">
-                                    <img src="{{ asset('argon') }}/img/theme/team-4-800x800.jpg" class="rounded-circle">
+                                    @if(auth()->user()->picture)
+                                    <img width="200" height="200" src="{{ asset('images') }}/{{ auth()->user()->picture->filename }}" class="rounded-circle">
+                                    @else
+                                    <img width="200" height="200" src="{{ asset('images') }}/user.jpg" class="rounded-circle">
+                                    @endif
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
                         <div class="d-flex justify-content-between">
-                            <a href="#" class="btn btn-sm btn-info mr-4">{{ __('Connect') }}</a>
+                            <button style="margin-left: -20px;" id="uplaodButton" class="btn btn-sm btn-info mr-4">{{ __('Update picture') }}</button>
+
+                            <form method="POST" action="{{ route('profile.updatePicture') }}" class="hidden" enctype="multipart/form-data">
+                                @csrf
+                                <input id="uploadBox" type="file" name="filename">
+                            </form>
+
                             <a href="#" class="btn btn-sm btn-default float-right">{{ __('Message') }}</a>
                         </div>
                     </div>
@@ -31,8 +41,8 @@
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                                     <div>
-                                        <span class="heading">22</span>
-                                        <span class="description">{{ __('Friends') }}</span>
+                                        <span class="heading">{{ count(auth()->user()->myJobs) }}</span>
+                                        <span class="description">{{ __('Jobs') }}</span>
                                     </div>
                                     <div>
                                         <span class="heading">10</span>
@@ -69,6 +79,11 @@
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
+                            @if ($errors->has('filename'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('filename') }}</strong>
+                                </span>
+                            @endif
                             <h3 class="col-12 mb-0">{{ __('Edit Profile') }}</h3>
                         </div>
                     </div>

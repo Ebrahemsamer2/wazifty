@@ -43,3 +43,8 @@
 }
 
 
+/* Admin Profile */
+
+form.hidden {
+	display: none;
+}

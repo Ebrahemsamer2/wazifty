@@ -86,12 +86,12 @@
                 </li>
                 @if(auth()->user()->isOwner())
                 <li class="nav-item">
-                    <a class="nav-link active" href="#admins" data-toggle="collapse" role="button" aria-expanded="true" aria-controls="navbar-examples">
+                    <a class="nav-link" href="#admins" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="navbar-examples">
                         <i class="fas fa-user-secret" style="color: #f4645f;"></i>
                         <span class="nav-link-text" style="color: #f4645f;">{{ __('Admin') }}</span>
                     </a>
 
-                    <div class="collapse show" id="admins">
+                    <div class="collapse" id="admins">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admins.index') }}">
@@ -128,16 +128,35 @@
                         </ul>
                     </div>
                 </li>
+
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/jobs">
-                        <i class="fas fa-briefcase text-blue"></i> {{ __('Jobs') }}
+                    <a class="nav-link" href="#jobs" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="users">
+                        <i class="fas fa-briefcase text-blue"></i>
+                        <span class="nav-link-text">{{ __('Jobs') }}</span>
+                    </a>
+
+                    <div class="collapse" id="jobs">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/jobs">
+                                    {{ __('All Jobs') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/jobs/create">
+                                    {{ __('New Job') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/applications">
+                        <i class="fas fa-poll-h text-blue"></i> {{ __('Applications') }}
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">
-                        <i class="ni ni-pin-3 text-blue"></i> {{ __('Applications') }}
-                    </a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="ni ni-pin-3 text-blue"></i> {{ __('Quizzes') }}
