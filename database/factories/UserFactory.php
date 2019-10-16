@@ -89,10 +89,6 @@ $factory->define(CV::class, function (Faker $faker) {
 
 $factory->define(Application::class, function (Faker $faker) {
     return [
-        'seen' => $faker->randomElement([0, 1]),
-        'contact' => $faker->randomElement([0, 1]),
-        'accepted' => $faker->randomElement([0, 1, -1]),
-        'user_id' => User::where('emp_type', 'employee')->get()->random()->id,
         'job_id' => Job::all()->random()->id,
     ];
 });
@@ -100,7 +96,7 @@ $factory->define(Application::class, function (Faker $faker) {
 
 $factory->define(Question::class, function (Faker $faker) {
     return [
-        'title' => $faker->word,
+        'title' => $faker->word . ' ' . $faker->word . ' ' . $faker->word . ' ' . $faker->word . ' ' . $faker->word . ' ' . $faker->word . ' ' . $faker->word . ' ' . $faker->word . ' ' . $faker->word . ' ?',
         'application_id' => Application::all()->random()->id,
     ];
 });

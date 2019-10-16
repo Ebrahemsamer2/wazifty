@@ -9,6 +9,7 @@ use App\Http\Requests\JobRequest;
 
 use App\Job;
 use App\Category;
+use App\Application;
 
 class JobController extends Controller
 {
@@ -29,7 +30,8 @@ class JobController extends Controller
         $data = $request->all();
         $data['user_id'] = auth()->user()->id;
 
-        if(Job::create($data)) {
+        if($job = Job::create($data)) {
+            Application::create(['job_id' => $job->id]);
             return redirect('/admin/jobs')->withStatus('Job successfully created.');
         }
     }
@@ -121,6 +123,6 @@ class JobController extends Controller
         if($job->delete())
             return redirect('/admin/jobs')->withStatus('Job successfully deleted.');
         else
-            return redirect('/admin/jobs')->withStatus('Something wrong, try again');
+            return redirect('/admin/jobs')->withStatus('Something wrong, try again.');
     }
 }

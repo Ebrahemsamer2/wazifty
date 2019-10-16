@@ -60,14 +60,15 @@ form.hidden {
 }
 
 .all-applications .application {
-	margin-left: 5px;
+	margin-left: 10px;
 }
 
 .all-applications .application .card .card-body .application-time {
-	opacity: .8;
+	color: grey;
 	font-size: 10px;
 	margin-bottom: 2px;
 }
+
 .all-applications .application .card .card-footer {
 	padding: 5px;
 }
@@ -76,4 +77,13 @@ form.hidden {
 }
 .all-applications .application .card .card-text {
 	font-size: 13px;
+}
+
+.all-applications .application .card .card-body .card-title a {
+	font-size: 15px;
+}
+
+.application-questions {
+	margin-top: 10px;
+	border-top: 1px solid green;
 }

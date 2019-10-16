@@ -10,8 +10,8 @@ class Question extends Model
     	'title',
     ];
 
-    public function answer() {
-    	return $this->hasOne('App\Answer');
+    public function answers() {
+    	return $this->hasMany('App\Answer');
     }
 
     public function application() {

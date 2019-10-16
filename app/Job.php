@@ -22,15 +22,16 @@ class Job extends Model
         'active',
     ];
 
+    
+    public function application() {
+        return $this->hasOne('App\Application');
+    }
+    
     public function user() {
         return $this->belongsTo('App\User');
     }
 
     public function category() {
     	return $this->belongsTo('App\Category');
-    }
-
-    public function users() {
-    	return $this->belongsToMany('App\User');
     }
 }

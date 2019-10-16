@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 
 use App\Job;
+use App\Application;
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,27 +13,31 @@ class DatabaseSeeder extends Seeder
     	factory('App\User_Profile', 10)->create();
     	factory('App\Company_Profile', 5)->create();
     	factory('App\Category', 10)->create();
-    	$jobs = factory('App\Job', 10)->create();
+    	factory('App\Job', 10)->create();
+
+
+    	factory('App\CV', 20)->create();
+    	$applications = factory('App\Application', 10)->create();
 
         // fill pivot table
         
-    	foreach ($users as $user) {
-            $jobs_ids = [];
-            $id1 = Job::all()->random()->id;
-            $jobs_ids[] = $id1;
-            $id2 = Job::all()->random()->id;
+        foreach ($users as $user) {
+            
+            $applications_ids = [];
 
-            if($id1 != $id2) {
-                $jobs_ids[] = $id2;
+            $application_id1 = Application::all()->random()->id;
+            $applications_ids[] = $application_id1;
+            $application_id2 = Application::all()->random()->id;
+
+            if($application_id1 != $application_id2) {
+                $applications_ids[] = $application_id2;
             }else {
-                $id2 = Job::all()->random()->id;
-                $jobs_ids[] = $id2;
+                $application_id2 = Application::all()->random()->id;
+                $applications_ids[] = $application_id2;
             }
-    		$user->jobs()->sync($jobs_ids);
-    	}
+            $user->applications()->sync($applications_ids);
+        }
 
-    	factory('App\CV', 10)->create();
-    	factory('App\Application', 5)->create();
     	factory('App\Question', 10)->create();
     	factory('App\Answer', 5)->create();
         factory('App\Picture', 5)->create();

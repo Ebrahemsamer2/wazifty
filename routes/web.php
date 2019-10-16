@@ -41,7 +41,11 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 	Route::resource('admin/jobs', 'admin\JobController');
 
-	Route::resource('admin/applications', 'admin\ApplicationController', ['except' => ['create']]);
+	Route::resource('admin/applications', 'admin\ApplicationController');
+
+	// Route::get('admin/applications', 'admin\ApplicationController@index');
+
+	// Route::get('admin/applications/{application_id}/user/{user_id}', 'admin\ApplicationController@show');
 
 });
 

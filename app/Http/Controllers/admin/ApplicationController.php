@@ -17,17 +17,7 @@ class ApplicationController extends Controller
 
     public function show(Application $application)
     {
-        return view('admin.applications.show', compact('application'));
-    }
-
-    public function edit(Application $application)
-    {
-        return view('admin.applications.edit', compact('application'));
-    }
-
-    public function update(Request $request, Application $application)
-    {
-        dd($request->all());
+        return view('admin.applications.show', compact('application'));      
     }
 
     public function destroy(Application $application)

@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class User extends Authenticatable
 {
     use Notifiable;
+    
     protected $fillable = [
         'name',
         'email',
@@ -17,7 +18,7 @@ class User extends Authenticatable
         'emp_type',
     ];
     protected $hidden = [
-        'password', 'remember_token',
+        'password', 'remember_token','pivot',
     ];
 
     protected $casts = [
@@ -29,19 +30,16 @@ class User extends Authenticatable
     }
 
     public function applications() {
-        return $this->hasMany('App\Application');
+        return $this->belongsToMany('App\Application');
     }
     
     public function answers() {
         return $this->hasMany('App\Answer');
     }
     
-    public function myJobs() {
-        return $this->hasMany('App\Job');
-    }
-
+    // jobs you posted as a employer or admin
     public function jobs() {
-        return $this->belongsToMany('App\Job');
+        return $this->hasMany('App\Job');
     }
 
     public function user__profile() {

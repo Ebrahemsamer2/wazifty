@@ -39,32 +39,22 @@
                         		
 	                            <div class="application" id="{{ $application->id }}">
 	                                
-									<div class="card text-white bg-primary mb-3">  
-									  	<div class="card-body">
-									    	<h6 class="card-title text-white"><a href="/admin/users/{{ $application->user->id }}/edit"><strong class="text-dark">{{ $application->user->name }}</strong></a><br>has applied to<br><a href="/admin/jobs/{{ $application->job->id }}/edit"><strong class="text-dark">{{ Str::limit($application->job->title,50) }}</strong></a> job</h6>
-									    	<p class="card-text">
-									    		<strong class=" <?php if($application->seen) echo 'text-green';else echo 'text-grey'; ?>" >
-									    				Seen
-									    		</strong><br>
-									    		<strong class=" <?php if($application->contact) echo 'text-green';else echo 'text-grey'; ?>" >
-									    				Contact
-									    		</strong><br>
-									    		<strong class=" <?php if($application->accepted == 1) echo 'text-green';else if($application->accepted == -1) echo 'text-danger'; else echo 'text-grey'; ?>" >
-									    				@if($application->accepted == -1)
-									    					Rejected
-									    				@else
-									    					Accepted
-									    				@endif
-									    		</strong>
-									    	</p>
-									    	<p class="application-time">{{ $application->created_at->diffForHumans() }}</p>
-										  	<div class="card-footer bg-transparent border-light">
-										  		<form method="POST">
+									<div class="card text-white mb-3">  
+									  	<div class="card-body ">
+									    	<h6 class="card-title text-white"><a href="/admin/jobs/{{ $application->job->id }}"><strong class="text-dark">{{ $application->job->title }}</strong></a></h6>
+									    	<h6 class="card-subtitle mb-2 text-muted">
+									    		{{ count($application->questions) }} question related to application
+									    	</h6>
+									    	<p class="application-time">{{ $application->created_at->diffForHumans() }} <span style="margin-left: 15px; font-weight: bold;" class="{{ $application->job->active == 1 ? 'text-success': 'text-warning' }}">{{ $application->job->active == 1 ? 'Activated job': 'Deactivated job' }}</span></p>
+										  	<div class="card-footer bg-transparent border-success">
+										  	<a class="btn btn-info btn-sm" href="/admin/applications/{{ $application->id }}">Show</a>
+										  	<!-- 
+										  		<form method="POST" action="/admin/applications/{{ $application->id }}">
 										  			@csrf
 										  			@method('DELETE')
-										  			<a class="btn btn-info btn-sm" href="/admin/applications/{{ $application->id }}/edit">Edit</a>
+										  			<a class="btn btn-info btn-sm" href="/admin/applications/{{ $application->id }}">Show</a>
 										  			<input type="submit" value="Delete" name="submit" class="btn btn-danger btn-sm">
-										  		</form>
+										  		</form> -->
 										  	</div>
 									  	</div>
 									</div>
