@@ -55,8 +55,9 @@
                                         <form class="inline-form" action="/admin/jobs/{{ $job->id }}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <a href="/admin/jobs/{{ $job->id }}/edit" class="btn btn-info btn-sm">Edit</a>
-                                            <input onclick="confirm('{{ __("Are you sure you want to delete this job?") }}') ? this.parentElement.submit() : ''" type="submit" name="delete" value="Delete Job" class="btn btn-danger btn-sm">
+                                            <a href="/admin/jobs/{{ $job->id }}" class="btn btn-info btn-sm">Show</a>
+                                            <a href="/admin/jobs/{{ $job->id }}/edit" class="btn btn-primary btn-sm">Edit</a>
+                                            <input onclick="confirm('{{ __("Are you sure you want to delete this job?") }}') ? this.parentElement.submit() : ''" type="submit" name="delete" value="Delete" class="btn btn-danger btn-sm">
                                         </form>
                                         <form class="inline-form" action="/admin/jobs/{{ $job->id }}" method="POST">
                                             @csrf

@@ -94,10 +94,10 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('responsibility') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label inline-lebel" for="input-responsibility">{{ __('Job Responsibility') }} <p class="hint">Please seperate every responsibility item with dot ( . ).</p></label>
+                                    <label class="form-control-label inline-lebel" for="input-responsibility">{{ __('Job Responsibility') }} <p class="hint">Please seperate every responsibility item with comma ( , ).</p></label>
 
                                     <textarea name="responsibility" id="input-responsibility" class="form-control form-control-alternative{{ $errors->has('responsibility') ? ' is-invalid' : '' }}" placeholder="{{ __('Job Responsibility') }}" required></textarea>
-                                    <p class="job-responsibility-error js-error">Job responsibility must be between 20 - 1000 characters seperated by dot ( . ) </p>
+                                    <p class="job-responsibility-error js-error">Job responsibility must be between 20 - 1000 characters seperated by comma ( , ) </p>
                                     @if ($errors->has('responsibility'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('responsibility') }}</strong>
@@ -106,10 +106,10 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('requirements') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label inline-lebel" for="input-requirements">{{ __('Job Requirements') }} <p class="hint">Please seperate every requirement item with dot ( . ).</p></label>
+                                    <label class="form-control-label inline-lebel" for="input-requirements">{{ __('Job Requirements') }} <p class="hint">Please seperate every requirement item with comma ( , ).</p></label>
 
                                     <textarea name="requirements" id="input-requirements" class="form-control form-control-alternative{{ $errors->has('requirements') ? ' is-invalid' : '' }}" placeholder="{{ __('Job Requirements') }}" required></textarea>
-                                    <p class="job-requirements-error js-error">Job requirements must be between 20 - 1000 characters seperated by dot ( . ) </p>
+                                    <p class="job-requirements-error js-error">Job requirements must be between 20 - 1000 characters seperated by comma ( , ) </p>
                                     @if ($errors->has('requirements'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('requirements') }}</strong>

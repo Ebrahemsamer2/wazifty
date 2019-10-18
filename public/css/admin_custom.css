@@ -45,7 +45,41 @@
 	margin-right: 10px;
 }
 
+.job-about .about-list li{
+	display: inline;
+}
+.job-description, 
+.job-about,
+.job-skills,
+.job-requirements,
+.job-responsibility {
+	margin-top: 50px;
+	margin-bottom: 30px;
+}
 
+.job-skills ul,
+.job-requirements ul,
+.job-responsibility ul {
+	margin-top: 20px;
+}
+
+.job-about div.row {
+	margin-top: 30px;
+}
+.job-about div div h5:nth-child(2) {
+	font-weight: bold;
+}
+h4.card-subtitle {
+	margin-left: 10px;
+	margin-top: 20px;
+	opacity: .8;
+}
+.job-description p {
+	margin-left: 20px;
+	margin-top: 20px;
+	font-size: 15px;
+	font-weight: 500;
+}
 /* Admin Profile */
 
 form.hidden {
