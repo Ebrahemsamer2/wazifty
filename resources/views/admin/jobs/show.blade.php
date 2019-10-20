@@ -116,13 +116,13 @@
                                         </div>
                                     </div>
                                     <br>
-                                    <form class="inline-form" action="/admin/jobs/{{ $job->id }}" method="POST">
+                                    <form class="inline-form" action="{{ route('jobs.destroy', $job) }}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <a href="/admin/jobs/{{ $job->id }}/edit" class="btn btn-info btn-sm">Edit</a>
-                                        <input onclick="confirm('{{ __("Are you sure you want to delete this job?") }}') ? this.parentElement.submit() : ''" type="submit" name="delete" value="Delete Job" class="btn btn-danger btn-sm">
+                                        <input onclick="confirm('{{ __("Are you sure you want to delete this job?") }}') ? this.parentElement.submit() : ''" type="submit" value="Delete" class="btn btn-danger btn-sm">
                                     </form>
-                                    <form class="inline-form" action="/admin/jobs/{{ $job->id }}" method="POST">
+                                    <form class="inline-form" method="post" action="{{ route('jobs.update', $job) }}">
                                         @csrf
                                         @method('PATCH')
                                     

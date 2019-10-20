@@ -89,7 +89,7 @@ $factory->define(CV::class, function (Faker $faker) {
 
 $factory->define(Application::class, function (Faker $faker) {
     return [
-        'job_id' => Job::all()->random()->id,
+        'job_id' => $faker->unique()->randomElement([1,2,3,4,5,6,7,8,9,10]),
     ];
 });
 

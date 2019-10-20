@@ -8,8 +8,10 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>{{ config('app.name', 'Argon Dashboard') }}</title>
+        
         <!-- Favicon -->
         <link href="{{ asset('argon') }}/img/brand/favicon.png" rel="icon" type="image/png">
+        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <!-- Icons -->
@@ -20,20 +22,21 @@
 
 
         <!-- Favicon -->
-        <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png">
+        <!-- <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png"> -->
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
         <!-- Icons -->
-        <link href="/assets/vendor/nucleo/css/nucleo.min.css" rel="stylesheet">
-        <link href="/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+        <link href="/argon/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+        <link href="/argon/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
         <!-- Argon CSS -->
-        <link type="text/css" href="/assets/css/argon.min.css" rel="stylesheet">
+        <link type="text/css" href="/argon/css/argon.min.css" rel="stylesheet">
         <!-- My Admin Custom CSS -->
         <link type="text/css" href="/css/admin_custom.css" rel="stylesheet">
 
+        <script src="{{ asset('js') }}/functions.js"></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()

@@ -42,13 +42,9 @@
                                     @else
                                         <p class="text-dark text-muted">No question at this application</p>@endif 
 							    	<p class="application-time">{{ $application->created_at->diffForHumans() }} <span style="margin-left: 15px; font-weight: bold;" class="{{ $application->job->active == 1 ? 'text-success': 'text-warning' }}">{{ $application->job->active == 1 ? 'Activated job': 'Deactivated job' }}</span></p>
-								  	<!-- <div class="card-footer bg-transparent border-success">
-								  		<form method="POST" action="/admin/applications/{{ $application->id }}">
-								  			@csrf
-								  			@method('DELETE')
-								  			<input type="submit" value="Delete" name="submit" class="btn btn-danger btn-sm">
-								  		</form>
-								  	</div> -->
+								  	<div class="card-footer bg-transparent border-success">
+								  		<a class="btn btn-primary btn-sm" href="/admin/applications/{{ $application->id }}/questions">Add question</a>
+								  	</div>
 							  	</div>
 							</div>
                         </div>

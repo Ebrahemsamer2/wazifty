@@ -25,4 +25,8 @@ class ApplicationController extends Controller
         $application->delete();
         return redirecrt('/admin/applications')->withStatus('Application successfully deleted.');
     }
+
+    public function addquestions(Request $request, $id) {
+        dd($request->all());
+    }
 }

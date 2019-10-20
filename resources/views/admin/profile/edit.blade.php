@@ -41,7 +41,7 @@
                             <div class="col">
                                 <div class="card-profile-stats d-flex justify-content-center mt-md-5">
                                     <div>
-                                        <span class="heading">{{ count(auth()->user()->myJobs) }}</span>
+                                        <span class="heading">{{ count(auth()->user()->jobs) }}</span>
                                         <span class="description">{{ __('Jobs') }}</span>
                                     </div>
                                     <div>
@@ -180,8 +180,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-        
+        </div>   
         @include('layouts.footers.auth')
     </div>
 @endsection

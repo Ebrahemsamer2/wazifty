@@ -31,8 +31,13 @@ class JobController extends Controller
         $data['user_id'] = auth()->user()->id;
 
         if($job = Job::create($data)) {
-            Application::create(['job_id' => $job->id]);
-            return redirect('/admin/jobs')->withStatus('Job successfully created.');
+            $application = Application::create(['job_id' => $job->id]);
+            if($request->has('noButton')) {
+                return redirect('/admin/jobs')->withStatus('Job successfully created.');
+            }else {
+                return redirect('/admin/applications/'.$application->id.'/questions');
+            }
+            
         }
     }
     public function show(Job $job)
@@ -52,7 +57,8 @@ class JobController extends Controller
         if($request->has('active')){
             $job->update(['active' => $request->active]);
             $job->save();
-            return redirect('/admin/jobs#' . $job->id)->withStatus('Job successfully updated');
+            return redirect()->back()->withStatus('Job successfully updated');
+            // return redirect('/admin/jobs#' . $job->id)->withStatus('Job successfully updated');
         }else {
             // Or Update The job main information
 
@@ -120,9 +126,7 @@ class JobController extends Controller
 
     public function destroy(Job $job)
     {   
-        if($job->delete())
-            return redirect('/admin/jobs')->withStatus('Job successfully deleted.');
-        else
-            return redirect('/admin/jobs')->withStatus('Something wrong, try again.');
+        $job->delete();
+        return redirect('/admin/jobs')->withStatus('Job successfully deleted.');
     }
 }
