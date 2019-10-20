@@ -79,6 +79,39 @@ $(function() {
 
 	});
 
+	// Question Form submition and validation
+
+	$("#questionsFormButton").click(function() {
+		$("#questionsForm").trigger('submit');
+	});
+
+	$("#questionsForm").submit(function() {
+			
+		let question1 = $("#question1").val();
+		if(question1) {
+			if(question1.length < 20 || question1.length > 200){
+				$(".question-error1").css("display", "block");
+				return false;
+			} else {
+				$("#question1").attr('name','question1');
+			}
+		}
+		let i = $("#questionsForm input")[1].id.split('question')[1];
+
+		while(i <= 5) {
+			if( $("#question"+i).val().length > 0 && ( $("#question"+i).val().length < 20 || $("#question"+i).val().length > 200) ){
+				$(".question-error"+i).css("display", "block");
+				return false;
+			}else {
+				if($("#question"+i).val().length != 0) {
+					$("#question"+i).attr('name','question'+i);
+				}
+			}
+			i++;
+		}
+		return true;
+	});
+
 	// Uploading a Picture in Admin Profile
 
 	$("#uplaodButton").click(function() {

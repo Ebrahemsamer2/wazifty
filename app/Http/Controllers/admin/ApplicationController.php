@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 use App\Application;
+use App\Question;
 
 class ApplicationController extends Controller
 {
@@ -27,6 +28,14 @@ class ApplicationController extends Controller
     }
 
     public function addquestions(Request $request, $id) {
-        dd($request->all());
+        $application = Application::findOrFail($id);
+        
+        $i = count($application->questions) + 1;
+
+        while($request->has('question'.$i)) {
+            Question::create(['title' => $request->input('question'.$i),'application_id' => $application->id]);
+            $i++;
+        }
+        return redirect('/admin/applications/'.$application->id)->withStatus('Questions successfully created to this application.');
     }
 }

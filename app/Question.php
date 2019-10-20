@@ -8,6 +8,7 @@ class Question extends Model
 {
     protected $fillable = [
     	'title',
+    	'application_id',
     ];
 
     public function answers() {

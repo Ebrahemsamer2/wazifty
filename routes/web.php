@@ -43,7 +43,7 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 	Route::resource('/admin/applications', 'admin\ApplicationController');
 
-	Route::post('/admin/applications/{id}', 'admin\ApplicationController@addquestions');
+	Route::post('/admin/applications/{id}', 'admin\ApplicationController@addquestions')->name('admin.applications.create');
 
 });
 
