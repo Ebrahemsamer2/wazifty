@@ -42,7 +42,6 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 });
 
-
 // Language Route
 
 Route::get('/{lang}', function($lang) {

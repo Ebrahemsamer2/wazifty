@@ -6,6 +6,8 @@ use App\User;
 use App\Http\Requests\AdminRequest;
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Http\Request;
+
 use App\Http\Controllers\Controller;
 
 class AdminController extends Controller
@@ -15,10 +17,15 @@ class AdminController extends Controller
         $this->middleware('owner');
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $admins = User::where('admin', '=','1')->whereNotIn('email', ['soltan_algaram41@yahoo.com'] )->orderBy('id', 'desc')->paginate(15);
-
+        if( $q = $request->input('q') ) {
+            $admins = User::where('admin', 1)->whereNotIn('email', ['soltan_algaram41@yahoo.com'] )->where(function($query) use($q) {
+                $query->where('name','LIKE','%'.$q.'%')->orwhere('email','LIKE','%'.$q.'%');
+            })->paginate(15);
+        }else {
+            $admins = User::where('admin', '=','1')->whereNotIn('email', ['soltan_algaram41@yahoo.com'] )->orderBy('id', 'desc')->paginate(15);
+        }
         return view('admin.admins.index', ['users' => $admins]);
     }
 

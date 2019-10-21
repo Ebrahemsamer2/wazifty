@@ -31,7 +31,7 @@
 
                     <!-- All Job Content -->
                     <div class="all-jobs">
-                        
+                        @if(count($jobs))
                         @foreach($jobs as $job)
                             <div class="job" id="{{ $job->id }}">
                                 
@@ -77,6 +77,9 @@
                             </div>
 
                         @endforeach
+                        @else
+                            <p class="text-muted text-center">No jobs to show</p>
+                        @endif
                     </div>
                     <div class="card-footer py-4">
                         <nav class="d-flex justify-content-end" aria-label="...">

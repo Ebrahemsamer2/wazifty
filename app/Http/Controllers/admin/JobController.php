@@ -13,9 +13,13 @@ use App\Application;
 
 class JobController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $jobs = Job::orderBy('id', 'desc')->paginate(10);
+        if( $q = $request->input('q') ) {
+            $jobs = Job::where('title','LIKE','%'.$q.'%')->orwhere('skills','LIKE','%'.$q.'%')->join('categories','categories.id', '=','jobs.category_id')->select('jobs.*','categories.name')->orderBy('jobs.id', 'desc')->paginate(10);
+        }else {
+            $jobs = Job::orderBy('id', 'desc')->paginate(10);
+        }
         return view('admin.jobs.index', ['jobs' => $jobs]);
     }
 

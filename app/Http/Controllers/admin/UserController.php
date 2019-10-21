@@ -4,6 +4,9 @@ namespace App\Http\Controllers\admin;
 
 use App\User;
 use App\Http\Requests\UserRequest;
+
+use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Hash;
 
 use App\Http\Controllers\Controller;
@@ -11,9 +14,15 @@ use App\Http\Controllers\Controller;
 class UserController extends Controller
 {
 
-    public function index()
-    {
-        $users = User::where('admin', 0)->orderBy('id', 'desc')->paginate(15);
+    public function index(Request $request)
+    {   
+        if( $q = $request->input('q') ) {
+            $users = User::where('admin', 0)->where(function($query) use($q) {
+                $query->where('name','LIKE','%'.$q.'%')->orwhere('email','LIKE','%'.$q.'%');
+            })->paginate(15);
+        }else {
+            $users = User::where('admin', 0)->orderBy('id', 'desc')->paginate(15);
+        }
         return view('admin.users.index', ['users' => $users]);
     }
 

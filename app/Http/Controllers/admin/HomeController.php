@@ -17,4 +17,7 @@ class HomeController extends Controller
         return view('admin.dashboard');
     }
     
+    public function search(Request $request) {
+    	dd( $request->input('query') );
+    }
 }

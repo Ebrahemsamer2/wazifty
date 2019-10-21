@@ -28,7 +28,7 @@
                             </div>
                         @endif
                     </div>
-
+                    @if(count($users))
                     <div class="table-responsive">
                         <table class="table align-items-center table-flush">
                             <thead class="thead-light">
@@ -76,6 +76,9 @@
                             </tbody>
                         </table>
                     </div>
+                    @else
+                        <p class="text-muted text-center">No users to show</p>
+                    @endif
                     <div class="card-footer py-4">
                         <nav class="d-flex justify-content-end" aria-label="...">
                             {{ $users->links() }}
