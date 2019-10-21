@@ -1,13 +1,8 @@
 <?php
 
-// Admin Routes 
-
-
-// User Routes
-
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Auth::routes();
@@ -47,3 +42,10 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 });
 
+
+// Language Route
+
+Route::get('/{lang}', function($lang) {
+	\Session::put('locale', $lang);
+	return redirect()->back();
+});
