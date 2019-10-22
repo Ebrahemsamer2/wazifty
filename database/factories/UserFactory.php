@@ -82,7 +82,7 @@ $factory->define(Picture::class, function (Faker $faker) {
 $factory->define(Resume::class, function (Faker $faker) {
     return [
         'filename' => $faker->word,
-        'filesize' => $faker->randomElement([1,2]),
+        'filesize' => $faker->randomElement([1,2,3,4,5,6,7,8,9]) * 100,
         'user_id' => User::where('emp_type', 'employee')->get()->random()->id,
     ];
 });

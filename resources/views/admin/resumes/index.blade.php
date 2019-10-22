@@ -52,10 +52,10 @@
                                                     <i class="fas fa-ellipsis-v"></i>
                                                 </a>
                                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                                                    <form action="{{ route('resumes.destroy', $resume) }}" method="post">
+                                                    <form action="/admin/resumes/{{$resume->id}}" method="post">
                                                         @csrf
                                                         @method('delete')
-                                                        <a class="dropdown-item" href="#">{{ __('Show') }}</a>
+                                                        <a class="dropdown-item" href="/admin/resumes/{{$resume->id}}/download">{{ __('Download') }}</a>
                                                         <button type="button" class="dropdown-item" onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
                                                             {{ __('Delete') }}
                                                         </button>

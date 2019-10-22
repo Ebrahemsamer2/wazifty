@@ -38,7 +38,11 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 	Route::resource('/admin/applications', 'admin\ApplicationController');
 
-	Route::resource('/admin/resumes', 'admin\ResumeController');
+	Route::get('/admin/resumes', 'admin\ResumeController@index');
+
+	Route::get('/admin/resumes/{id}/download', 'admin\ResumeController@download');
+
+	Route::delete('/admin/resumes/{id}', 'admin\ResumeController@destroy');
 
 	Route::post('/admin/applications/{id}', 'admin\ApplicationController@addquestions')->name('admin.applications.create');
 
