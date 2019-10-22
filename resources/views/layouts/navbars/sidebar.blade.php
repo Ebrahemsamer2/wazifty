@@ -150,21 +150,14 @@
                         </ul>
                     </div>
                 </li>
-
                 <li class="nav-item <?php if(\Request::is('admin/applications*')) echo 'active' ?>">
                     <a class="nav-link" href="/admin/applications">
                         <i class="fas fa-poll-h text-blue"></i> {{ __('Applications') }}
                     </a>
                 </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="ni ni-pin-3 text-blue"></i> {{ __('Quizzes') }}
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="far fa-question-circle"></i> {{ __('Questions') }}
+                <li class="nav-item <?php if(\Request::is('admin/resumes*')) echo 'active' ?>">
+                    <a class="nav-link" href="/admin/resumes">
+                        <i class="ni ni-pin-3 text-blue"></i> {{ __('Resumes') }}
                     </a>
                 </li>
             </ul>

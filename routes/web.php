@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 	Route::resource('/admin/applications', 'admin\ApplicationController');
 
+	Route::resource('/admin/resumes', 'admin\ResumeController');
+
 	Route::post('/admin/applications/{id}', 'admin\ApplicationController@addquestions')->name('admin.applications.create');
 
 });
@@ -45,6 +47,10 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 // Language Route
 
 Route::get('/{lang}', function($lang) {
-	\Session::put('locale', $lang);
-	return redirect()->back();
+	if(is_dir("../resources/lang/".$lang)) {
+		\Session::put('locale', $lang);
+		return redirect()->back();
+	}else {
+		return abort(404);
+	}
 });

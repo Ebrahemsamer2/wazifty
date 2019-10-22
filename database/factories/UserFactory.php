@@ -4,7 +4,7 @@ use App\User;
 use App\User_Profile;
 use App\Company_Profile;
 use App\Job;
-use App\CV;
+use App\Resume;
 use App\Category;
 use App\Application;
 use App\Question;
@@ -79,10 +79,10 @@ $factory->define(Picture::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(CV::class, function (Faker $faker) {
+$factory->define(Resume::class, function (Faker $faker) {
     return [
         'filename' => $faker->word,
-        'size_m' => $faker->randomElement([1,2]),
+        'filesize' => $faker->randomElement([1,2]),
         'user_id' => User::where('emp_type', 'employee')->get()->random()->id,
     ];
 });

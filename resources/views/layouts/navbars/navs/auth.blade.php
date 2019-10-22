@@ -13,6 +13,8 @@
                 Jobs
             @elseif(\Request::is('admin/applications*'))
                 Applications
+            @elseif(\Request::is('admin/resumes*'))
+                Resumes
             @endif
         </a>
 

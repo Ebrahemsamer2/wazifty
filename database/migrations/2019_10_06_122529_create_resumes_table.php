@@ -4,15 +4,15 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCVSTable extends Migration
+class CreateResumesTable extends Migration
 {
 
     public function up()
     {
-        Schema::create('c_v_s', function (Blueprint $table) {
+        Schema::create('resumes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('filename');
-            $table->integer('size_m');
+            $table->integer('filesize');
             $table->bigInteger('user_id')->unsigned();
 
             // relationships
@@ -23,6 +23,6 @@ class CreateCVSTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('c_v_s');
+        Schema::dropIfExists('resumes');
     }
 }

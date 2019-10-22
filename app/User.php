@@ -25,8 +25,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function cv() {
-        return $this->hasOne('App\CV');
+    public function resume() {
+        return $this->hasOne('App\Resume');
     }
 
     public function applications() {

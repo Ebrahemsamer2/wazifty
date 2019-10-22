@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
     	factory('App\Job', 10)->create();
 
 
-    	factory('App\CV', 20)->create();
+    	factory('App\Resume', 20)->create();
     	$applications = factory('App\Application', 10)->create();
 
         // fill pivot table
