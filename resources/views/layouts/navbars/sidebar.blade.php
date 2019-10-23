@@ -5,8 +5,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <!-- Brand -->
-        <a class="navbar-brand pt-0" href="{{ route('home') }}">
-            <!-- <img src="{{ asset('argon') }}/img/brand/logo.jpg" class="navbar-brand-img" alt="..."> -->
+        <a class="navbar-brand pt-0" href="{{ route('home') }}" target="_blank">
             <span style="color: #5e72e4; font-size: 30px;">WAZIFTY</span>
         </a>
         <!-- User -->
@@ -157,7 +156,7 @@
                 </li>
                 <li class="nav-item <?php if(\Request::is('admin/resumes*')) echo 'active' ?>">
                     <a class="nav-link" href="/admin/resumes">
-                        <i class="ni ni-pin-3 text-blue"></i> {{ __('Resumes') }}
+                        <i class="fas fa-file-alt text-blue"></i> {{ __('Resumes') }}
                     </a>
                 </li>
             </ul>

@@ -39,8 +39,8 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-sm-9">
-                                                <h4 class="card-title">{{ $job->title }}</h5>
-                                                <h5 class="card-subtitle mb-2 text-muted">{{ $job->subtitle }}</h6>
+                                                <h4 class="card-title">{{ $job->title }} <span style="margin-left: 30px; font-size: 13px;" class="text-green">{{ count($job->application->users) }} applied </span></h4>
+                                                <h5 class="card-subtitle mb-2 text-muted">{{ $job->subtitle }}</h5>
                                                 <p class="card-text">{{ $job->job_description }}</p>
                                             </div> 
                                             <div class="col-sm">
