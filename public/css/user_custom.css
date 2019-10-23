@@ -37,6 +37,22 @@
 	background: #5e72e4;
 	color: #fff;
 }
+
+.en .search-form {
+	position: absolute;
+	width: 400px;
+	right: 180px;
+	top: 50px;
+	display: none;
+}
+
+.en .search-form .fa-arrow-up {
+	position: absolute;
+	left: 350px;
+	top: -6px;
+	color: #fff;
+}
+
 /* Main Header */
 
 .en .main-header {

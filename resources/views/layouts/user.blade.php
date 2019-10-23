@@ -49,6 +49,13 @@
 		                </ul>
 		                <span class="search-toggler" style="margin-right: 20px; cursor: pointer;">
 		                    <i class="fas fa-search"></i>
+		                    <div class="search-form">
+		                    	<i class="fas fa-arrow-up"></i>
+		                    	<form autocomplete="off" method="post" action="">
+		                    		@csrf
+		                    		<input id="search" class="form-control" type="text" name="q" placeholder="Search jobs or companies...">
+		                    	</form>
+		                    </div>
 		                </span>
 		                @auth
 	                    	@if(auth()->user()->picture && file_exists('images/'.auth()->user()->picture->filename))
