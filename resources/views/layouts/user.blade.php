@@ -12,11 +12,12 @@
         <!-- Logo -->
         <link href="{{ asset('argon') }}/img/brand/browser_logo.jpg" rel="icon" type="image/png">
         
-        <!-- Fonts -->
+        <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Hind+Vadodara:500,600&display=swap" rel="stylesheet">
 
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet">
         <!-- Icons -->
         <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
@@ -31,7 +32,7 @@
         <!-- My Admin Custom CSS -->
         <link type="text/css" href="/css/user_custom.css" rel="stylesheet">
     </head>
-    <body>
+    <body class="{{ app()->getlocale() ? app()->getlocale() : 'en' }}">
     	
 	    <header>
 	        <div class="header">
@@ -41,12 +42,12 @@
 		                    <span class="logo"><span>W</span>AZIFTY</span>
 		                </a>
 		                <ul class="list-unstyled">
-		                	<li class="{{ \Request::is('home') ? 'active':'' }}"><a href="/">Home</a></li>
+		                	<li class="{{ \Request::is('') ? 'active':'' }}"><a href="/">Home</a></li>
 		                	<li class="{{ \Request::is('jobs') ? 'active':'' }}"><a href="">Jobs</a></li>
+		                	<li class=""><a href="#how-it-works">How it works</a></li>
 		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="">Contact</a></li>
-		                	<li class="{{ \Request::is('about') ? 'active':'' }}"><a href="">About</a></li>
 		                </ul>
-		                <span class="search-toggler" style="margin-right: 10px;">
+		                <span class="search-toggler" style="margin-right: 20px; cursor: pointer;">
 		                    <i class="fas fa-search"></i>
 		                </span>
 		                @auth
