@@ -1,4 +1,8 @@
 
+/* 
+	Main Color: #5e72e4;
+    Complement: #e49c5e,
+*/
 
 /* Navbar */
 
@@ -49,7 +53,7 @@
 .en .search-form .fa-arrow-up {
 	position: absolute;
 	left: 350px;
-	top: -6px;
+	top: -5px;
 	color: #fff;
 }
 
@@ -86,4 +90,48 @@
 .en .main-header .main-intro p:last-child {
 	margin-top: 40px;
 	font-size: 16px;
+}
+
+
+/* How it works */
+
+#how-it-works {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+#how-it-works h1 {
+	font-family: 'lato';
+	display: inline-block;
+	font-weight: 300;
+	font-size: 200%;
+	word-spacing: 2px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}
+
+#how-it-works h1:after {
+	height: 2px;
+    display: block;
+    margin: 0 auto;
+    background-color: #e49c5e;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+#how-it-works .row div span {
+	background: #e49c5e;
+    padding: 10px 17px;
+    border-radius: 50%;
+    color: #5e72e4;
+    font-weight: 600;
+}
+
+#how-it-works .row div h2 {
+	font-family: 'lato';
+	font-weight: 300;
+	margin-top: 20px;
 }

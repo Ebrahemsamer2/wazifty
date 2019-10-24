@@ -1,5 +1,7 @@
 $(function() {
 
+	// Search input
+
 	$(".fa-search").click(function() {
 		$(".search-form").fadeToggle(300, function() {
 			$(".search-form form input").focus();
@@ -13,4 +15,6 @@ $(function() {
 		}
 	});
 
+
+	
 });
