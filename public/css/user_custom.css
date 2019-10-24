@@ -95,12 +95,12 @@
 
 /* How it works */
 
-#how-it-works {
+.en #how-it-works {
 	margin-top: 50px;
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 }
 
-#how-it-works h1 {
+.en #how-it-works h1 {
 	font-family: 'lato';
 	display: inline-block;
 	font-weight: 300;
@@ -110,11 +110,11 @@
 	text-transform: uppercase;
 }
 
-#how-it-works h1:after {
+.en #how-it-works h1:after {
 	height: 2px;
     display: block;
     margin: 0 auto;
-    background-color: #e49c5e;
+    background-color: #5e72e4;
     content: " ";
     width: 100px;
     margin: 0 auto;
@@ -122,16 +122,105 @@
     margin-bottom: 30px;
 }
 
-#how-it-works .row div span {
-	background: #e49c5e;
+.en #how-it-works .row div span {
+	background: #5e72e4;
     padding: 10px 17px;
     border-radius: 50%;
-    color: #5e72e4;
+    color: #fff;
     font-weight: 600;
 }
 
-#how-it-works .row div h2 {
+.en #how-it-works .row div h2 {
 	font-family: 'lato';
 	font-weight: 300;
 	margin-top: 20px;
+}
+
+
+/* Our Blog  */
+
+.en #our-blog {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	padding: 30px 50px;
+	color: #fff;
+	width: 100%;
+	background-image:  linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)) ,url('../argon/img/theme/blog.jpg');
+	background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+    background-attachment: fixed;
+}
+.en #our-blog h1 {
+	color: #fff;
+	font-size: 30px;
+}
+.en #our-blog p {
+	color: #fff;
+	font-size: 18px;
+}
+.en #our-blog a {
+	margin-top: 30px;
+	margin-left: 40%;
+	font-size: 16px;
+	width: 50%; 
+}
+
+
+/* people say */
+
+.en #people-say {
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+
+.en #people-say h1 {
+	font-family: 'lato';
+	display: inline-block;
+	font-weight: 300;
+	font-size: 200%;
+	word-spacing: 2px;
+	letter-spacing: 1px;
+	margin-bottom: 20px;
+	text-transform: uppercase;
+}
+
+.en #people-say h1:after {
+	height: 2px;
+    display: block;
+    margin: 0 auto;
+    background-color: #5e72e4;
+    content: " ";
+    width: 100px;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.en #people-say .row div .card {
+	max-height: 330px;
+	height: 330px;
+	margin-left: 70px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,.16), 0 2px 10px 0 rgba(0,0,0,.12);
+}
+.en #people-say .row div .card .top-section {
+	border-radius: 5px 5px 0 0;
+	height: 100px;
+	background: #5e72e4;
+}
+
+.en #people-say .row div .card img {
+	position: absolute;
+    left: 35%;
+    top: 50px;
+    border-radius: 100%;
+}
+.en #people-say .row div .card .card-body h3 {
+	margin-top: 45px;
+}
+.en #people-say .row div .card .card-body p.card-text {
+	margin-top: 10px;
+}
+.en #people-say .row div .card .card-body hr {
+	margin: 0;
 }

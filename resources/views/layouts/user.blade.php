@@ -45,6 +45,7 @@
 		                	<li class="{{ \Request::is('') ? 'active':'' }}"><a href="/">Home</a></li>
 		                	<li class="{{ \Request::is('jobs') ? 'active':'' }}"><a href="">Jobs</a></li>
 		                	<li class=""><a href="#how-it-works">How it works</a></li>
+		                	<li class=""><a href="#why-us">Why us</a></li>
 		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="">Contact</a></li>
 		                </ul>
 		                <span class="search-toggler" style="margin-right: 20px; cursor: pointer;">
