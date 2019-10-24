@@ -55,11 +55,11 @@
 		<div id="our-blog">
 			<div class="row">
 				<div class="col-sm-8">
-					<h1>WAZIFTY has a blog.</h1>
+					<h1>WAZIFTY has blog.</h1>
 					<p>In this blog we share our experience, knowledge, experements and information about many things like technology, jobs, how to write your resume and many things, Follow us.</p>
 				</div>
 				<div class="col-sm">
-					 <a href="/blog" class="btn btn-primary">Our blog</a>
+					 <a href="/blog" class="btn btn-primary">OUR BLOG</a>
 				</div>
 			</div>
 		</div>
@@ -70,8 +70,7 @@
 			<h1 >What users say?</h1>
 
 			<div class="row">
-				<div class="col-md-6 mb-4">
-					
+				<div id="c1" class="col-md-6 mb-4">
 					<div class="card" style="max-width: 22rem;">
 						<div class="top-section"></div>
 			  			<img width="100" height="100" src="/images/user.jpg" class="" alt="User picture">
@@ -84,8 +83,7 @@
 
 				</div>
 
-				<div class="col-md-6 mb-4">
-					
+				<div id="c2" class="col-md-6 mb-4">
 					<div class="card" style="max-width: 22rem;">
 						<div style="background:linear-gradient(40deg,#2096ff,#05ffa3)!important;" class="top-section"></div>
 			  			<img width="100" height="100" src="/images/user.jpg" class="" alt="User picture">
@@ -96,9 +94,87 @@
 			  			</div>
 					</div>
 				</div>
+
 			</div>
 
 		</div>
+
+
+
+		<div id="features" class="text-center">
+			<h1>Get your dream job in the easiest way</h1>
+
+			<div class="row">
+				
+				<div class="col-sm-6 text-left">
+					
+					<div class="row">
+						
+						<div class="col-sm-2">
+							<i class="fas fa-money-check-alt"></i>
+						</div>
+
+						<div class="col-sm">
+							<h2>No paid plans</h2>
+							<p>WAZIFTY will always be free, no credit-card information is required before or after registeration.</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-6 text-left">
+					
+					<div class="row">
+						
+						<div class="col-sm-2">
+							<i class="fas fa-tachometer-alt"></i>
+						</div>
+
+						<div class="col-sm">
+							<h2>Fast & flexible</h2>
+							<p>WAZIFTY is simple and has many features including the speed of the site and the flexiblity.</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-6 text-left">
+					
+					<div class="row">
+						
+						<div class="col-sm-2">
+							<i class="fas fa-comments"></i>
+						</div>
+
+						<div class="col-sm">
+							<h2>Easy communication</h2>
+							<p>As soon as you apply to any company's job,this company will be able to communicate with you through simple chat system.</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-sm-6 text-left">
+					
+					<div class="row">
+						
+						<div class="col-sm-2">
+							<i class="fas fa-mobile-alt"></i>
+							<i class="fas fa-tablet"></i>
+						</div>
+
+						<div class="col-sm">
+							<h2>Responsive</h2>
+							<p>WAZIFTY is a responsive website which means you will able to use it on phone or tablet as on laptop.</p>
+						</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
 
 	</div>
 

@@ -100,7 +100,9 @@
 	margin-bottom: 100px;
 }
 
-.en #how-it-works h1 {
+.en #how-it-works h1,
+.en #people-say h1,
+.en #features h1 {
 	font-family: 'lato';
 	display: inline-block;
 	font-weight: 300;
@@ -110,7 +112,9 @@
 	text-transform: uppercase;
 }
 
-.en #how-it-works h1:after {
+.en #how-it-works h1:after,
+.en #people-say h1:after,
+.en #features h1:after {
 	height: 2px;
     display: block;
     margin: 0 auto;
@@ -132,10 +136,14 @@
 
 .en #how-it-works .row div h2 {
 	font-family: 'lato';
-	font-weight: 300;
+	font-weight: 400;
 	margin-top: 20px;
+	margin-bottom: 20px;
 }
-
+.en #how-it-works .row div p {
+	font-weight: 300;
+	color: #878787;
+}
 
 /* Our Blog  */
 
@@ -158,12 +166,14 @@
 .en #our-blog p {
 	color: #fff;
 	font-size: 18px;
+	margin-top: 20px;
 }
 .en #our-blog a {
-	margin-top: 30px;
+	margin-top: 50px;
 	margin-left: 40%;
-	font-size: 16px;
+	font-size: 17px;
 	width: 50%; 
+	font-weight: 300;
 }
 
 
@@ -172,29 +182,6 @@
 .en #people-say {
 	margin-top: 100px;
 	margin-bottom: 100px;
-}
-
-.en #people-say h1 {
-	font-family: 'lato';
-	display: inline-block;
-	font-weight: 300;
-	font-size: 200%;
-	word-spacing: 2px;
-	letter-spacing: 1px;
-	margin-bottom: 20px;
-	text-transform: uppercase;
-}
-
-.en #people-say h1:after {
-	height: 2px;
-    display: block;
-    margin: 0 auto;
-    background-color: #5e72e4;
-    content: " ";
-    width: 100px;
-    margin: 0 auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
 }
 
 .en #people-say .row div .card {
@@ -223,4 +210,35 @@
 }
 .en #people-say .row div .card .card-body hr {
 	margin: 0;
+}
+.en #people-say .row .card:nth-child(1) {
+	margin-left: 100px;
+}
+
+
+/* Features */
+
+#features {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.en #features .row i {
+	color: #5e72e4;
+	font-size: 40px;
+	margin-top: 30px;
+}
+.en #features .row {
+	margin-top: 50px;
+}
+
+.en #features h2 {
+	font-size: 30px;
+}
+
+.en #features p {
+	font-weight: 400;
+	font-size: 18px;
+	margin-top: 20px;
+	color: #878787;
 }
