@@ -176,6 +176,51 @@
 		</div>
 
 
+		<div id="contact" class="text-center">
+			<h1>Share your experience with us.</h1>
+
+			<div class="row">
+				<div class="col-sm-8 offset-sm-2">
+					
+					<div class="contact-form">
+						
+						<form id="contactForm" autocomplete="off" method="post" action="/">
+							
+							<span id="form_output"></span>
+							<div class="form-group">
+								<input id="email" placeholder="Your email..." value="@auth {{ auth()->user()->email }} @endauth" type="email" name="email" class="form-control" required>
+								<p class="home-email-input js-error">Email is not valid</p>
+
+								@if($errors->has('email'))
+									<div class="alert alert-danger">
+										{{ $errors->first('email') }}
+									</div>
+								@endif
+
+							</div>
+							<div class="form-group">
+								<textarea id="message" placeholder="Tell us why you like this website..." name="message" class="form-control" required></textarea>
+								<p class="home-message-input js-error">You message must be between 10 - 500 characters.</p>
+
+								@if($errors->has('message'))
+									<div class="alert alert-danger">
+										{{ $errors->first('message') }}
+									</div>
+								@endif
+
+							</div>
+
+							<input type="submit" class="btn btn-primary float-right" value="Send">
+
+						</form>
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+
 	</div>
 
 @endsection

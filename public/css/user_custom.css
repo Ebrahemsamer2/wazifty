@@ -4,6 +4,16 @@
     Complement: #e49c5e,
 */
 
+.js-error {
+	display: none;
+	font-size: 13px;
+	color: red;
+	margin-left: 10px;
+	font-weight: bold;
+	margin-top: 5px;
+	float: left;
+}
+
 /* Navbar */
 
 .en header .header nav .logo {
@@ -102,7 +112,8 @@
 
 .en #how-it-works h1,
 .en #people-say h1,
-.en #features h1 {
+.en #features h1,
+.en #contact h1 {
 	font-family: 'lato';
 	display: inline-block;
 	font-weight: 300;
@@ -114,7 +125,8 @@
 
 .en #how-it-works h1:after,
 .en #people-say h1:after,
-.en #features h1:after {
+.en #features h1:after,
+.en #contact h1:after {
 	height: 2px;
     display: block;
     margin: 0 auto;
@@ -233,7 +245,8 @@
 }
 
 .en #features h2 {
-	font-size: 30px;
+	font-size: 28px;
+	font-weight: 400;
 }
 
 .en #features p {
@@ -242,3 +255,19 @@
 	margin-top: 20px;
 	color: #878787;
 }
+
+/* Contact Form */
+
+.en #contact {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.en #contact .contact-form {
+	margin-top: 20px;
+}
+.en #contact .contact-form .btn {
+	width: 100px;
+}
+
+/* Footer */
+
