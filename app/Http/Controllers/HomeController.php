@@ -20,22 +20,13 @@ class HomeController extends Controller
 
     	$this->validate($request, $rules);
 
-    	if($request->fails()) {
-    		$failed_output = [];
-    		foreach ($request->getMessages()->messages() as $message) {
-    			$failed_output[] = $message;
-    		}
-    	}else {
-    		$data = $request->except('_token');
-    		DB::table('user_messages')->insert($data);
+		$data = $request->except('_token');
+		DB::table('user_messages')->insert($data);
 
-	    	$success_output = "<div class='alert alert-success'>We got your message, thank you.</div>";
-	    	
-    	}
+    	$success_output = "<div class='alert alert-success'>We got your message, thank you.</div>";   	
     	$output = [
-	    		'success' => $success_output,
-	    		'error' => $failed_output,
-	    	];
+	    	'success' => $success_output,
+	    ];
 
 	    return response()->json([
 	    	'success' => $success_output

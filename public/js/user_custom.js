@@ -54,17 +54,8 @@ $(function() {
 			data: form_data,
 			dataType: 'json',
 			success: function(data) {
-				if(data.error.length > 0) {
-					let errors = "";
-					for(let i = 0; i < data.error.length; i++) {
-						errors += "<div class='alert alert-danger'>"+data.error[i]+"</div>";
-					}
-					$("#form_output").html($errors);
-				}else {
-
-					$("#form_output").html(data.success);
-					$("#contactForm")[0].reset();
-				}
+				$("#form_output").html(data.success);
+				$("#contactForm")[0].reset();		
 			},
 
 		});
