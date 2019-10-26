@@ -29,8 +29,11 @@
 
         <!-- Argon CSS -->
         <link type="text/css" href="/argon/css/argon.min.css" rel="stylesheet">
-        <!-- My Admin Custom CSS -->
+        <!-- My User Custom CSS ( Home )-->
         <link type="text/css" href="/css/user_custom.css" rel="stylesheet">
+
+        <!-- My User Custom CSS ( Jobs )-->
+        <link type="text/css" href="/css/jobs_custom.css" rel="stylesheet">
     </head>
     <body class="{{ app()->getlocale() ? app()->getlocale() : 'en' }}">
     	
@@ -42,11 +45,11 @@
 		                    <span class="logo"><span>W</span>AZIFTY</span>
 		                </a>
 		                <ul class="list-unstyled">
-		                	<li class="{{ \Request::is('') ? 'active':'' }}"><a href="/">Home</a></li>
-		                	<li class="{{ \Request::is('jobs') ? 'active':'' }}"><a href="">Jobs</a></li>
+		                	<li class="{{ \Request::is('/') ? 'active':'' }}"><a href="/">Home</a></li>
+		                	<li class="{{ \Request::is('jobs') ? 'active':'' }}"><a href="/jobs">Jobs</a></li>
 		                	<li class=""><a href="#how-it-works">How it works</a></li>
 		                	<li class=""><a href="#why-us">Why us</a></li>
-		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="">Contact</a></li>
+		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="#contact">Contact</a></li>
 		                </ul>
 		                <span class="search-toggler" style="margin-right: 20px; cursor: pointer;">
 		                    <i class="fas fa-search"></i>

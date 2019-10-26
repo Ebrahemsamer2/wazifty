@@ -1,6 +1,6 @@
 @extends('layouts.user')
 
-@section('title', 'Home | WAZIFTY')
+@section('title', 'Home | Find your job in easy way at WAZIFTY')
 
 
 @section('main-header')

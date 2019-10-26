@@ -1,0 +1,43 @@
+
+/* Some Constants */
+
+.row {
+	margin: 0;
+	padding: 0;
+} 
+
+.all-jobs .jobs-heading {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.all-jobs .jobs-heading h1 {
+	margin-left: 15px;
+	font-weight: 500;
+}
+
+.all-jobs .job {
+	padding: 20px;
+	border: 1px solid #eaeaea;
+	margin-bottom: 20px;
+}
+
+.all-jobs .job .head h2 {
+	font-weight: 500;
+}
+
+.all-jobs .job .head h4 {
+	margin-left: 10px;
+	opacity: .7;
+}
+
+.all-jobs .job hr {
+	margin: 10px;
+}
+
+.all-jobs .job .content {
+	margin-top: 20px;
+	padding: 5px 20px;
+}
+.all-jobs .job .content p{
+	width: 100%;
+}

@@ -13,6 +13,7 @@ class CreateJobsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->text('subtitle')->nullable();
+            $table->string('slug');
             $table->text('job_description');
             $table->string('job_type');
             $table->integer('exp_from');

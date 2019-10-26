@@ -3,10 +3,6 @@
 
 // User Controllers
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
@@ -17,7 +13,9 @@ Route::get('/home', function() {
 
 Route::post('/', 'HomeController@contactForm')->name('home');
 
+Route::get('/jobs', 'JobController@index');
 
+Route::get('/jobs/{slug}', 'JobController@show');
 
 
 Route::group(['middleware' => ['auth', 'admin'] ], function () {

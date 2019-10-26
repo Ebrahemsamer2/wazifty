@@ -54,9 +54,14 @@ $factory->define(Category::class, function (Faker $faker) {
 });
 
 $factory->define(Job::class, function (Faker $faker) {
+
+    $title = $faker->word .' ' . $faker->word .' ' . $faker->word .' ' . $faker->word;
+    $slug = $faker->word .'-' . $faker->word .'-' . $faker->word .'-' . $faker->word;
+
     return [
-        'title' => $faker->word .' ' . $faker->word .' ' . $faker->word .' ' . $faker->word,
+        'title' => $title,
         'subtitle' => $faker->word . ' ' .  $faker->word . ' ' . $faker->word . ' ' . $faker->word .' ' .  $faker->word . ' ' . $faker->word,
+        'slug' => $slug,
         'job_description' => $faker->paragraph,
         'job_type' => $faker->randomElement(['Full Time', 'Part Time', 'Internship']),
         'exp_from' => $faker->randomElement([1,2,3]),
