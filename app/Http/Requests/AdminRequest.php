@@ -6,7 +6,7 @@ use App\User;
 use Illuminate\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class AdminRequest extends FormRequest
 {
 
     public function authorize()

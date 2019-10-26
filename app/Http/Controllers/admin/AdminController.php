@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\admin;
 
 use App\User;
+
 use App\Http\Requests\AdminRequest;
 use Illuminate\Support\Facades\Hash;
+
 
 use Illuminate\Http\Request;
 
@@ -62,7 +64,7 @@ class AdminController extends Controller
     public function destroy(User $admin)
     {
         $admin->delete();
-
+        
         return redirect()->route('admins.index')->withStatus(__('Admin successfully deleted.'));
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
 
+// User Controllers
+
 Route::get('/', function () {
     return view('home');
 });
@@ -15,9 +17,13 @@ Route::get('/home', function() {
 
 Route::post('/', 'HomeController@contactForm')->name('home');
 
-// Admin Dashboard Controllers
+
+
 
 Route::group(['middleware' => ['auth', 'admin'] ], function () {
+
+	// Admin Dashboard Controllers For main website
+
 
 	Route::get('/admin/dashboard', 'admin\HomeController@index')->name('dashboard');
 
@@ -51,6 +57,11 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 	Route::post('/admin/applications/{id}', 'admin\ApplicationController@addquestions')->name('admin.applications.create');
 
+
+	// Admin Dashboard Controllers For Blog System
+
+
+
 });
 
 // Language Route
@@ -63,3 +74,8 @@ Route::get('/{lang}', function($lang) {
 		return abort(404);
 	}
 });
+
+
+// Blog System Controllers 
+
+//==================== Users ======================

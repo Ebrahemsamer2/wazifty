@@ -199,7 +199,7 @@
 
 							</div>
 							<div class="form-group">
-								<textarea id="message" placeholder="Tell us why you like this website..." name="message" class="form-control" required></textarea>
+								<textarea rows="4" id="message" placeholder="Tell us why you like this website..." name="message" class="form-control" required></textarea>
 								<p class="home-message-input js-error">You message must be between 10 - 500 characters.</p>
 
 								@if($errors->has('message'))
