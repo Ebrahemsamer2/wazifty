@@ -16,7 +16,8 @@ class JobController extends Controller
     }
 
     public function show($slug) {
-    	$job = Job::where('slug',$slug)->get();
-    	return view('jobs.show', compact('job'));
+    	$job = Job::where('slug','=',$slug)->first();
+        $related_jobs = Job::where('category_id', $job->category_id)->limit(5)->get();
+    	return view('jobs.show', compact('job', 'related_jobs'));
     }
 }

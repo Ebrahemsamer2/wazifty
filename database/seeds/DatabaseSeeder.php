@@ -10,8 +10,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
     	$users = factory('App\User', 30)->create();
-    	factory('App\User_Profile', 10)->create();
-    	factory('App\Company_Profile', 5)->create();
+    	factory('App\UserProfile', 15)->create();
+    	factory('App\CompanyProfile',15)->create();
     	factory('App\Category', 10)->create();
     	factory('App\Job', 50)->create();
 

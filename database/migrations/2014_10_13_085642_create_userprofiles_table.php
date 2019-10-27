@@ -6,14 +6,10 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateUserProfilesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
-        Schema::create('user__profiles', function (Blueprint $table) {
+        Schema::create('userprofiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('phone')->unique()->nullable();
             $table->string('github')->nullable()->unique();
@@ -28,13 +24,8 @@ class CreateUserProfilesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
-        Schema::dropIfExists('user__profiles');
+        Schema::dropIfExists('userprofiles');
     }
 }

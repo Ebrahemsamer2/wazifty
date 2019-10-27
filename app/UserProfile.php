@@ -4,8 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User_Profile extends Model
+class UserProfile extends Model
 {    
+	protected $table = "userprofiles";
 	protected $fillable = [
 		'job_title',
 		'phone',

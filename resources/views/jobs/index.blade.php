@@ -69,9 +69,6 @@
 							</h4>
 							<span class="date">{{$job->created_at->diffForHumans()}}</span>
 							<span class="apply text-green">{{count($job->application->users)}} applied</span>
-							<form method="POST" action="/jobs" class="inline-form ml-4">
-								<input type="submit" value="Save" name="savejob" class="btn btn-info btn-sm">
-							</form>
 						</div>
 					@endforeach
 				</div>
@@ -86,9 +83,6 @@
 							</h4>
 							<span class="date">{{$job->created_at->diffForHumans()}}</span>
 							<span class="apply text-green">{{count($job->application->users)}} applied</span>
-							<form method="POST" action="/jobs" class="inline-form ml-4">
-								<input type="submit" value="Save" name="savejob" class="btn btn-info btn-sm">
-							</form>
 						</div>
 					@endforeach
 				</div>

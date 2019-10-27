@@ -9,7 +9,7 @@ class CreateCompanyProfilesTable extends Migration
 
     public function up()
     {
-        Schema::create('company__profiles', function (Blueprint $table) {
+        Schema::create('companyprofiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('website')->nullable()->unique();
             $table->string('address');
@@ -23,6 +23,6 @@ class CreateCompanyProfilesTable extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('company__profiles');
+        Schema::dropIfExists('companyprofiles');
     }
 }

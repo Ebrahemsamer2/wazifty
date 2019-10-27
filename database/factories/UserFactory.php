@@ -1,8 +1,8 @@
 <?php
 
 use App\User;
-use App\User_Profile;
-use App\Company_Profile;
+use App\UserProfile;
+use App\CompanyProfile;
 use App\Job;
 use App\Resume;
 use App\Category;
@@ -27,7 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(User_Profile::class, function (Faker $faker) {
+$factory->define(UserProfile::class, function (Faker $faker) {
     return [
         'phone' => $faker->unique()->randomElement([$faker->phoneNumber, NULL]),
         'github' => $faker->unique()->randomElement([$faker->url, NULL]),
@@ -39,7 +39,7 @@ $factory->define(User_Profile::class, function (Faker $faker) {
     ];
 });
 
-$factory->define(Company_Profile::class, function (Faker $faker) {
+$factory->define(CompanyProfile::class, function (Faker $faker) {
     return [
         'website' => $faker->unique()->randomElement([$faker->url, NULL]),
     	'address' => $faker->word.' '.$faker->word,

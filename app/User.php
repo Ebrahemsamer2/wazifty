@@ -37,17 +37,16 @@ class User extends Authenticatable
         return $this->hasMany('App\Answer');
     }
     
-    // jobs you posted as a employer or admin
     public function jobs() {
         return $this->hasMany('App\Job');
     }
 
-    public function user__profile() {
-        return $this->hasMany('App\User_Profile');
+    public function userprofile() {
+        return $this->hasOne('App\UserProfile');
     }
 
-    public function company__profile() {
-        return $this->hasMany('App\Company_Profile');
+    public function companyprofile() {
+        return $this->hasOne('App\CompanyProfile');
     }
 
     public function picture()
