@@ -12,6 +12,7 @@ class CreateCompanyProfilesTable extends Migration
         Schema::create('company__profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('website')->nullable()->unique();
+            $table->string('address');
             $table->text('about')->nullable();
             
             $table->bigInteger('user_id')->unsigned();

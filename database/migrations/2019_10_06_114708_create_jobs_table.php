@@ -21,6 +21,7 @@ class CreateJobsTable extends Migration
             $table->text('responsibility');
             $table->text('requirements');
             $table->text('skills');
+            $table->string('work_place');
             $table->text('salary');
             $table->integer('active')->default(1);
             $table->bigInteger('category_id')->unsigned();

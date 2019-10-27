@@ -1,23 +1,33 @@
+/* 
+	Main Color: #5e72e4;
+	Second Color: #eaeaea;;
+*/
+
+
 
 /* Some Constants */
 
-.row {
-	margin: 0;
-	padding: 0;
-} 
+.col-sm-8.jobs {
+	padding-left: 0;
+}
 
+.inline-form {
+	display: inline;
+}
+
+/* Jobs index */
 .all-jobs .jobs-heading {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 .all-jobs .jobs-heading h1 {
-	margin-left: 15px;
+/*	margin-left: 15px;*/
 	font-weight: 500;
 }
 
 .all-jobs .job {
 	padding: 20px;
-	border: 1px solid #eaeaea;
+	border: 1px solid rgb(217, 221, 228);
 	margin-bottom: 20px;
 }
 
@@ -26,7 +36,7 @@
 }
 
 .all-jobs .job .head h4 {
-	margin-left: 10px;
+	margin-left: 5px;
 	opacity: .7;
 }
 
@@ -40,4 +50,65 @@
 }
 .all-jobs .job .content p{
 	width: 100%;
+}
+.all-jobs .job .info span{
+	margin-left: 20px;
+	opacity: .8;
+	font-size: 14px;
+	font-weight: 500;
+}
+.all-jobs .job .info .activated{
+	color: green;
+}
+.all-jobs .job .info .deactivated{
+	color: red;
+}
+
+.all-jobs .job .actions {
+	padding: 5px 20px;
+}
+
+/* Recent Cairo */
+
+
+.recent-cairo,
+.recent-alex {
+	border: 1px solid rgb(217, 221, 228);
+}
+.recent-cairo {
+	margin-top: 140px;
+	margin-bottom: 10px;
+}
+
+.recent-cairo h2,
+.recent-alex h2 {
+	margin:0;
+	padding:10px;
+	font-weight: 600;
+	font-size: 16px;
+}
+.recent-cairo h2 a,
+.recent-alex h2 a {
+	float: right;
+	font-size: 13px;
+	padding-top: 2px;
+}
+.recent-cairo hr,
+.recent-alex hr {
+	margin: 0;
+}
+.recent-cairo .job,
+.recent-alex .job {
+	margin-bottom: 0px;
+	padding: 10px;
+}
+.recent-cairo .job .date,
+.recent-alex .job .date {
+	opacity: .7;
+	font-size: 13px;
+}
+.recent-cairo .job .apply,
+.recent-alex .job .apply {
+	font-size: 13px;
+	margin-left: 10px;
 }

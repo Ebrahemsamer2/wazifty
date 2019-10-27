@@ -13,11 +13,10 @@ class DatabaseSeeder extends Seeder
     	factory('App\User_Profile', 10)->create();
     	factory('App\Company_Profile', 5)->create();
     	factory('App\Category', 10)->create();
-    	factory('App\Job', 10)->create();
-
+    	factory('App\Job', 50)->create();
 
     	factory('App\Resume', 4)->create();
-    	$applications = factory('App\Application', 10)->create();
+    	$applications = factory('App\Application', 50)->create();
 
         // fill pivot table
         

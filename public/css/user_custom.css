@@ -16,7 +16,7 @@
 
 /* Navbar */
 .en header .header {
-	border-bottom: 1px solid #eaeaea;
+	border-bottom: 1px solid rgb(217, 221, 228);
 }
 .en header .header nav .logo {
 	font-size: 25px;
@@ -69,16 +69,63 @@
 	position: absolute;
 	width: 400px;
 	right: 180px;
-	top: 50px;
+	top: 58px;
+	z-index: 10;
 	display: none;
 }
-
+.en .search-form input[type="text"] {
+	width: 116%;
+	border-radius: 0;
+}
 .en .search-form .fa-arrow-up {
 	position: absolute;
 	left: 350px;
 	top: -5px;
 	color: #fff;
 }
+
+/* Dropdown Button */
+.dropbtn {
+	color: #525f7f;
+	transition: .3s ease-in-out;
+    background-color: #fff;
+    border: none;
+}
+.dropbtn:focus {
+	outline: 0px auto -webkit-focus-ring-color;
+}
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  top: 30px;
+  font-size: 15px;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
 
 /* Main Header */
 

@@ -6,7 +6,7 @@
 	
 	<div class="container">	
 		<div class="row">
-			<div class="col-sm-8">
+			<div class="col-sm-8 jobs">
 				
 				<div class="all-jobs">
 					
@@ -18,7 +18,7 @@
 						<div class="row">
 							<div class="col-sm-8">
 								<div class="head">
-									<h2>{{ $job->title }}</h2>
+									<h2><a href="/jobs/{{$job->slug}}">{{ $job->title }}</a></h2>
 									<h4>{{ $job->subtitle }}</h4>
 								</div>
 							</div>
@@ -34,21 +34,64 @@
 						<div class="content">
 							<p>{{ $job->job_description }}</p>
 						</div>
+						<div class="info">
+							<span>{{ $job->created_at->diffForHumans() }}</span>
+							<span class="{{ $job->active ? 'activated' : 'deactivated' }}">
+								@if($job->active)
+								Activated
+								@else
+								Deactivated
+								@endif
+							</span>
+						</div>
 						<hr>
 						<div class="actions">
 							<form method="post" action="/jobs">
 								<input class="btn btn-info btn-sm" type="submit" value="Save" name="savejob">
 								<a class="btn btn-warning btn-sm" href="/jobs/{{ $job->slug }}" target="_blank">Preview</a>
-								<input value="Apply" type="submit" name="apply" class="btn btn-primary btn-sm float-right">
 							</form>
 						</div>
 					</div>
 					@endforeach
 				</div>
-
+				<div class="pagination">
+					{{ $jobs->links() }}
+				</div>
 			</div>
 			<div class="col-sm">
-				
+				<div class="recent-cairo">
+					<h2>Recent jobs at cairo <a href="/jobs/cairo">View all</a></h2>
+					<hr>
+					@foreach($cairo_jobs as $job)
+						<div class="job">
+							<h4 class="title">
+								<a href="/jobs/{{ $job->slug }}">{{ $job->title }}</a>
+							</h4>
+							<span class="date">{{$job->created_at->diffForHumans()}}</span>
+							<span class="apply text-green">{{count($job->application->users)}} applied</span>
+							<form method="POST" action="/jobs" class="inline-form ml-4">
+								<input type="submit" value="Save" name="savejob" class="btn btn-info btn-sm">
+							</form>
+						</div>
+					@endforeach
+				</div>
+
+				<div class="recent-alex">
+					<h2>Recent jobs at alex <a href="/jobs/alex">View all</a></h2>
+					<hr>
+					@foreach($alex_jobs as $job)
+						<div class="job">
+							<h4 class="title">
+								<a href="/jobs/{{ $job->slug }}">{{ $job->title }}</a>
+							</h4>
+							<span class="date">{{$job->created_at->diffForHumans()}}</span>
+							<span class="apply text-green">{{count($job->application->users)}} applied</span>
+							<form method="POST" action="/jobs" class="inline-form ml-4">
+								<input type="submit" value="Save" name="savejob" class="btn btn-info btn-sm">
+							</form>
+						</div>
+					@endforeach
+				</div>
 			</div>
 		</div>
 	</div>

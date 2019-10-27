@@ -19,12 +19,6 @@ $(function() {
 
 	// Contact Form Validation
 
-	$.ajaxSetup({
-	    headers: {
-	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	    }
-	});
-
 	$("#contactForm").submit(function(evt) {
 
 		evt.preventDefault();

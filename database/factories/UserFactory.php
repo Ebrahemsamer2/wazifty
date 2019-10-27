@@ -42,7 +42,8 @@ $factory->define(User_Profile::class, function (Faker $faker) {
 $factory->define(Company_Profile::class, function (Faker $faker) {
     return [
         'website' => $faker->unique()->randomElement([$faker->url, NULL]),
-    	'about' => $faker->randomElement([$faker->paragraph, NULL]),
+    	'address' => $faker->word.' '.$faker->word,
+        'about' => $faker->randomElement([$faker->paragraph, NULL]),
     	'user_id' => User::where('emp_type', 'employer')->get()->random()->id,
     ];
 });
@@ -56,7 +57,7 @@ $factory->define(Category::class, function (Faker $faker) {
 $factory->define(Job::class, function (Faker $faker) {
 
     $title = $faker->word .' ' . $faker->word .' ' . $faker->word .' ' . $faker->word;
-    $slug = $faker->word .'-' . $faker->word .'-' . $faker->word .'-' . $faker->word;
+    $slug = str_replace(' ', '-', $title);
 
     return [
         'title' => $title,
@@ -69,6 +70,7 @@ $factory->define(Job::class, function (Faker $faker) {
         'requirements' => $faker->paragraph,
         'responsibility' => $faker->paragraph,
         'skills' => $faker->paragraph,
+        'work_place' => $faker->randomElement(['damanhour', 'cairo', 'alex', 'alexandria', 'freelance', 'giza']),
         'salary' => $faker->randomElement(['3000', '2500', '5000', 'Confidential']),
         'category_id' => Category::all()->random()->id,
         'active' => $faker->randomElement([0, 1]),
@@ -93,8 +95,12 @@ $factory->define(Resume::class, function (Faker $faker) {
 });
 
 $factory->define(Application::class, function (Faker $faker) {
+    $job_ids = [];
+    for($i=1;$i<=50;$i++){
+        $job_ids[] = $i;
+    }
     return [
-        'job_id' => $faker->unique()->randomElement([1,2,3,4,5,6,7,8,9,10]),
+        'job_id' => $faker->unique()->randomElement($job_ids),
     ];
 });
 
