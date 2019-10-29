@@ -19,6 +19,9 @@ hr {
 	margin: 5px;
 }
 
+.disabled-btn {
+	cursor: not-allowed;
+}
 /* Jobs index */
 .all-jobs .jobs-heading {
 	margin-top: 50px;
@@ -155,6 +158,20 @@ hr {
 	width: 100%;
 	padding: 10px;
 }
+.single-job .head .apply-btn form input {
+	width: 100%;
+	padding: 10px;
+}
+
+.single-job .head .apply-btn .row div button + span,
+.single-job .head .apply-btn .row div form + span {
+	margin-left: 10px;
+	font-size: 14px;
+}
+.single-job .head .apply-btn .row div button + span a,
+.single-job .head .apply-btn .row div form + span a {
+	font-weight: 600;
+}
 .single-job .head .apply-btn div.col-sm {
 	padding: 10px;
 	margin-right: 50px;
@@ -199,6 +216,14 @@ hr {
 	width: 100px;
 }
 
+.single-job .actions form + span {
+	margin-left: 5px;
+	font-size: 14px;
+}
+.single-job .actions form + span a {
+	font-weight: 600;
+}
+
 .about-company {
 	margin-top: 100px;
 	margin-bottom: 20px;
@@ -222,4 +247,13 @@ hr {
 	padding: 10px;
 	font-weight: 600;
 	font-size: 14px;
+}
+
+.related .job div.info {
+	margin-top: -20px;
+    margin-bottom: 10px;
+}
+
+.related .job span {
+	padding: 5px;
 }

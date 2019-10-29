@@ -17,6 +17,10 @@ Route::get('/jobs', 'JobController@index');
 
 Route::get('/jobs/{slug}', 'JobController@show');
 
+Route::post('/jobs/{slug}', 'JobController@apply')->middleware('auth');
+
+
+
 
 Route::group(['middleware' => ['auth', 'admin'] ], function () {
 

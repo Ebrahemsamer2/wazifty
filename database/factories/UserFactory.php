@@ -43,7 +43,7 @@ $factory->define(CompanyProfile::class, function (Faker $faker) {
     return [
         'website' => $faker->unique()->randomElement([$faker->url, NULL]),
     	'address' => $faker->word.' '.$faker->word,
-        'about' => $faker->randomElement([$faker->paragraph, NULL]),
+        'about' => $faker->paragraph,
     	'user_id' => User::where('emp_type', 'employer')->get()->random()->id,
     ];
 });
