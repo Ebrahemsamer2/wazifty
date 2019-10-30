@@ -1,0 +1,49 @@
+.basic-info .bg-white,
+.password-info .bg-white,
+.employer-info .bg-white,
+.other-info .bg-white {
+	border: 1px solid rgb(217, 221, 228);
+	margin-top: 50px;
+	margin-bottom: 20px;
+	padding: 20px;
+}
+
+.basic-info .bg-white h2,
+.password-info .bg-white h2,
+.employer-info .bg-white h2,
+.other-info .bg-white h2{
+	font-weight: 400;
+	font-size: 20px;
+	margin-left: 10px;
+	margin-bottom: 20px;
+}
+
+.basic-info img {
+	margin-top: 60px;
+}
+
+.employer-info p {
+	margin:0;
+	padding:0;
+	font-weight: 500;
+	margin-bottom: 5px;
+	font-size: 14px;
+	margin-left: 10px;
+}
+
+.basic-info .col-sm-3 button {
+	position: absolute;
+	left: 40px;
+	width: 140px;
+	top: 200px
+}
+
+.container + .alert-success,
+.container + .alert-danger {
+
+	position: fixed;
+    display: inline;
+    top: 107px;
+    left: -4px;
+
+}

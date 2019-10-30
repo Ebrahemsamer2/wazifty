@@ -14,7 +14,7 @@
 						<h1>Opportunities for you</h1>
 					</div>
 					@foreach($jobs as $job)
-					<div class="job">
+					<div class="job bg-white">
 						<div class="row">
 							<div class="col-sm-8">
 								<div class="head">
@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="col-sm">
-				<div class="recent-cairo">
+				<div class="recent-cairo bg-white">
 					<h2>Recent jobs at cairo <a href="/jobs/cairo">View all</a></h2>
 					<hr>
 					@foreach($cairo_jobs as $job)
@@ -73,7 +73,7 @@
 					@endforeach
 				</div>
 
-				<div class="recent-alex">
+				<div class="recent-alex bg-white">
 					<h2>Recent jobs at alex <a href="/jobs/alex">View all</a></h2>
 					<hr>
 					@foreach($alex_jobs as $job)

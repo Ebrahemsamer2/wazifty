@@ -30,8 +30,11 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(UserProfile::class, function (Faker $faker) {
     return [
         'phone' => $faker->unique()->randomElement([$faker->phoneNumber, NULL]),
+        'address' => $faker->word(2),
         'github' => $faker->unique()->randomElement([$faker->url, NULL]),
+        'linkedin' => $faker->unique()->randomElement([$faker->url, NULL]),
         'portfolio' => $faker->unique()->randomElement([$faker->url, NULL]),
+        'website' => $faker->unique()->randomElement([$faker->url, NULL]),
         'skills' => $faker->randomElement([$faker->paragraph, NULL]),
     	'summary' => $faker->randomElement([$faker->paragraph(2), NULL]),
     	'job_title' => $faker->randomElement([$faker->word, NULL]),

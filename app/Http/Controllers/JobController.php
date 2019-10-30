@@ -28,7 +28,7 @@ class JobController extends Controller
 
         $user_id = auth()->user()->id;
         // check if there are some questions related to this job or not.
-
+        
         if($request->has('saveanswers')) {
 
             // get question numbers of this job

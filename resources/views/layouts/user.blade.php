@@ -34,6 +34,9 @@
 
         <!-- My User Custom CSS ( Jobs )-->
         <link type="text/css" href="/css/jobs_custom.css" rel="stylesheet">
+
+        <!-- My User profile Custom CSS ( user profile )-->
+        <link type="text/css" href="/css/user_profile.css" rel="stylesheet">
     </head>
     <body class="{{ app()->getlocale() ? app()->getlocale() : 'en' }}">
     	
@@ -71,14 +74,31 @@
 		                    </div>
 		                </span>
 		                @auth
-	                    	@if(auth()->user()->picture && file_exists('images/'.auth()->user()->picture->filename))
+	                    	<div class="dropdown">
+							  <a class="dropdown-toggle" href="#" role="button" id="user_menu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+							    @if(auth()->user()->picture && file_exists('images/'.auth()->user()->picture->filename))
 	                    		<img class="rounded-circle" width="40" height="40" src="/images/{{ auth()->user()->picture->filename }}">
-	                    	@else
-	                    		<img width="40" height="40" src="/images/user.jpg">
-	                    	@endif
+		                    	@else
+		                    		<img width="40" height="40" src="/images/user.jpg">
+		                    	@endif
+							  </a>
+
+							  <div class="dropdown-menu" aria-labelledby="user_menu">
+							    <a class="dropdown-item" href="/user/profile"><i class="ni ni-single-02 text-blue"></i> Profile</a>
+							    <a class="dropdown-item" href="/user/applications"><i class="fas fa-poll-h text-blue"></i> Applications</a>
+							    <a class="dropdown-item" href="/user/saved-jobs"><i class="fas fa-briefcase text-blue"></i> Saved jobs</a>
+							    <div class="dropdown-divider"></div>
+			                    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+			                    document.getElementById('logout-form').submit();">
+			                        <i class="ni ni-user-run text-blue"></i>
+			                        <span>{{ __('text.logout') }}</span>
+			                    </a>
+							  </div>
+							</div>
+
 	                    @endauth
 	                    @guest
-		                <a href="https://app.perfectlyspoken.com/auth/login" class="btn btn-login">
+		                <a href="{{route('login')}}" class="btn btn-login">
 		                    <span class="lnr lnr-user"></span>
 		                    Login
 		                </a>
@@ -94,7 +114,7 @@
 
 		@yield('main-header')
 
-		<div class="main-content">
+		<div class="main-content <?php if(\Request::is('/')) echo 'bg-white';else echo 'bg-grey'; ?> ">
 		
 			@yield('content')
 		

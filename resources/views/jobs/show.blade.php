@@ -17,7 +17,7 @@
 					@endforeach
 					@endif
 
-					<div class="head">
+					<div class="head bg-white">
 						<div class="row">
 							<div class="col-sm-8">
 								<div class="head-title">
@@ -101,7 +101,7 @@
 					</div>
 						
 
-					<div class="about">
+					<div class="about bg-white">
                         <h4>About job</h4>
 
                         <div class="row">
@@ -130,25 +130,25 @@
 
                     </div> 
 						
-					<div class="description">
+					<div class="description bg-white">
 						<h4>Job description</h4>
 						<p>{{ $job->job_description }}</p>
 					</div>
 
-					<div class="responsibility">
+					<div class="responsibility bg-white">
 						<h4>Responsibility</h4>
 						@foreach(explode(',', $job->responsibility) as $res)
 						<p> - {{ $res }}</p>
 						@endforeach
 					</div>
 					
-					<div class="requirements">
+					<div class="requirements bg-white">
 						<h4>Job requirements</h4>
 						@foreach(explode(',', $job->requirements) as $requirement)
 						<p> - {{ $requirement }}</p>
 						@endforeach
 					</div>
-					<div class="skills">
+					<div class="skills bg-white">
 						<h4>Skills needed</h4>
 						@foreach(explode(',', $job->skills) as $skill)
 						<p> - {{ $skill }}</p>
@@ -156,7 +156,7 @@
 					</div>
 
 					<hr>
-					<div class="actions">
+					<div class="actions bg-white">
 						<form method="post" action="/jobs">
 							<input <?php if(! auth()->user()) echo 'disabled'; ?> class="btn btn-info @guest {{ 'disabled-btn' }} @endguest" type="submit" value="Save" name="savejob">
 						</form>
@@ -169,7 +169,7 @@
 			</div>
 			<div class="col-sm">
 					
-				<div class="about-company">
+				<div class="about-company bg-white">
 					<h3>About <a href="/"> {{ $job->user->name }}</a></h3>
 					<hr>
 					<div class="content">
@@ -181,7 +181,7 @@
 					</div>
 				</div>
 
-				<div class="related-jobs">
+				<div class="related-jobs bg-white">
 					<h3>Related jobs</h3>
 					<hr>
 					<div class="related">

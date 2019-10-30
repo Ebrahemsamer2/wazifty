@@ -1,8 +1,15 @@
 
 /* 
 	Main Color: #5e72e4;
-	Second Color: #eaeaea;;
+	Second Color: #eaeaea;
+
 */
+.bg-white {
+	background-color: #fff;
+}
+.bg-grey {
+	background-color: #f5f5f5;
+}
 
 .js-error {
 	display: none;
@@ -13,7 +20,9 @@
 	margin-top: 5px;
 	float: left;
 }
-
+.hidden {
+	display: none;
+}
 /* Navbar */
 .en header .header {
 	border-bottom: 1px solid rgb(217, 221, 228);
@@ -125,6 +134,12 @@
 
 /* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {display: block;}
+
+
+.dropdown-menu {
+	min-width: 10rem;
+	left: -10px;
+} 
 
 
 /* Main Header */

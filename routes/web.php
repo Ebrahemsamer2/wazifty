@@ -1,7 +1,7 @@
 <?php
 
 
-// User Controllers
+// User Routes
 
 Auth::routes();
 
@@ -19,14 +19,22 @@ Route::get('/jobs/{slug}', 'JobController@show');
 
 Route::post('/jobs/{slug}', 'JobController@apply')->middleware('auth');
 
+Route::get('/user/profile', 'UserProfileController@index')->middleware('auth');
 
+Route::patch('/user/profile', 'UserProfileController@update')->middleware('auth');
+
+Route::post('/user/profile', 'UserProfileController@updatePicture')->middleware('auth');
+
+// Route::get('/company/profile', 'CompanyProfileController@index');
+
+
+
+// Admin Dashboard Controllers For main website
 
 
 Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
-	// Admin Dashboard Controllers For main website
-
-
+	
 	Route::get('/admin/dashboard', 'admin\HomeController@index')->name('dashboard');
 
 	Route::geT('/admin', function() {

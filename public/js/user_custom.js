@@ -56,4 +56,31 @@ $(function() {
 
 	});	
 
+
+
+	// Uploading User Picture
+
+	$("#uplaodButton").click(function() {
+		if($("#uplaodButton").text() === 'Update picture') {
+			$("#uploadBox").trigger('click');
+		}
+	});
+
+	$("#uploadBox").on('change', function() {
+		$("#uplaodButton").text("Save picture");
+		$("#uplaodButton").attr("class", "btn btn-success btn-sm");
+	});
+
+	$("#uplaodButton").click(function() {
+
+		if($("#uplaodButton").text() === 'Save picture') {
+			$(this).next("form").submit();
+		}
+
+	});
+
+	// Hiding alert after 3 seconds 
+
+	$('.container + .alert-danger,.container + .alert-success').delay(3000).fadeOut(500);
+
 });
