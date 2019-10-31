@@ -84,7 +84,7 @@
 							  </a>
 
 							  <div class="dropdown-menu" aria-labelledby="user_menu">
-							    <a class="dropdown-item" href="/user/profile"><i class="ni ni-single-02 text-blue"></i> Profile</a>
+							    <a class="dropdown-item" href="<?php if(auth()->user()->emp_type =='employee') echo '/user';else echo '/company'; ?>/profile"><i class="ni ni-single-02 text-blue"></i> Profile</a>
 							    <a class="dropdown-item" href="/user/applications"><i class="fas fa-poll-h text-blue"></i> Applications</a>
 							    <a class="dropdown-item" href="/user/saved-jobs"><i class="fas fa-briefcase text-blue"></i> Saved jobs</a>
 							    <div class="dropdown-divider"></div>
@@ -93,6 +93,11 @@
 			                        <i class="ni ni-user-run text-blue"></i>
 			                        <span>{{ __('text.logout') }}</span>
 			                    </a>
+
+			                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+			                    	@csrf
+			                        
+			                    </form>
 							  </div>
 							</div>
 

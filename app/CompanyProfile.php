@@ -9,7 +9,8 @@ class CompanyProfile extends Model
 	protected $table = "companyprofiles"; 
 	
     protected $fillable = [
-    	'website',
+    	'user_id',
+        'website',
     	'address',
     	'about',
     ];

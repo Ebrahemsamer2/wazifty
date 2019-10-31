@@ -13,19 +13,30 @@ Route::get('/home', function() {
 
 Route::post('/', 'HomeController@contactForm')->name('home');
 
+// Jobs 
+
 Route::get('/jobs', 'JobController@index');
 
 Route::get('/jobs/{slug}', 'JobController@show');
 
 Route::post('/jobs/{slug}', 'JobController@apply')->middleware('auth');
 
-Route::get('/user/profile', 'UserProfileController@index')->middleware('auth');
+// user profile
 
-Route::patch('/user/profile', 'UserProfileController@update')->middleware('auth');
+Route::get('/user/profile', 'UserProfileController@index');
 
-Route::post('/user/profile', 'UserProfileController@updatePicture')->middleware('auth');
+Route::patch('/user/profile', 'UserProfileController@update');
 
-// Route::get('/company/profile', 'CompanyProfileController@index');
+Route::post('/user/profile', 'UserProfileController@updatePicture');
+
+
+// company profile
+
+Route::get('/company/profile', 'CompanyProfileController@index');
+
+Route::patch('/company/profile', 'CompanyProfileController@update');
+
+Route::post('/company/profile', 'CompanyProfileController@updatePicture');
 
 
 
@@ -68,8 +79,14 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	Route::post('/admin/applications/{id}', 'admin\ApplicationController@addquestions')->name('admin.applications.create');
 
 
-	// Admin Dashboard Controllers For Blog System
 
+	// user messages controller 
+
+	Route::get('/admin/usermessages', 'admin\UsersMessagesController@index');
+
+	Route::patch('/admin/usermessages/{id}', 'admin\UsersMessagesController@active');
+	
+	Route::delete('/admin/usermessages/{id}', 'admin\UsersMessagesController@delete');
 
 
 });

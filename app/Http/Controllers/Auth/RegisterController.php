@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
+use App\Events\CreatingUserProfile;
+use App\Events\CreatingCompanyProfile;
+
 class RegisterController extends Controller
 {
     /*
@@ -64,11 +67,19 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'emp_type' => $data['emp_type'],
         ]);
+
+        if($data['emp_type'] == 'employee') {
+            event(new CreatingUserProfile($user));
+        }else {
+            event(new CreatingCompanyProfile($user));
+        }
+
+        return $user;
     }
 }

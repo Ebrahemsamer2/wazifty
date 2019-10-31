@@ -38,7 +38,6 @@ $(function() {
 		// Insert By Ajax
 
 		let form_data = $(this).serialize();
-		console.log(form_data);
 		$.ajax({
 			method: 'POST',
 			url: "/",
@@ -49,14 +48,19 @@ $(function() {
 			dataType: 'json',
 			success: function(data) {
 				$("#form_output").html(data.success);
-				$("#contactForm")[0].reset();		
+				$("#contactForm")[0].reset();
+				$("#contactForm div p.home-email-input").css("display", "none");
+				$("#contactForm div p.home-message-input").css("display", "none");
 			},
-
+			fail:function(data) {
+				$("#form_output").html(data.fail);
+				$("#contactForm")[0].reset();
+				$("#contactForm div p.home-email-input").css("display", "none");
+				$("#contactForm div p.home-message-input").css("display", "none");
+			},
 		});
 
 	});	
-
-
 
 	// Uploading User Picture
 
@@ -81,6 +85,8 @@ $(function() {
 
 	// Hiding alert after 3 seconds 
 
-	$('.container + .alert-danger,.container + .alert-success').delay(3000).fadeOut(500);
+	$('.container + .alert-danger,.container + .alert-success').delay(3000).fadeOut(500, function() {
+		$('.container + .alert-danger,.container + .alert-success').css('display', 'none');
+	});
 
 });

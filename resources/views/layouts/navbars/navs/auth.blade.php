@@ -15,6 +15,8 @@
                 Applications
             @elseif(\Request::is('admin/resumes*'))
                 Resumes
+            @elseif(\Request::is('admin/usermessages*'))
+                User messages
             @endif
         </a>
 

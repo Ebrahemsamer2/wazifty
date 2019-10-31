@@ -187,6 +187,9 @@
 						<form id="contactForm" autocomplete="off" method="post" action="/">
 							
 							<span id="form_output"></span>
+							@auth
+							<input type="hidden" name="username" value="{{ auth()->user()->name }}">
+							@endauth
 							<div class="form-group">
 								<input id="email" placeholder="Your email..." value="@auth {{ auth()->user()->email }} @endauth" type="email" name="email" class="form-control" required>
 								<p class="home-email-input js-error">Email is not valid</p>
@@ -219,8 +222,6 @@
 
 			</div>
 		</div>
-
-
 	</div>
 
 @endsection

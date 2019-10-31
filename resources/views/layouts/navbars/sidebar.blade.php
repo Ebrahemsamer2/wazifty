@@ -159,6 +159,11 @@
                         <i class="fas fa-file-alt text-blue"></i> {{ __('Resumes') }}
                     </a>
                 </li>
+                <li class="nav-item <?php if(\Request::is('admin/usersmessages*')) echo 'active' ?>">
+                    <a class="nav-link" href="/admin/usermessages">
+                        <i class="fas fa-comment-alt text-blue"></i> {{ __('Users messages') }}
+                    </a>
+                </li>
             </ul>
             <!-- Divider -->
             <hr class="my-3">

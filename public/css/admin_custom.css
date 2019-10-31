@@ -121,3 +121,23 @@ form.hidden {
 	margin-top: 10px;
 	border-top: 1px solid green;
 }
+
+/* User Messages */
+
+.all-messages .message {
+	margin-bottom: 20px;
+	margin-left: 5px;
+}
+.all-messages .message .card .card-body {
+	padding: 10px;
+}
+.all-messages .message .card .card-body h3 {
+	margin: 2px;
+}
+.all-messages .message .card .card-body hr {
+	margin:5px;
+}
+
+.all-messages .message .card .card-footer {
+	padding: 5px;
+}
