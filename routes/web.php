@@ -84,9 +84,9 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 
 	Route::get('/admin/usermessages', 'admin\UsersMessagesController@index');
 
-	Route::patch('/admin/usermessages/{id}', 'admin\UsersMessagesController@active');
+	Route::patch('/admin/usermessages', 'admin\UsersMessagesController@active');
 	
-	Route::delete('/admin/usermessages/{id}', 'admin\UsersMessagesController@delete');
+	Route::delete('/admin/usermessages', 'admin\UsersMessagesController@delete');
 
 
 });

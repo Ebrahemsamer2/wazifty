@@ -50,9 +50,26 @@
 										    <p class="card-text">{{ $message->message }}</p>
 							  			</div>
 							  			<div class="card-footer">
-							  				<form method="POST" action="/admin/usermessages/{{ $message->id }}">
+							  				<form method="POST" action="/admin/usermessages">
 							  					@csrf
-												<input type="submit" name="active" value="Active" class="btn btn-primary btn-sm float-right">
+                                                @method("PATCH")
+
+                                                <input type="hidden" value="{{ $message->id }}" name="message_id">
+
+                                                @if($message->active == 0)
+                                                <input type="hidden" name="active" value="1">
+												<input type="submit" name="" value="Active" class="btn btn-success btn-sm float-right">
+                                                @else
+                                                <input type="hidden" name="active" value="0">
+                                                <input type="submit" name="" value="Deactive" class="btn btn-warning btn-sm float-right">
+                                                @endif
+                                            </form>
+                                            <form method="POST" action="/admin/usermessages">
+                                                @csrf
+                                                @method("DELETE")
+
+                                                <input type="hidden" value="{{ $message->id }}" name="message_id">
+
 												<input class="btn btn-danger btn-sm float-left" type="submit" name="delete" value="Delete">
 											</form>
 							  			</div>

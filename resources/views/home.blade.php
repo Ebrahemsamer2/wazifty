@@ -68,8 +68,9 @@
 	<div class="container">
 		<div class="text-center" id="people-say">
 			<h1 >What users say?</h1>
-
+			
 			<div class="row">
+				@if(count($messages) != 2)
 				<div id="c1" class="col-md-6 mb-4">
 					<div class="card" style="max-width: 22rem;">
 						<div class="top-section"></div>
@@ -94,7 +95,30 @@
 			  			</div>
 					</div>
 				</div>
+				@else
 
+				@foreach($messages as $message)
+
+				<div id="c2" class="col-md-6 mb-4">
+					<div class="card" style="max-width: 22rem;">
+						<div style="background:linear-gradient(40deg,#2096ff,#05ffa3)!important;" class="top-section"></div>
+						@if(\App\User::where('email', $message->email)->first()->picture)
+							<?php $picture = \App\User::where('email', $message->email)->first()->picture;
+							?>
+							<img width="100" height="100" src="/images/{{ $picture->filename }}" class="dounded-circle" alt="User picture">
+						@else
+							<img width="100" height="100" src="/images/user.jpg" class="rounded-circle" alt="User picture">
+						@endif
+			  			<div class="card-body text-center">
+						    <h3 class="card-title">{{$message->username}}</h3>
+						    <hr>
+						    <p class="card-text">{{$message->message}}</p>
+			  			</div>
+					</div>
+				</div>
+				@endforeach
+
+				@endif
 			</div>
 
 		</div>

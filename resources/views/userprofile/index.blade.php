@@ -12,7 +12,7 @@
 				<div class="col-sm-3">
 					
 					@if($user->picture)
-					<img src="/images/{{ auth()->user()->picture->filename }}" width="120" height="120" class="rounded-circle">
+					<img src="/images/{{ auth()->user()->picture->filename }}" width="150" height="150" class="rounded-circle">
 					@else
 					<img src="/images/user.jpg" width="150" height="150" class="rounded-circle">
 					@endif

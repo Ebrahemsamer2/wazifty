@@ -84,6 +84,11 @@
 							  </a>
 
 							  <div class="dropdown-menu" aria-labelledby="user_menu">
+							  	@auth
+							  		@if(auth()->user()->admin == 1)
+							    	<a class="dropdown-item" href="/admin/dashboard"><i class="fas fa-poll-h text-blue"></i> Admin dashboard</a>
+							    	@endif
+							    @endauth
 							    <a class="dropdown-item" href="<?php if(auth()->user()->emp_type =='employee') echo '/user';else echo '/company'; ?>/profile"><i class="ni ni-single-02 text-blue"></i> Profile</a>
 							    <a class="dropdown-item" href="/user/applications"><i class="fas fa-poll-h text-blue"></i> Applications</a>
 							    <a class="dropdown-item" href="/user/saved-jobs"><i class="fas fa-briefcase text-blue"></i> Saved jobs</a>

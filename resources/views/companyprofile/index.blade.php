@@ -12,9 +12,9 @@
 				<div class="col-sm-3">
 					
 					@if($company->picture)
-					<img src="/images/{{ auth()->user()->picture->filename }}" width="120" height="120" class="rounded-circle">
+					<img src="/images/{{ auth()->user()->picture->filename }}" width="150" height="150" class="rounded-circle">
 					@else
-					<img src="/images/user.jpg" width="120" height="120" class="rounded-circle">
+					<img src="/images/user.jpg" width="150" height="150" class="rounded-circle">
 					@endif
 
 					<button style="margin-left: -20px;" id="uplaodButton" class="btn btn-sm btn-info mr-4">{{ __('Update picture') }}</button>

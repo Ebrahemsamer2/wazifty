@@ -14,6 +14,7 @@ class CreateMigrationUserMessagesTable extends Migration
             $table->string('username')->nullable();
             $table->string('email');
             $table->text('message');
+            $table->integer('active')->default(0);
             $table->timestamps();
         });
     }

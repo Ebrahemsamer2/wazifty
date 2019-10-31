@@ -8,7 +8,8 @@ class HomeController extends Controller
 {
 
     public function index() {
-    	return view('home');
+        $messages = DB::table('user_messages')->where("active", 1)->limit(2)->get();
+    	return view('home', compact('messages'));
     }
 
     public function contactForm(Request $request) {
