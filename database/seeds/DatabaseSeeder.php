@@ -10,19 +10,21 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        $users = factory(App\User::class, 15)
+        $users = factory(App\User::class, 30)
            ->create()
            ->each(function ($user) {
+            if($user->emp_type == "employee") {
                 $user->userprofile()->save(factory(App\UserProfile::class)->make());
+            }else {
+                $user->companyprofile()->save(factory(App\CompanyProfile::class)->make());
+            }
             });
-
-    	// $users = factory('App\User', 15)->create();
     	
-        $companies = factory(App\User::class, 15)
-           ->create()
-           ->each(function ($company) {
-                $company->companyprofile()->save(factory(App\CompanyProfile::class)->make());
-            });
+        // $companies = factory(App\User::class, 15)
+        //    ->create()
+        //    ->each(function ($company) {
+        //         $company->companyprofile()->save(factory(App\CompanyProfile::class)->make());
+        //     });
 
     	factory('App\Category', 10)->create();
     	factory('App\Job', 50)->create();

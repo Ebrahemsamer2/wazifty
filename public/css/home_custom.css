@@ -23,6 +23,7 @@
 .hidden {
 	display: none;
 }
+
 /* Navbar */
 .en header .header {
 	border-bottom: 1px solid rgb(217, 221, 228);
@@ -34,6 +35,7 @@
 
 .en header .navbar {
 	padding: .5rem 1rem;
+	background: #fff;
 }
 
 .en header .navbar ul {

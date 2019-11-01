@@ -16,7 +16,11 @@ class UserProfileController extends Controller
 
     public function index() {
     	$user = auth()->user();
-    	return view('userprofile.index', compact('user'));
+    	if($user->emp_type == "employee") {
+    		return view('userprofile.index', compact('user'));
+    	}else {
+    		return abort(404);
+    	}
     }
 
     public function update(Request $request) {
@@ -113,36 +117,36 @@ class UserProfileController extends Controller
 				}else {
 					return redirect()->back()->withStatus('Something wrong, Try again');
 				}
-			} else if($request->has("submitotherinfo")) {
+				} else if($request->has("submitotherinfo")) {
 
-				$rules = [
-					'github' => 'url|min:10|nullable',
-					'portfolio' => 'url|nullable',
-					'linkedin' => 'url|nullable',
-					'website' => 'url|nullable',
-				];
+					$rules = [
+						'github' => 'url|min:10|nullable',
+						'portfolio' => 'url|nullable',
+						'linkedin' => 'url|nullable',
+						'website' => 'url|nullable',
+					];
 
-				$this->validate($request, $rules);
+					$this->validate($request, $rules);
 
-				if($request->has("github")) {
-					$user->userprofile->github = $request->github;
-				}
-				if($request->has("portfolio")) {
-					$user->userprofile->portfolio = $request->portfolio;
-				}
-				if($request->has("linkedin")) {
-					$user->userprofile->linkedin = $request->linkedin;
-				}
-				if($request->has("website")) {
-					$user->userprofile->website = $request->website;
-				}
+					if($request->has("github")) {
+						$user->userprofile->github = $request->github;
+					}
+					if($request->has("portfolio")) {
+						$user->userprofile->portfolio = $request->portfolio;
+					}
+					if($request->has("linkedin")) {
+						$user->userprofile->linkedin = $request->linkedin;
+					}
+					if($request->has("website")) {
+						$user->userprofile->website = $request->website;
+					}
 
-				if($user->userprofile->save()) {
-					return redirect()->back()->withStatus("Online Presence successfully updated");
-				}else {
-					return redirect()->back()->withStatus("Something wrong, Try again");
+					if($user->userprofile->save()) {
+						return redirect()->back()->withStatus("Online Presence successfully updated");
+					}else {
+						return redirect()->back()->withStatus("Something wrong, Try again");
+					}
 				}
-			}
 
 		}
 
@@ -183,5 +187,13 @@ class UserProfileController extends Controller
 	            }
 	        }
 
+		}
+
+    public function show($id) {
+    	$user = User::where('emp_type', 'employee')->where('id',$id)->first();
+    	if($user && auth()->user()->emp_type == 'employer') {
+    		return view('userprofile.show', compact('user'));
     	}
+    	return abort(404);
+    }
 }

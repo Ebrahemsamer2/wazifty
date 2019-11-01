@@ -28,6 +28,11 @@ $factory->define(User::class, function (Faker $faker) {
 });
 
 $factory->define(UserProfile::class, function (Faker $faker) {
+
+    $college = $faker->randomElement([$faker->word, NULL]);
+    $grad_year = $college ? $faker->randomElement([2010,2013,2015,2018]) : NULL;
+    $degree = $college ? $faker->randomElement(["Good","Very Good","3 GBA"]) : NULL;
+
     return [
         'phone' => $faker->unique()->randomElement([$faker->phoneNumber, NULL]),
         'address' => $faker->word(2),
@@ -38,7 +43,12 @@ $factory->define(UserProfile::class, function (Faker $faker) {
         'skills' => $faker->randomElement([$faker->paragraph, NULL]),
     	'summary' => $faker->randomElement([$faker->paragraph(2), NULL]),
     	'job_title' => $faker->randomElement([$faker->word, NULL]),
-    	'user_id' => User::where('emp_type', 'employee')->get()->random()->id,
+        
+        'college' => $college,
+        'graduation_year' => $grad_year,
+        'degree' => $degree,
+
+        'user_id' => User::where('emp_type', 'employee')->get()->random()->id,
     ];
 });
 

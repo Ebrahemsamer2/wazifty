@@ -1,6 +1,11 @@
 <?php
 
 
+// loading pdf
+
+Route::get('/resume/{resume}','admin\ResumeController@viewResume');
+
+
 // User Routes
 
 Auth::routes();
@@ -21,7 +26,7 @@ Route::get('/jobs/{slug}', 'JobController@show');
 
 Route::post('/jobs/{slug}', 'JobController@apply')->middleware('auth');
 
-// user profile
+// user edit profile
 
 Route::get('/user/profile', 'UserProfileController@index');
 
@@ -29,8 +34,13 @@ Route::patch('/user/profile', 'UserProfileController@update');
 
 Route::post('/user/profile', 'UserProfileController@updatePicture');
 
+// Visitation view for users and companies
 
-// company profile
+Route::get('/user/{id}', 'UserProfileController@show');
+
+
+
+// company edit profile
 
 Route::get('/company/profile', 'CompanyProfileController@index');
 
@@ -38,6 +48,9 @@ Route::patch('/company/profile', 'CompanyProfileController@update');
 
 Route::post('/company/profile', 'CompanyProfileController@updatePicture');
 
+// Visitation view for users and companies
+
+Route::get('/company/{id}', 'CompanyProfileController@show');
 
 
 // Admin Dashboard Controllers For main website

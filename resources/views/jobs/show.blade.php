@@ -2,6 +2,16 @@
 
 @section('title', 'Jobs | Find your job in easy way at WAZIFTY')
 
+@section('css')
+
+<!-- My Home Custom CSS ( Home )-->
+<link type="text/css" href="/css/home_custom.css" rel="stylesheet">
+
+<!-- My User Custom CSS ( Jobs )-->
+<link type="text/css" href="/css/jobs_custom.css" rel="stylesheet">
+
+@endsection
+
 @section('content')
 	
 	<div class="container">	
@@ -53,16 +63,19 @@
 									@if(count($job->application->questions) == 0)	
 									<form method="post" action="/jobs/{{$job->slug}}">
 										@csrf
-										<input <?php if(! auth()->user()) echo 'disabled'; ?> type="submit" name="apply" value="Apply" class="btn btn-primary <?php if(! auth()->user()) echo 'disabled-btn';?>" >
+										<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> type="submit" name="apply" value="Apply" class="btn btn-primary <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn';?>" >
 										
 										<input type="hidden" value="{{$job->application->id}}" name="application_id">
 									</form>
 									@else
-									<button data-toggle="modal" data-target="#questions-modal" <?php if(! auth()->user()) echo 'disabled'; ?> type="button" class="btn btn-primary <?php if(! auth()->user()) echo 'disabled-btn';?>">Apply</button>
+									<button data-toggle="modal" data-target="#questions-modal" <?php if(! auth()->user() || auth()->user()->emp_type == "employer" ) echo 'disabled'; ?> type="button" class="btn btn-primary <?php if(! auth()->user() || auth()->user()->emp_type == "employer" ) echo 'disabled-btn';?>">Apply</button>
 									@endif
 									@guest
 									<span>Please <a href="/login">Login</a> to apply</span>
 									@endguest
+									@if(auth()->user()->emp_type == "employer")
+									<span>Only users can apply</span>
+									@endif
 								</div>
 
 								@else

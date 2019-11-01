@@ -2,6 +2,16 @@
 
 @section('title', 'Jobs | Find your job in easy way at WAZIFTY')
 
+@section('css')
+
+<!-- My Home Custom CSS ( Home )-->
+<link type="text/css" href="/css/home_custom.css" rel="stylesheet">
+
+<!-- My User Custom CSS ( Jobs )-->
+<link type="text/css" href="/css/jobs_custom.css" rel="stylesheet">
+
+@endsection
+
 @section('content')
 	
 	<div class="container">	

@@ -2,6 +2,16 @@
 
 @section('title', $user->name . ' profile | WAZIFTY')
 
+@section('css')
+
+<!-- My Home Custom CSS ( Home )-->
+<link type="text/css" href="/css/home_custom.css" rel="stylesheet">
+
+<!-- My User profile Custom CSS ( edit user profile )-->
+<link type="text/css" href="/css/editprofile.css" rel="stylesheet">
+
+@endsection
+
 @section('content')
 
 	<div class="container">

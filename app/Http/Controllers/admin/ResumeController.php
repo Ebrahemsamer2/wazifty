@@ -43,4 +43,8 @@ class ResumeController extends Controller
         }
         return redirect('/admin/resumes')->withStatus('Resume successfully deleted');
     }
+
+    public function viewResume($resume) {
+        return response()->download('/resumes/'.$resume);
+    }
 }

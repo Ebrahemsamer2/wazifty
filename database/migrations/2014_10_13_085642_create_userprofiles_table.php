@@ -21,6 +21,10 @@ class CreateUserProfilesTable extends Migration
             $table->string('linkedin')->nullable()->unique();
             $table->string('website')->nullable()->unique();
             
+            $table->string('college')->nullable();
+            $table->integer('graduation_year')->nullable();
+            $table->string('degree')->nullable();
+
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

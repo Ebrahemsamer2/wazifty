@@ -141,11 +141,13 @@
                                     {{ __('All Jobs') }}
                                 </a>
                             </li>
+                            @if(auth()->user()->emp_type == "employer")
                             <li class="nav-item">
                                 <a class="nav-link" href="/admin/jobs/create">
                                     {{ __('New Job') }}
                                 </a>
                             </li>
+                            @endif
                         </ul>
                     </div>
                 </li>

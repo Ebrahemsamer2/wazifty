@@ -29,14 +29,9 @@
 
         <!-- Argon CSS -->
         <link type="text/css" href="/argon/css/argon.min.css" rel="stylesheet">
-        <!-- My User Custom CSS ( Home )-->
-        <link type="text/css" href="/css/user_custom.css" rel="stylesheet">
 
-        <!-- My User Custom CSS ( Jobs )-->
-        <link type="text/css" href="/css/jobs_custom.css" rel="stylesheet">
-
-        <!-- My User profile Custom CSS ( user profile )-->
-        <link type="text/css" href="/css/user_profile.css" rel="stylesheet">
+        @yield('css')
+      
     </head>
     <body class="{{ app()->getlocale() ? app()->getlocale() : 'en' }}">
     	
@@ -86,7 +81,7 @@
 							  <div class="dropdown-menu" aria-labelledby="user_menu">
 							  	@auth
 							  		@if(auth()->user()->admin == 1)
-							    	<a class="dropdown-item" href="/admin/dashboard"><i class="fas fa-poll-h text-blue"></i> Admin dashboard</a>
+							    	<a class="dropdown-item" href="/admin/dashboard"><i class="ni ni-tv-2 text-primary text-blue"></i> Admin dashboard</a>
 							    	@endif
 							    @endauth
 							    <a class="dropdown-item" href="<?php if(auth()->user()->emp_type =='employee') echo '/user';else echo '/company'; ?>/profile"><i class="ni ni-single-02 text-blue"></i> Profile</a>
@@ -141,6 +136,7 @@
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
         <script src="{{ asset('js') }}/user_custom.js"></script>
 
+        @yield('scripts')
 
     </body>
 </html>
