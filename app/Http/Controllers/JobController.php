@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\DB;
 
 use App\Job;
 use App\Answer;
+
 class JobController extends Controller
 {
+
     public function index() {
     	$jobs = Job::where('active', 1)->orderBy('id', 'desc')->paginate(15);
         
@@ -57,11 +59,13 @@ class JobController extends Controller
                     "user_id" => $user_id,
                 ]);
             }
+            
             DB::table('application_user')->insert([
                 'user_id' => $user_id,
                 'application_id' => $job->application->id,
+                'created_at' => now(),
             ]);
-            return redirect()->back();
+            return redirect()->back()->withStatus("You successfully applied for this job");
 
         }else {
 
@@ -70,8 +74,9 @@ class JobController extends Controller
             DB::table('application_user')->insert([
                 'user_id' => $user_id,
                 'application_id' => $request->application_id,
+                'created_at' => now(),
             ]);
-            return redirect()->back();
+            return redirect()->back()->withStatus("You successfully applied for this job");
         }
     }
 }

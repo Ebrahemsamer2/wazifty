@@ -23,6 +23,21 @@
 					<div class="jobs-heading">
 						<h1>Opportunities for you</h1>
 					</div>
+
+					@if($errors->any())
+						@foreach($errors->all() as $error)
+						<div class="alert alert-danger">
+							{{ $error }}
+						</div>
+						@endforeach
+					@endif
+
+					@if(\Session::get('status'))
+					<div class="alert alert-success">
+						{{ \Session::get('status') }}
+					</div>
+					@endif
+					
 					@foreach($jobs as $job)
 					<div class="job bg-white">
 						<div class="row">
@@ -56,8 +71,14 @@
 						</div>
 						<hr>
 						<div class="actions">
-							<form method="post" action="/jobs">
-								<input class="btn btn-info btn-sm" type="submit" value="Save" name="savejob">
+							<form method="post" action="/user/saved-jobs">
+								@csrf
+								<input type="hidden" value="{{ $job->id }}" name="job_id">
+								@if(! auth()->user()->isSaved($job->id))
+								<input class="btn btn-info btn-sm" type="submit" value="Save" name="save">
+								@else
+								<input class="btn btn-secondary btn-sm" type="submit" value="Unsave" name="unsave">
+								@endif
 								<a class="btn btn-warning btn-sm" href="/jobs/{{ $job->slug }}" target="_blank">Preview</a>
 							</form>
 						</div>

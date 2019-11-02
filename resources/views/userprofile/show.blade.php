@@ -32,10 +32,23 @@
 		<div id="contactDetails" class="quickFade delayFour">
 			<ul>
 				<li><i class="fas fa-envelope text-blue"></i><a href="mailto:{{$user->email}}" target="_blank"> {{ $user->email }}</a></li>
-				<li><i class="far fa-address-card text-blue"></i> {{ $user->userprofile->address }}</li>
-				<li><i class="fab fa-linkedin text-blue"></i> <a href="{{$user->userprofile->linkedin}}"> {{ Str::limit($user->userprofile->linkedin, 30) }}</a></li>
-				<li><i class="fas fa-link text-blue"></i> <a href="{{$user->userprofile->portfolio}}"> {{ Str::limit($user->userprofile->portfolio, 30) }}</a></li>
-				<li><i class="fas fa-mobile-alt text-blue"></i> {{ $user->userprofile->phone ? $user->userprofile->phone : 'Not defined' }}</li>
+				<li>
+					<i class="far fa-address-card text-blue"></i>
+					{{ $user->userprofile->address ? $user->userprofile->address : 'Not defined' }}
+				</li>
+				<li>
+					<i class="fab fa-linkedin text-blue"></i> 
+					<a href="{{$user->userprofile->linkedin}}"> {{ $user->userprofile->linkedin ? Str::limit($user->userprofile->linkedin, 30) : 'Not defined' }}
+					</a>
+				</li>
+				<li>
+					<i class="fas fa-link text-blue"></i> 
+					<a href="{{$user->userprofile->portfolio}}"> {{ $user->userprofile->portfolio ? Str::limit($user->userprofile->portfolio, 30) : 'Not defined' }}
+					</a>
+				</li>
+				<li>
+					<i class="fas fa-mobile-alt text-blue"></i> {{ $user->userprofile->phone ? $user->userprofile->phone : 'Not defined' }}
+				</li>
 
 			</ul>
 		</div>
@@ -65,7 +78,7 @@
 				<article>
 					@if($user->userprofile->college)
 					<h2>{{$user->userprofile->college}}</h2>
-					<p class="subDetails">{{ $user->userprofile->graduation_date }}</p>
+					<p class="subDetails">{{ $user->userprofile->graduation_year }}</p>
 					<p>{{ $user->userprofile->degree }}</p>
 					@else
 					<p>Not defined</p>

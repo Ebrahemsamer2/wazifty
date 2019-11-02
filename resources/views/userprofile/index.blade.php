@@ -93,6 +93,42 @@
 			</div>
 		</div>
 
+		<div class="education-info ">
+			<div class="row">
+				
+				<div class="col-sm-7 offset-sm-3 bg-white">
+
+					<form autocomplete="off" method="POST" action="/user/profile">
+						@csrf
+						@method('patch')
+
+						<h2>Education info</h2>
+						<div class="form-group">	
+							<input placeholder="Your College/specialization... (ex: Engineering/Computers and systems)" type="text" value="{{$user->userprofile->college}}" class="form-control" name="college">
+						</div>
+
+						<div class="form-group">	
+							<input placeholder="Your graduation year" value="{{ $user->userprofile->graduation_year }}" type="number" min="1990" name="graduation_year" class="form-control">
+						</div>
+
+						<div class="form-group">	
+							<select class="form-control" name="degree">
+								<option value="">Your degree</option>
+								<option <?php if($user->userprofile->degree == "passed") echo 'selected'; ?> value="passed">passed</option>
+								<option <?php if($user->userprofile->degree == "good") echo 'selected'; ?> value="good">Good</option>
+								<option <?php if($user->userprofile->degree == "very good") echo 'selected'; ?> value="very good">Very Good</option>
+								<option <?php if($user->userprofile->degree == "excellent") echo 'selected'; ?> value="excellent">Excellent</option>
+							</select>
+						</div>
+
+						<input value="Save" type="submit"  name="submiteducationinfo" class="btn btn-primary">
+					</form>
+
+				</div>
+				<div class="col-sm"></div>
+			</div>
+		</div>
+
 		<div class="employer-info ">
 			<div class="row">
 				

@@ -20,11 +20,17 @@
 				
 				<div class="single-job">
 					@if($errors->any())
-					@foreach($errors->all() as $error)
+						@foreach($errors->all() as $error)
 						<div class="alert alert-danger">
 							{{ $error }}
 						</div>
-					@endforeach
+						@endforeach
+					@endif
+
+					@if(\Session::get('status'))
+					<div class="alert alert-success">
+						{{ \Session::get('status') }}
+					</div>
 					@endif
 
 					<div class="head bg-white">

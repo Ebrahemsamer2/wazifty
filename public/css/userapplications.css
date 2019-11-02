@@ -1,0 +1,62 @@
+/*Constants*/
+.disabled-btn {
+	cursor: not-allowed;
+}
+/*===================================*/
+.all-applications {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.all-applications .col-sm-3 {
+	padding: 0;
+}
+.all-applications .application {
+	border: 1px solid rgb(217, 221, 228);
+	padding: 20px;
+	background-color: #fff;
+	margin-left: 15px;
+	border-radius: 2px;
+	max-height: 300px;
+	margin-bottom: 15px;
+}
+.all-applications .col-sm-3 button {
+	width: 100%;
+	margin-bottom: 0;
+}
+
+.all-applications .heading {
+	margin-bottom: 30px;
+	font-weight: 300;
+}
+.all-applications .heading h1 {
+	margin: 0;
+}
+.all-applications .heading span {
+	text-transform: lowercase;
+	font-weight: 400;
+}
+
+.all-applications h2 {
+	font-weight: 400;
+	font-size: 20px;
+} 
+
+.all-applications span {
+	font-size: 14px;
+	opacity: .7;
+	margin-left: 10px;
+}
+
+.all-applications ul {
+	margin-left: -10px;
+	margin-top: 10px;
+}
+
+.application p {
+	font-size: 14px;
+	opacity: .8;
+	font-weight: 400;
+	margin:0;
+	padding:0;
+}

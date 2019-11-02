@@ -90,6 +90,32 @@ class UserProfileController extends Controller
 					}
 				}
 
+			}else if($request->has("submiteducationinfo")) {
+
+				$rules = [
+					'college' => 'required|string|min:5|max:100',
+					'graduation_year' => 'string|min:4|max:4',
+					'degree' => 'required|string',
+				];
+
+				$this->validate($request, $rules);
+
+				if($request->has("college")) {
+					$user->userprofile->college = $request->college;
+				}
+				if($request->has("graduation_year")) {
+					$user->userprofile->graduation_year = $request->graduation_year;
+				}
+				if($request->has("degree")) {
+					$user->userprofile->degree = $request->degree;
+				}
+
+				if($user->userprofile->save()) {
+					return redirect()->back()->withStatus('Education info successfully updated');
+				}else {
+					return redirect()->back()->withStatus('Something wrong, Try again');
+				}
+
 			} else if($request->has("submitemploymentinfo")){
 
 				$rules = [
@@ -191,7 +217,7 @@ class UserProfileController extends Controller
 
     public function show($id) {
     	$user = User::where('emp_type', 'employee')->where('id',$id)->first();
-    	if($user && auth()->user()->emp_type == 'employer') {
+    	if($user && ( auth()->user()->emp_type == 'employer' || auth()->user()->id === $user->id )) {
     		return view('userprofile.show', compact('user'));
     	}
     	return abort(404);

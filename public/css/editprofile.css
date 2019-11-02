@@ -1,4 +1,5 @@
 .basic-info .bg-white,
+.education-info .bg-white,
 .password-info .bg-white,
 .employer-info .bg-white,
 .other-info .bg-white {
@@ -9,6 +10,7 @@
 }
 
 .basic-info .bg-white h2,
+.education-info .bg-white h2,
 .password-info .bg-white h2,
 .employer-info .bg-white h2,
 .other-info .bg-white h2{

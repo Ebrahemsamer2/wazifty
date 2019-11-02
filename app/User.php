@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Support\Facades\DB;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -30,7 +32,11 @@ class User extends Authenticatable
     }
 
     public function applications() {
-        return $this->belongsToMany('App\Application');
+        return $this->belongsToMany('App\Application')->withPivot('seen', 'contact','accepted','created_at');
+    }
+
+    public function saved_jobs() {
+        return $this->belongsToMany('App\Job', 'user_saved_jobs');
     }
     
     public function answers() {
@@ -61,5 +67,9 @@ class User extends Authenticatable
 
     public function isAdmin() {
         return $this->admin == 1;
+    }
+
+    public function isSaved($job_id) {
+        return $this->saved_jobs()->where('job_id', $job_id)->first();
     }
 }

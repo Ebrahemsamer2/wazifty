@@ -1,12 +1,12 @@
 <?php
 
 
-// loading pdf
+// Resume Routes
 
 Route::get('/resume/{resume}','admin\ResumeController@viewResume');
 
 
-// User Routes
+// Auth Routes
 
 Auth::routes();
 
@@ -18,9 +18,24 @@ Route::get('/home', function() {
 
 Route::post('/', 'HomeController@contactForm')->name('home');
 
+
+// User Applications Routes
+
+Route::get('/user/applications', 'UserApplicationsController@index');
+
+Route::patch('/user/applications', 'UserApplicationsController@update_answers');
+
+// User Saved jobs Routes
+
+Route::get('/user/saved-jobs', 'UserSavedJobsController@index');
+
+Route::post('/user/saved-jobs', 'UserSavedJobsController@save');
+
 // Jobs 
 
 Route::get('/jobs', 'JobController@index');
+
+Route::post('/jobs', 'UserSavedJobsController@save')->middleware('auth');
 
 Route::get('/jobs/{slug}', 'JobController@show');
 
@@ -53,8 +68,8 @@ Route::post('/company/profile', 'CompanyProfileController@updatePicture');
 Route::get('/company/{id}', 'CompanyProfileController@show');
 
 
-// Admin Dashboard Controllers For main website
 
+// Admin Dashboard Controllers For main website
 
 Route::group(['middleware' => ['auth', 'admin'] ], function () {
 

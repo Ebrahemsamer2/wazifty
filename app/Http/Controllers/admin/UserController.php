@@ -54,8 +54,12 @@ class UserController extends Controller
     }
     public function destroy(User $user)
     {
+        if($user->emp_type == "employee") {
+            $user->userprofile->delete();
+        }else {
+            $user->companyprofile->delete();
+        }
         $user->delete();
-
         return redirect()->route('users.index')->withStatus(__('User successfully deleted.'));
     }
 }

@@ -31,7 +31,7 @@ $factory->define(UserProfile::class, function (Faker $faker) {
 
     $college = $faker->randomElement([$faker->word, NULL]);
     $grad_year = $college ? $faker->randomElement([2010,2013,2015,2018]) : NULL;
-    $degree = $college ? $faker->randomElement(["Good","Very Good","3 GBA"]) : NULL;
+    $degree = $college ? $faker->randomElement(["passed","good","very good","excellent"]) : NULL;
 
     return [
         'phone' => $faker->unique()->randomElement([$faker->phoneNumber, NULL]),

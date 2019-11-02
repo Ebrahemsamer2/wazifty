@@ -1,0 +1,63 @@
+/*Constants*/
+.disabled-btn {
+	cursor: not-allowed;
+}
+
+hr {
+	margin: 10px 2px;
+}
+/*===================================*/
+.all-saved-jobs {
+	margin-top: 50px;
+	margin-bottom: 100px;
+}
+
+.all-saved-jobs .col-sm-6 {
+	padding: 0;
+}
+.all-saved-jobs .job {
+	border: 1px solid rgb(217, 221, 228);
+	padding: 20px;
+	background-color: #fff;
+	margin-left: 15px;
+	border-radius: 2px;
+	max-height: 500px;
+	margin-bottom: 15px;
+}
+
+.all-saved-jobs .heading {
+	margin-bottom: 30px;
+	font-weight: 300;
+}
+
+.all-saved-jobs .heading h1 {
+	margin: 0;
+}
+.all-saved-jobs .heading span {
+	text-transform: lowercase;
+	font-weight: 400;
+}
+
+.all-saved-jobs h2 {
+	font-weight: 400;
+	font-size: 20px;
+} 
+
+.all-saved-jobs span {
+	font-size: 14px;
+	opacity: .8;
+	margin-left: 10px;
+}
+
+.all-saved-jobs ul {
+	margin-left: -10px;
+	margin-top: 10px;
+}
+
+.application p {
+	font-size: 14px;
+	opacity: .8;
+	font-weight: 400;
+	margin:0;
+	padding:0;
+}
