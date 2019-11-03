@@ -26,7 +26,7 @@
 								@if($company->picture)
 								<img src="/images/{{ $company->picture->filename }}" width="150" height="129">
 								@else
-								<img src="/images/user.jpg" width="150" height="129">
+								<img style="margin-left: 15px;" src="/images/user.jpg" width="140" height="125">
 								@endif
 							</div>
 						</div>

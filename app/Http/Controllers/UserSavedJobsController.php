@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\DB;
 class UserSavedJobsController extends Controller
 {
     public function __construct() {
-    	return $this->middleware('auth');
+    	return $this->middleware(['auth','onlyuser']);
     }
 
     public function index() {
