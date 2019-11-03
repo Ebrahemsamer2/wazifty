@@ -102,7 +102,7 @@
 								<input type="hidden" value="{{ $job->id }}" name="job_id">
 								@auth	
 								@if(! auth()->user()->isSaved($job->id))
-								<input class="btn btn-info btn-sm" type="submit" value="Save" name="save">
+								<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> class="btn btn-info btn-sm <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn'; ?>" type="submit" value="Save" name="save">
 								@else
 								<input class="btn btn-secondary btn-sm" type="submit" value="Unsave" name="unsave">
 								@endif

@@ -126,13 +126,13 @@
 								<input type="hidden" value="{{ $job->id }}" name="job_id">
 								@auth	
 								@if(! auth()->user()->isSaved($job->id))
-								<input class="btn btn-info btn-sm" type="submit" value="Save" name="save">
+								<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> class="btn btn-info btn-sm <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn'; ?>" type="submit" value="Save" name="save">
 								@else
 								<input class="btn btn-secondary btn-sm" type="submit" value="Unsave" name="unsave">
 								@endif
 								@endauth
 								@guest
-								<input class="btn btn-info btn-sm" type="submit" value="Save" name="save">
+								<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> class="btn btn-info btn-sm <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn'; ?>" type="submit" value="Save" name="save">
 								@endguest
 								<a class="btn btn-warning btn-sm" href="/jobs/{{ $job->slug }}" target="_blank">Preview</a>
 							</form>
@@ -141,7 +141,7 @@
 					@endforeach
 					@else
 					<div class="alert text-center">
-						<p style="font-size: 20px;">No jobs found at this city</p>
+						<p style="font-size: 20px;">No jobs found</p>
 					</div>
 					@endif
 				</div>

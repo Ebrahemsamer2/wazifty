@@ -15,6 +15,7 @@ class CreateCompanyProfilesTable extends Migration
             $table->string('website')->nullable()->unique();
             $table->string('address')->nullable();
             $table->text('about')->nullable();
+            $table->string('specialization')->nullable();
                 
             $table->string('github')->nullable()->unique();
             $table->string('portfolio')->nullable()->unique();

@@ -177,7 +177,7 @@
 					<hr>
 					<div class="actions bg-white">
 						<form method="post" action="/jobs">
-							<input <?php if(! auth()->user()) echo 'disabled'; ?> class="btn btn-info @guest {{ 'disabled-btn' }} @endguest" type="submit" value="Save" name="savejob">
+							<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> class="btn btn-info <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn';?> " type="submit" value="Save" name="savejob">
 						</form>
 						@guest
 						<span>Please <a href="/login">{{ __('Sign in') }}</a> to apply</span>

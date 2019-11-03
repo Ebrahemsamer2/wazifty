@@ -1,0 +1,121 @@
+
+/* 
+	Main Color: #5e72e4;
+	Second Color: #eaeaea;;
+*/
+
+/* Constant */
+hr {
+	margin: 10px 0 10px 0;
+	border-color: #f1f1f1;
+}
+
+.activated {
+	color: green;
+}
+
+.deactivated {
+	color: red;
+}
+
+.disabled-btn {
+	cursor: not-allowed;
+}
+
+/* ============  */
+.container .header,
+.container .about,
+.company-links,
+.company-jobs {
+	border: 1px solid rgb(217, 221, 228);
+	margin-top: 20px;
+	margin-bottom: 10px;
+	background-color: #fff;
+	margin-left: 10px;
+	width: 100%;
+}
+
+.container .header,.container .company-info {
+	max-height: 130px;
+	height: 130px;
+}
+
+.container .col-sm-3 {
+	padding: 0;
+}
+
+.container .header .col-sm {
+	margin-right: 0;
+}
+
+.container .company-info h2 {
+	font-weight: 400;
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+
+.container .company-info p.spec {
+	font-weight: 400;
+	color: grey;
+	font-size: 14px;
+}
+
+.container .about {
+	padding: 20px;
+    margin: 15px 10px;
+    margin-left: -4px;
+    width: 102%;
+    height: 155px;
+    max-height: 155px;
+}
+
+.container .about p {
+	margin: 10px 0 0 0;
+}
+
+.container .company-links {
+	padding: 10px;
+}
+
+.container .company-links ul {
+	margin-left: 5px;
+}
+
+.container .company-links ul li {
+	margin-bottom: 10px;
+}
+
+.container .company-jobs {
+	padding: 20px;
+    margin: 5px 10px;
+    margin-left: -4px;
+    width: 102%;
+}
+
+.container .company-jobs p.no-jobs {
+	font-weight: 400;
+	font-size: 25px;
+	color: grey;
+}
+
+.job {
+	padding: 10px;
+	margin-top: 10px;
+}
+
+.job + hr {
+	margin-right: -20px;
+	margin-left: -20px;
+	border-color: rgba(0,0,0,.1);
+}
+
+.job .info span {
+	font-size: 13px;
+	opacity: .8;
+	font-weight: 400;
+}
+
+.info span.text-green {
+	font-weight: 300;
+	font-size: 15px;
+}

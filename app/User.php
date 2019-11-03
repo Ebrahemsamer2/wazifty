@@ -69,7 +69,9 @@ class User extends Authenticatable
         return $this->admin == 1;
     }
 
+    // check if a specific job is saved or not 
     public function isSaved($job_id) {
         return $this->saved_jobs()->where('job_id', $job_id)->first();
     }
+    
 }

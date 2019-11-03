@@ -85,7 +85,11 @@
 							    	@endif
 							    @endauth
 							    <a class="dropdown-item" href="<?php if(auth()->user()->emp_type =='employee') echo '/user';else echo '/company'; ?>/profile"><i class="fas fa-user-edit text-blue"></i> Edit profile</a>
+							    @if(auth()->user()->emp_type == "employee")
 							    <a class="dropdown-item" href="/user/{{ auth()->user()->id }}"><i class="fa fa-eye text-blue"></i> Preview profile</a>
+							    @else
+							    <a class="dropdown-item" href="/company/{{ auth()->user()->id }}"><i class="fa fa-eye text-blue"></i> Preview profile</a>
+							    @endif
 							    <a class="dropdown-item" href="/user/applications"><i class="fas fa-poll-h text-blue"></i> Applications</a>
 							    <a class="dropdown-item" href="/user/saved-jobs"><i class="fas fa-briefcase text-blue"></i> Saved jobs</a>
 							    <div class="dropdown-divider"></div>

@@ -186,8 +186,9 @@ public function update(Request $request) {
 
     public function show($id) {
     	$company = User::where('emp_type', 'employer')->where('id',$id)->first();
-    	if($company && auth()->user()->emp_type == 'employee') {
-    		return view('companyprofile.show', compact('company'));
+    	if($company && ( auth()->user()->emp_type == 'employee' || auth()->user()->id == $id) ) {
+    		$jobs = $company->jobs()->orderBy('active', 'desc')->get();
+    		return view('companyprofile.show', compact('company', 'jobs'));
     	}
     	return abort(404);
     }

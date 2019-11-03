@@ -57,6 +57,7 @@ $factory->define(CompanyProfile::class, function (Faker $faker) {
         'website' => $faker->unique()->randomElement([$faker->url, NULL]),
     	'address' => $faker->word.' '.$faker->word,
         'about' => $faker->paragraph,
+        'specialization' => $faker->word. ' ' . $faker->word,
         'github' => $faker->unique()->randomElement([$faker->url, NULL]),
         'linkedin' => $faker->unique()->randomElement([$faker->url, NULL]),
         'portfolio' => $faker->unique()->randomElement([$faker->url, NULL]),
