@@ -89,4 +89,42 @@ $(function() {
 		$('.container + .alert-danger,.container + .alert-success').css('display', 'none');
 	});
 
+
+	//  Filter Form
+
+	$("select[name='category']").on("change", function() {
+		if($(this).val() != ""){
+			if($("select[name='place']").val() == "") {
+				window.open("/jobs/"+$(this).val(),"_top");
+			}else {
+				window.open("/"+$("select[name='place']").val()
+					+"-jobs/"+$("select[name='category']").val(),"_top");
+			}
+		}else{
+			if($("select[name='place']").val() != "") {
+				window.open("/"+$("select[name='place']").val()+"-jobs","_top");
+			}else {
+				window.open("/jobs","_top");
+			}
+			
+		}
+	});
+	$("select[name='place']").on("change", function() {
+		if($(this).val() != ""){
+			if($("select[name='category']").val() == "") {
+				window.open("/"+$("select[name='place']").val()+"-jobs","_top");
+			}else {
+				window.open("/"+$("select[name='place']").val()
+					+"-jobs/"+$("select[name='category']").val(),"_top");
+			}
+		}else {
+			if($("select[name='category']").val() != "") {
+				window.open("/jobs/"+$("select[name='category']").val(),"_top");
+			}else{
+				window.open("/jobs","_top");
+			}	
+		}
+
+	});
+
 });

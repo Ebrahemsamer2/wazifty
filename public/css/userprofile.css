@@ -12,7 +12,7 @@ html, body {font-family: 'Lato', helvetica, arial, sans-serif; font-size: 16px; 
 .clear {clear: both;}
 
 p {
-	font-size: 1em;
+	font-size: 1.2em;
 	line-height: 1.4em;
 	margin-bottom: 20px;
 	color: #444;
@@ -42,7 +42,7 @@ p {
 }
 
 #name h2 {
-	font-size: 2em;
+	font-size: 1.5em;
 	margin-left: 2px;
 	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 }
@@ -138,6 +138,7 @@ section:last-child {
 	font-family: 'Rokkitt', Helvetica, Arial, sans-serif;
 	font-size: 1.5em;
 	margin-bottom: -2px;
+	font-weight: 400;
 }
 
 .subDetails {

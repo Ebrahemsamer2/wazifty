@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 
 use App\Job;
 use App\Answer;
+use App\Category;
 
 class JobController extends Controller
 {
@@ -21,9 +22,18 @@ class JobController extends Controller
     }
 
     public function show($slug) {
-    	$job = Job::where('slug','=',$slug)->first();
-        $related_jobs = Job::where('category_id', $job->category_id)->limit(5)->get();
-    	return view('jobs.show', compact('job', 'related_jobs'));
+        if($job = Job::where('slug','=',$slug)->first()) {
+            $related_jobs = Job::where('category_id', $job->category_id)->limit(5)->get();
+    	   return view('jobs.show', compact('job', 'related_jobs'));
+        }else {
+
+            if($category = Category::where('name','=',$slug)->first()) {
+                $jobs = $category->jobs()->where('active',1)->orderBy('id', 'desc')->paginate(10);
+                return view('jobs.jobs_at', compact('jobs','category'));
+            }else {
+                return abort(404);
+            }          
+        }
     }
 
     public function apply(Request $request, $slug) {
@@ -78,5 +88,17 @@ class JobController extends Controller
             ]);
             return redirect()->back()->withStatus("You successfully applied for this job");
         }
+    }
+
+    public function jobsByPlace($place) {
+        $jobs = Job::where('work_place', $place)->where('active', 1)->orderBy('id', 'desc')->paginate(10);
+
+        return view('jobs.jobs_at', compact('jobs', 'place'));
+    }
+
+    public function jobsByCategoryAndPlace($place, $category) {
+        $category = Category::where('name','=',$category)->first();
+        $jobs = $category->jobs()->where('active', 1)->where('work_place',$place)->orderBy('id', 'desc')->paginate(10);
+        return view('jobs.jobs_at', compact('jobs', 'place','category'));
     }
 }

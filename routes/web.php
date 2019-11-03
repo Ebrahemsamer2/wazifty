@@ -1,6 +1,5 @@
 <?php
 
-
 // Resume Routes
 
 Route::get('/resume/{resume}','admin\ResumeController@viewResume');
@@ -40,6 +39,11 @@ Route::post('/jobs', 'UserSavedJobsController@save')->middleware('auth');
 Route::get('/jobs/{slug}', 'JobController@show');
 
 Route::post('/jobs/{slug}', 'JobController@apply')->middleware('auth');
+
+Route::get('/{place}-jobs','JobController@jobsByPlace');
+
+Route::get('/{place}-jobs/{category}','JobController@jobsByCategoryAndPlace');
+
 
 // user edit profile
 

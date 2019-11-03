@@ -1,6 +1,18 @@
 @extends('layouts.user')
 
-@section('title', 'Jobs | Find your job in easy way at WAZIFTY')
+@isset($place)
+	@isset($category)
+		@section('title', $category->name .' Jobs at ' . $place .' | Find your job in easy way at WAZIFTY')
+	@endisset
+@endisset
+
+@isset($place)
+	@section('title', 'Jobs at ' . $place .' | Find your job in easy way at WAZIFTY')
+@endisset
+
+@isset($category)
+	@section('title', $category->name . ' Jobs | Find your job in easy way at WAZIFTY')
+@endisset
 
 @section('css')
 
@@ -16,14 +28,25 @@
 	
 	<div class="container">	
 		<div class="row">
-			<div class="col-sm-8 jobs">
+			<div class="col-sm-12 jobs">
 				
 				<div class="all-jobs">
 					
 					<div class="jobs-heading">
 						<div class="row">
 							<div class="col-sm-6">
-								<h1>Opportunities for you</h1>
+								@if(isset($place))
+									@if(isset($category))
+									<h1>{{ $category->name }} Jobs available in {{$place}}</h1>
+									@else
+									<h1>Jobs available in {{$place}}</h1>
+									@endif
+								@else
+									@if(isset($category))
+									<h1>{{ $category->name }} Jobs available </h1>
+									@endif	
+								@endif
+
 							</div>
 							<div class="col-sm">
 										
@@ -45,6 +68,7 @@
 										</select>
 									</div>
 								</div>
+
 							</div>
 						</div>
 						
@@ -63,7 +87,7 @@
 						{{ \Session::get('status') }}
 					</div>
 					@endif
-					
+					@if(count($jobs))
 					@foreach($jobs as $job)
 					<div class="job bg-white">
 						<div class="row">
@@ -115,38 +139,14 @@
 						</div>
 					</div>
 					@endforeach
+					@else
+					<div class="alert text-center">
+						<p style="font-size: 20px;">No jobs found at this city</p>
+					</div>
+					@endif
 				</div>
 				<div class="pagination">
 					{{ $jobs->links() }}
-				</div>
-			</div>
-			<div class="col-sm">
-				<div class="recent-cairo bg-white">
-					<h2>Recent jobs at cairo <a href="/cairo-jobs">View all</a></h2>
-					<hr>
-					@foreach($cairo_jobs as $job)
-						<div class="job">
-							<h4 class="title">
-								<a href="/jobs/{{ $job->slug }}">{{ $job->title }}</a>
-							</h4>
-							<span class="date">{{$job->created_at->diffForHumans()}}</span>
-							<span class="apply text-green">{{count($job->application->users)}} applied</span>
-						</div>
-					@endforeach
-				</div>
-
-				<div class="recent-alex bg-white">
-					<h2>Recent jobs at alex <a href="/alexandria-jobs">View all</a></h2>
-					<hr>
-					@foreach($alex_jobs as $job)
-						<div class="job">
-							<h4 class="title">
-								<a href="/jobs/{{ $job->slug }}">{{ $job->title }}</a>
-							</h4>
-							<span class="date">{{$job->created_at->diffForHumans()}}</span>
-							<span class="apply text-green">{{count($job->application->users)}} applied</span>
-						</div>
-					@endforeach
 				</div>
 			</div>
 		</div>
