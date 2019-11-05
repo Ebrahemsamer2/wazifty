@@ -142,6 +142,17 @@
                                     @endif
                                 </div>
 
+                                <div class="form-group{{ $errors->has('work_place') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-title">{{ __('Job Work Place') }}</label>
+                                    <input type="text" name="work_place" id="input-work-place" class="form-control form-control-alternative{{ $errors->has('work_place') ? ' is-invalid' : '' }}" placeholder="{{ __('Job Work Place') }}" value="{{ old('work_place') }}" required>
+                                    <p class="work-place-error js-error">Job work place must be between 3 - 50 characters and specific country / city</p>
+                                    @if ($errors->has('work_place'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('work_place') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-category-id">{{ __('Job Category') }}</label>
                                     <select name="category_id" id="input-category-id" class="form-control form-control-alternative" required>
@@ -181,7 +192,7 @@
                                       </div>
                                       <div class="modal-footer">
                                         <button name="noButton" type="submit" class="btn btn-secondary">No</button>
-                                        <button name="yesButton" type="submit" class="btn btn-primary" >Yes</a>
+                                        <button name="yesButton" type="submit" class="btn btn-primary" >Yes</button>
                                       </div>
                                     </div>
                                   </div>

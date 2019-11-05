@@ -164,15 +164,16 @@
 										@endif
 									</span>
 									@if($job->active == 1)
-									@if(count($job->application->users))
-									<span class="float-right text-green mr-6">
-										{{ count($job->application->users) . ' applied'}}
-									</span>
-									@else
-									<span class="float-right text-default mr-6">
-										No one applied yet
-									</span>
-									@endif
+										
+										@if($job->application)
+										<span class="float-right text-green mr-6">
+											{{ count($job->application->users) . ' applied'}}
+										</span>
+										@else
+										<span class="float-right text-default mr-6">
+											No one applied yet
+										</span>
+										@endif
 									@endif
 								</div>
 								<hr>
@@ -184,6 +185,11 @@
 										<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> class="btn btn-info btn-sm <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn';?>" type="submit" value="Save" name="save">
 
 										<a class="btn btn-warning btn-sm" href="/jobs/{{ $job->slug }}" target="_blank">Preview</a>
+										@auth
+										@if(auth()->user()->id == $id)
+										<a target="_black" href="/company/{{ auth()->user()->id }}/job/{{ $job->slug }}/applications" class="float-right">Manage applications</a>
+										@endif
+										@endauth
 									</form>
 								</div>
 							</div><hr>

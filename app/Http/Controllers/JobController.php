@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 use App\Job;
 use App\Answer;
 use App\Category;
+use App\Application;
 
 class JobController extends Controller
 {
@@ -101,4 +102,30 @@ class JobController extends Controller
         $jobs = $category->jobs()->where('active', 1)->where('work_place',$place)->orderBy('id', 'desc')->paginate(10);
         return view('jobs.jobs_at', compact('jobs', 'place','category'));
     }
+
+
+    public function createJob() {
+        if(auth()->user()) {
+            if(auth()->user()->emp_type == "employer") {
+                $cats = Category::all();
+                return view("jobs.newjob", compact('cats'));
+            }
+        }
+    }
+
+    public function storeJob(Request $request) {
+        $data = $request->all();
+        $data['user_id'] = auth()->user()->id;
+        $data['slug'] = implode('-', explode(' ', $request->title));
+        
+        if($job = Job::create($data)) {
+            $application = Application::create(['job_id' => $job->id]);
+            if($request->has('noButton')) {
+                return redirect('/company/'.auth()->user()->id)->withStatus('Job successfully created.');
+            }else {
+                return redirect('/company/jobs/applications/'.$application->id);
+            }
+        }
+    }
+
 }

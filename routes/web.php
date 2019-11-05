@@ -44,6 +44,9 @@ Route::get('/{place}-jobs','JobController@jobsByPlace');
 
 Route::get('/{place}-jobs/{category}','JobController@jobsByCategoryAndPlace');
 
+Route::get('/newjob', 'JobController@createjob')->middleware(['auth','onlycompany']);
+
+Route::post('/newjob', 'JobController@storeJob')->middleware(['auth','onlycompany']);
 
 // user edit profile
 
@@ -70,6 +73,26 @@ Route::post('/company/profile', 'CompanyProfileController@updatePicture');
 // Visitation view for users and companies
 
 Route::get('/company/{id}', 'CompanyProfileController@show');
+
+
+
+// Managing users applications by company
+
+Route::get("/company/{id}/job/{slug}/applications", 'JopApplicationsManagerController@jobApplications');
+
+Route::patch("/company/{id}/job/{slug}/applications", 'JopApplicationsManagerController@reject');
+
+// Managing Jobs application 
+
+Route::get('/company/jobs/applications', 'ApplicationQuestionController@index');
+
+Route::get('/company/jobs/applications/{id}', 'ApplicationQuestionController@show');
+Route::post('/company/jobs/applications/{id}', 'ApplicationQuestionController@addquestions');
+
+
+
+
+
 
 
 

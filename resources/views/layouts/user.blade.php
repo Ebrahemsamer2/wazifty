@@ -90,8 +90,19 @@
 							    @else
 							    <a class="dropdown-item" href="/company/{{ auth()->user()->id }}"><i class="fa fa-eye text-blue"></i> Preview profile</a>
 							    @endif
+
+
+							    @if(auth()->user()->emp_type == "employee")
 							    <a class="dropdown-item" href="/user/applications"><i class="fas fa-poll-h text-blue"></i> Applications</a>
 							    <a class="dropdown-item" href="/user/saved-jobs"><i class="fas fa-briefcase text-blue"></i> Saved jobs</a>
+							    @endif
+							    @if(auth()->user()->emp_type == "employer")
+							    <a class="dropdown-item" href="/company/jobs/applications"><i class="fas fa-poll-h text-blue"></i> Applications</a>
+
+							    <a class="dropdown-item" href="/newjob"><i class="fas fa-briefcase text-blue"></i> New job</a>
+							    
+							    
+							    @endif
 							    <div class="dropdown-divider"></div>
 			                    <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
 			                    document.getElementById('logout-form').submit();">

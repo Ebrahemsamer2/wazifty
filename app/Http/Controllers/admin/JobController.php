@@ -33,15 +33,14 @@ class JobController extends Controller
     {   
         $data = $request->all();
         $data['user_id'] = auth()->user()->id;
-
+        $data['slug'] = implode('-', explode(' ', $request->title));
         if($job = Job::create($data)) {
             $application = Application::create(['job_id' => $job->id]);
             if($request->has('noButton')) {
                 return redirect('/admin/jobs')->withStatus('Job successfully created.');
             }else {
-                return redirect('/admin/applications/'.$application->id.'/questions');
+                return redirect('/admin/applications/'.$application->id);
             }
-            
         }
     }
     public function show(Job $job)

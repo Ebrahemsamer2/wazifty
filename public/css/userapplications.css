@@ -52,6 +52,9 @@
 	margin-left: -10px;
 	margin-top: 10px;
 }
+.all-applications ul li{
+	opacity: .8;
+}
 
 .application p {
 	font-size: 14px;

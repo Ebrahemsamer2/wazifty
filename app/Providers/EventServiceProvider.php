@@ -23,6 +23,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\CreatingCompanyProfile' => [
             'App\Listeners\CreatingCompanyProfileListener',
+        ],
+        'App\Events\ProfileSeen' => [
+            'App\Listeners\ProfileSeenListener',
         ]
     ];
 

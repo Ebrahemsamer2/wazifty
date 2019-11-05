@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Picture;
 
+use App\Events\ProfileSeen;
+
 class UserProfileController extends Controller
 {
 
@@ -218,6 +220,11 @@ class UserProfileController extends Controller
     public function show($id) {
     	$user = User::where('emp_type', 'employee')->where('id',$id)->first();
     	if($user && ( auth()->user()->emp_type == 'employer' || auth()->user()->id === $user->id )) {
+
+    		if(auth()->user()->emp_type == 'employer') {
+    			$company = auth()->user()->id;
+    			event(new ProfileSeen($user, $company));
+    		}
     		return view('userprofile.show', compact('user'));
     	}
     	return abort(404);

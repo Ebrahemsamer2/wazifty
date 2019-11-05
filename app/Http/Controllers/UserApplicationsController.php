@@ -16,7 +16,7 @@ class UserApplicationsController extends Controller
 
 	public function index() {
 		$user = auth()->user();
-		$applications = $user->applications;
+		$applications = $user->applications()->orderBy('pivot_created_at', 'desc')->paginate(12);
 		return view('userapplications.index', compact('user', 'applications'));
 	}
 

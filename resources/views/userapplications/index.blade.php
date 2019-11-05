@@ -48,7 +48,7 @@
 					<ul>
 						<li class=" {{ $application->pivot->seen ? 'text-green':''}}">Seen</li>
 						<li class=" {{ $application->pivot->contact ? 'text-green':''}}">Contact</li>
-						<li class=" {{ $application->pivot->accepted ? 'text-green': $application->pivot->accepted == -1 ? 'text-danger':'' }}"> {{ $application->pivot->accepted >= 0 ? 'Accepted':'Rejected' }} </li>
+						<li class="@if($application->pivot->accepted) {{ 'text-green' }}@endif  @if($application->pivot->accepted == -1){{ 'text-danger'}} @endif"> @if($application->pivot->accepted >= 0 ){{ 'Accepted' }} @endif @if($application->pivot->accepted == -1 ){{ 'Rejected' }} @endif</li>
 					</ul>	
 
 					@if(count($application->questions))

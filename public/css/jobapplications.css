@@ -1,0 +1,96 @@
+
+/* 
+	Main Color: #5e72e4;
+	Second Color: #eaeaea;;
+*/
+
+/* Constant */
+hr {
+	margin: 10px 0 10px 0;
+	border-color: #f1f1f1;
+}
+span.activated,
+span.deactivated,
+span.date {
+	font-size: 14px;
+	font-weight: 400;
+	opacity: .8;
+}
+
+.activated {
+	color: green;
+}
+
+.deactivated {
+	color: red;
+	margin-left: 10px;
+}
+
+.disabled-btn {
+	cursor: not-allowed;
+}
+
+/*================*/
+
+.container .job-applications {
+	margin-top: 50px;
+}
+
+.container .job-applications .header h1 {
+	margin: 0;
+}
+.container .job-applications .header p {
+	font-weight: 400;
+}
+
+.related-info span:nth-child(3) {
+	font-size: 20px;
+	margin-right: 20px;
+}
+.container .job-applications .header {
+	padding: 20px;
+	border: 1px solid rgb(217, 221, 228);
+	background-color: #fff;
+}
+
+.container .job-applications .applications {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.container .job-applications .applications .application {
+	padding: 10px 15px;
+	margin-bottom: 10px;
+	border: 1px solid rgb(217, 221, 228);
+	background: #fff;
+	height: 190px;
+	max-height: 190px;
+	position: relative;
+}
+
+.container .job-applications .applications .application .college {
+	color: grey;
+}
+
+.container .job-applications .applications .application .graduation_year {
+	color: grey;
+	font-size: 14px;
+}
+
+.container .job-applications .applications .application .actions {
+	margin-top: 10px;
+}
+
+.container .job-applications .applications .application .actions form {
+	margin-top: 10px;
+}
+.container .job-applications .applications .application .actions form a,
+.container .job-applications .applications .application .actions form button {
+	width: 29%;
+}
+
+.accepted-image,
+.rejected-image {
+	position: absolute;
+	top: 15px;
+	right: 10px;
+}

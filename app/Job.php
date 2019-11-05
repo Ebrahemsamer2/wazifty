@@ -10,6 +10,7 @@ class Job extends Model
         'user_id',
     	'title',
         'subtitle',
+        'slug',
     	'job_description',
         'job_type',
         'exp_from',
@@ -19,6 +20,7 @@ class Job extends Model
     	'skills',
         'salary',
     	'category_id',
+        'work_place',
         'active',
     ];
 
@@ -34,4 +36,5 @@ class Job extends Model
     public function category() {
     	return $this->belongsTo('App\Category');
     }
+
 }

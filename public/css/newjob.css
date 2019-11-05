@@ -1,0 +1,74 @@
+
+/* 
+	Main Color: #5e72e4;
+	Second Color: #eaeaea;;
+*/
+
+/* Constant */
+hr {
+	margin: 10px 0 10px 0;
+	border-color: #f1f1f1;
+}
+.inline-form {
+	display: inline-block;
+}
+
+
+.inline-input {
+	display: inline;
+	width: 200px;
+	margin-right: 50px;
+	margin-left: 20px;
+}
+.inline-label {
+	display: inline;
+}
+.hint {
+	color: grey;
+	font-size: 12px;
+	display: inline;
+}
+
+.js-error {
+	display: none;
+	font-size: 13px;
+	color: red;
+	margin-left: 10px;
+	font-weight: bold;
+	margin-top: 5px;
+}
+
+.text-grey {
+	color: #b5b7b9;
+}
+.activated {
+	color: green;
+}
+
+.deactivated {
+	color: red;
+}
+
+.disabled-btn {
+	cursor: not-allowed;
+}
+
+/*=========================*/
+
+
+.newjob {
+	margin-top: 50px;
+}
+
+.newjob .alert ul li {
+	font-size: 18px;
+}
+.newjob .alert p {
+	font-size: 20px;
+	margin-left: 15px;
+}
+
+.newjob #save-job {
+	color: #fff;
+	margin-bottom: 10px;
+}

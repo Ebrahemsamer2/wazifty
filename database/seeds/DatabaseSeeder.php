@@ -35,24 +35,32 @@ class DatabaseSeeder extends Seeder
         // fill pivot table
         
         foreach ($users as $user) {
-            
-            $applications_ids = [];
+            if($user->emp_type == "employee") {
+                $applications_ids = [];
 
-            $application_id1 = Application::all()->random()->id;
-            $applications_ids[] = $application_id1;
-            $application_id2 = Application::all()->random()->id;
+                $application1 = Application::all()->random();
+                $application_id1 = $application1->id;
+                if(count($application1->questions) == 0){
+                    $applications_ids[] = $application_id1;
+                }
+                $application2 = Application::all()->random();
+                $application_id2 = $application2->id;
+                if(count($application2->questions) == 0){
+                    $applications_ids[] = $application_id2;
+                }
 
-            if($application_id1 != $application_id2) {
-                $applications_ids[] = $application_id2;
-            }else {
-                $application_id2 = Application::all()->random()->id;
-                $applications_ids[] = $application_id2;
+                if($application_id1 != $application_id2) {
+                    $applications_ids[] = $application_id2;
+                }else {
+                    $application2 = Application::all()->random();
+                    $application_id2 = $application2->id;
+                    $applications_ids[] = $application_id2;
+                }
+                $user->applications()->sync($applications_ids);
             }
-            $user->applications()->sync($applications_ids);
         }
 
     	factory('App\Question', 10)->create();
-    	factory('App\Answer', 5)->create();
         factory('App\Picture', 5)->create();
 
     }
