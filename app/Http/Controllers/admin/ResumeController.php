@@ -24,7 +24,6 @@ class ResumeController extends Controller
         $resume = Resume::findOrFail($id);
 
         if(file_exists('resumes/'. $resume->filename)) {
-            $short_name = explode('_', $resume->filename)[0];
             // file is exist, download it
             return response()->download('resumes/' . $resume->filename, time().'_'.$resume->user->name.'_resume');
         }else {
@@ -42,9 +41,5 @@ class ResumeController extends Controller
             unlink('resumes/' . $filename);
         }
         return redirect('/admin/resumes')->withStatus('Resume successfully deleted');
-    }
-
-    public function viewResume($resume) {
-        return response()->download('/resumes/'.$resume);
     }
 }

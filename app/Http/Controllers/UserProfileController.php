@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Picture;
+use App\Resume;
 
 use App\Events\ProfileSeen;
 
@@ -123,11 +124,43 @@ class UserProfileController extends Controller
 				$rules = [
 					'job_title' => 'string|min:5|max:40|nullable',
 					'summary' => 'string|min:100|max:1000|nullable',
-					'skills' => 'string|min:5|max:100|nullable',
+					'skills' => 'string|min:5|max:500|nullable',
+					'file' => 'file|nullable',
 				];
 
 				$this->validate($request, $rules);
+				if($resume = $request->file("resume")) {
 
+					$filename = $resume->getClientOriginalName();
+					$fileextension = $resume->getClientOriginalExtension();
+					$filesize = $resume->getSize();
+
+					if(! in_array($fileextension,['pdf', 'txt', 'PNG','jpg','doc'])) {
+						return redirect()->back()->withStatus('Only PDF, TXT, PNG, JPG and DOC are allowed');
+					}else if( $filesize > 15000000) {
+						return redirect()->back()->withStatus('Your filesize can not be greater than 1.5M');
+					}
+
+					$fileToStore = auth()->user()->id.explode('.', $filename)[0] .'_'.time().'_.'.$fileextension;
+
+					// delete the old resume
+		            $oldResume = Resume::where('user_id', auth()->user()->id);
+
+		            if($oldResume->first()) {
+		            	$oldResumeFileName = $oldResume->first()->filename;
+		            	$oldResume->delete();
+
+		            	if(file_exists('resumes/'.$oldResumeFileName)) {
+		            		unlink('resumes/'.$oldResumeFileName);
+		            	}
+
+		            }
+
+		            if(Resume::create(['filename' => $fileToStore, 'filesize' => $filesize,'user_id'=>auth()->user()->id])) {
+		                // Store the picture on the serve
+		                $resume->move(public_path('resumes'), $fileToStore);
+					}
+				}
 				if($request->has("job_title")) {
 					$user->userprofile->job_title = $request->job_title;
 				}

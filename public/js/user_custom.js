@@ -168,9 +168,10 @@ $(function() {
 		let requirements = $("#newjobform #input-requirements").val();
 		let skills = $("#newjobform #input-skills").val();
 		let salary = $("#newjobform #input-salary").val();
+		let work_place = $("#newjobform #input-work-place").val();
 		let category_id = $("#newjobform #input-category-id").val();
 
-		if(title.length < 10 || title.length > 100) {
+		if(title.length < 20 || title.length > 100) {
 			$(".title-error").css("display", "block");
 			hideModal();
 			return false;
@@ -217,6 +218,11 @@ $(function() {
 		}
 		if(salary.length < 4 || salary.length > 50) {
 			$(".job-salary-error").css("display", "block");
+			hideModal();
+			return false;
+		}
+		if(work_place.length < 4 || work_place.length > 50) {
+			$(".job-work-place-error").css("display", "block");
 			hideModal();
 			return false;
 		}

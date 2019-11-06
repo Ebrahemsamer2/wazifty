@@ -1,9 +1,22 @@
-@extends('layouts.app', ['title' => __('Job Management')])
+@extends("layouts.user")
+
+@section('title', 'Edit '. $job->title .' | WAZIFTY')
+
+@section('css')
+
+<!-- My Home Custom CSS ( Home )-->
+<link type="text/css" href="/css/home_custom.css" rel="stylesheet">
+
+<!-- My User profile Custom CSS ( edit user profile )-->
+<link type="text/css" href="/css/newjob.css" rel="stylesheet">
+
+
+@endsection
 
 @section('content')
     @include('admin.jobs.partials.header', ['title' => __('Edit Job')])   
 
-    <div class="container-fluid mt--7">
+    <div class="container mt--7">
         <div class="row">
             <div class="col-xl-12 order-xl-1">
                 <div class="card bg-secondary shadow">
@@ -29,6 +42,7 @@
                             @endif
                         </div>
 
+                        
                         <form id="create-job" method="post" action="{{ route('jobs.update', $job) }}" autocomplete="off">
                             @csrf
                             @method('PATCH')
@@ -155,15 +169,15 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('work_place') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-work-place">{{ __('Job Work Place') }}</label>
-                                    <input type="text" name="work_place" id="input-work-place" class="form-control form-control-alternative{{ $errors->has('work_place') ? ' is-invalid' : '' }}" placeholder="{{ __('Job Work Place') }}" value="{{ $job->work_place }}" required>
-                                    <p class="work-place-error js-error">Job work place must be between 3 - 50 characters and specific country / city</p>
-                                    @if ($errors->has('work_place'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('work_place') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
+				                    <label class="form-control-label" for="input-title">{{ __('Job Work Place') }}</label>
+				                    <input type="text" name="work_place" id="input-work-place" class="form-control form-control-alternative{{ $errors->has('work_place') ? ' is-invalid' : '' }}" placeholder="{{ __('Job Work Place') }}" value="{{ $job->work_place }}" required>
+				                    <p class="work-place-error js-error">Job work place must be between 3 - 50 characters and specific country / city</p>
+				                    @if ($errors->has('work_place'))
+				                        <span class="invalid-feedback" role="alert">
+				                            <strong>{{ $errors->first('work_place') }}</strong>
+				                        </span>
+				                    @endif
+				                </div>
 
                                 <div class="form-group">
                                     <label class="form-control-label" for="input-category-id">{{ __('Job Category') }}</label>
@@ -189,13 +203,10 @@
                                     <button type="submit" class="btn btn-success mt-4">{{ __('Update') }}</button>
                                 </div>
                             </div>
-                            <input type="hidden" name="fromadmin" value="1">
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        
-        @include('layouts.footers.auth')
     </div>
 @endsection

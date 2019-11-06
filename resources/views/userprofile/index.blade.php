@@ -134,7 +134,7 @@
 				
 				<div class="col-sm-7 offset-sm-3 bg-white">
 
-					<form autocomplete="off" method="POST" action="/user/profile">
+					<form autocomplete="off" method="POST" action="/user/profile" enctype="multipart/form-data">
 						@csrf
 						@method('patch')
 
@@ -150,6 +150,10 @@
 						<div class="form-group">	
 							<p>Every skill must be seperated with comma (,)</p>
 							<textarea rows="3" placeholder="Your skills (ex: HTML, CSS, Javascript...)" class="form-control" name="skills">{{ $user->userprofile->skills }}</textarea>
+						</div>
+
+						<div class="form-group">	
+							<input type="file" name="resume" class="form-control">
 						</div>
 
 						<input value="Save" type="submit"  name="submitemploymentinfo" class="btn btn-primary">

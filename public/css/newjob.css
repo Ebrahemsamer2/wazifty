@@ -67,8 +67,10 @@ hr {
 	font-size: 20px;
 	margin-left: 15px;
 }
-
-.newjob #save-job {
+h1.display-2 {
+	margin-left: 85px!important;
+}
+#save-job {
 	color: #fff;
 	margin-bottom: 10px;
 }

@@ -178,19 +178,40 @@
 								</div>
 								<hr>
 								<div class="actions">
-									<form method="post" action="/user/saved-jobs">
+									<form class="inline-form" method="post" action="/user/saved-jobs">
 										@csrf
 										<input type="hidden" value="{{ $job->id }}" name="job_id">
 										
 										<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> class="btn btn-info btn-sm <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn';?>" type="submit" value="Save" name="save">
 
-										<a class="btn btn-warning btn-sm" href="/jobs/{{ $job->slug }}" target="_blank">Preview</a>
+										<a class="btn btn-default btn-sm" href="/jobs/{{ $job->slug }}" target="_blank">Preview</a>
 										@auth
 										@if(auth()->user()->id == $id)
 										<a target="_black" href="/company/{{ auth()->user()->id }}/job/{{ $job->slug }}/applications" class="float-right">Manage applications</a>
 										@endif
 										@endauth
 									</form>
+
+									<form class="inline-form" action="/company/{{ auth()->user()->id }}" method="POST">
+                                    @csrf
+                                    @method('PATCH')
+                                	<input type="hidden" name="job_id" value="{{ $job->id }}">
+                                    @if($job->active == 1)
+                                        <input type="hidden" value="0" name="active">
+                                        <input type="submit" value="Deactivate" class="btn btn-warning btn-sm">
+                                    @else
+                                        <input type="hidden" value="1" name="active">
+                                        <input class="btn btn-success btn-sm" type="submit" value="Activate">
+                                    @endif
+
+                                    @if(auth()->user()->id == $job->user_id && auth()->user()->emp_type == "employer")
+
+                                    <a href="/company/{{auth()->user()->id}}/job/{{$job->slug}}/edit" class="btn btn-primary btn-sm">Edit</a>
+
+                                    @endif
+                                    </form>
+
+
 								</div>
 							</div><hr>
 							@endforeach

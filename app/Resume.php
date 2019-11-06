@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Resume extends Model
 {
-    protected $fillanble = [
+    protected $fillable = [
     	'filename',
+    	'filesize',
+    	'user_id',
     ];
 
     public function user() {

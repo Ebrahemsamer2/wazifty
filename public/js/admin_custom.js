@@ -16,6 +16,7 @@ $(function() {
 		let requirements = $("#create-job #input-requirements").val();
 		let skills = $("#create-job #input-skills").val();
 		let salary = $("#create-job #input-salary").val();
+		let work_place = $("#create-job #input-work-place").val();
 		let category_id = $("#create-job #input-category-id").val();
 
 		if(title.length < 10 || title.length > 100) {
@@ -65,6 +66,11 @@ $(function() {
 		}
 		if(salary.length < 4 || salary.length > 50) {
 			$(".job-salary-error").css("display", "block");
+			hideModal();
+			return false;
+		}
+		if(work_place.length < 4 || work_place.length > 50) {
+			$(".job-work-place-error").css("display", "block");
 			hideModal();
 			return false;
 		}

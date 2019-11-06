@@ -114,7 +114,26 @@ class JobController extends Controller
     }
 
     public function storeJob(Request $request) {
+
+        $rules = [
+            'title' => 'required|string|min:20|max:100',
+            'subtitle' => 'nullable|string|min:20|max:200',
+            'job_description' => 'required|min:20|max:1000',
+            'job_type' => 'required|string|min:5|max:20',
+            'exp_from' => 'required|integer',
+            'exp_to' => 'required|integer',
+            'responsibility' => 'required|min:50|max:1000',
+            'requirements' => 'required|min:50|max:1000',
+            'skills' => 'required|min:20|max:1000',
+            'salary' => 'required|min:4|max:100',
+            'work_place' => 'required|min:4|max:50',
+            'category_id' => 'required|integer',
+        ];
+
+        $this->validate($request, $rules);
+
         $data = $request->all();
+
         $data['user_id'] = auth()->user()->id;
         $data['slug'] = implode('-', explode(' ', $request->title));
         
@@ -126,6 +145,40 @@ class JobController extends Controller
                 return redirect('/company/jobs/applications/'.$application->id);
             }
         }
+    }
+
+    public function edit($id, $slug) {
+
+        if(auth()->user()->id != $id) {
+            return abort(404);
+        } else {
+            $job = Job::where('slug', $slug)->first();
+            $cats = Category::all();
+            if($job) {
+                return view('jobs.edit', compact('job', 'cats'));
+            }else {
+                return abort(404);
+            }
+        }
+    }
+
+    // active company job 
+    public function active(Request $request, $id) {
+
+        if(auth()->user()->id != $id) {
+            return abort(404);
+        } else {
+            $job = Job::findOrFail($request->job_id);
+            if($job) {
+                $job->update(['active' => $request->active]);
+                if($job->save()) {
+                    return redirect()->back()->withStatus("Job successfully updated");
+                }
+            }else {
+                return redirect()->back()->withStatus("Job no longer exits");
+            }
+        }
+
     }
 
 }

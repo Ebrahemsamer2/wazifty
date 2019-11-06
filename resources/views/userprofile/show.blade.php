@@ -25,7 +25,13 @@
 		</div>
 		
 		<div id="name">
-			<h1 class="quickFade delayTwo">{{ $user->name }}</h1>
+			<h1 class="quickFade delayTwo">{{ $user->name }}
+				@if($user->resume)
+
+					<a style="margin-left: 300px;letter-spacing: 2px;" class="btn btn-default btn-sm" href="/resume/{{$user->resume->id}}/download"><i class="fas fa-download"></i> {{ __('My resume') }}</a>
+
+				@endif
+			</h1>
 			<h2 class="quickFade delayThree">{{ $user->userprofile->job_title ? $user->userprofile->job_title : 'Not defined' }} </h2>
 		</div>
 		
@@ -113,9 +119,7 @@
 	
 	@if($user->resume)
 
-	<form method="get" action="/resume/{{ $user->resume->filename }}" style="margin: 10px 0 50px 0;" class="user-resume">
-		<input  type="submit" style="margin-left: 120px;" class="btn btn-info" value="User resume" /> 
-	</div>
+		<a style="margin-left: 120px; margin-bottom: 20px; letter-spacing: 2px;" class="btn btn-default btn-sm" href="/resume/{{$user->resume->id}}/download"><i class="fas fa-download"></i> {{ __('My resume') }}</a>
 
 	@endif
 @endsection

@@ -22,6 +22,10 @@ hr {
 	cursor: not-allowed;
 }
 
+.inline-form {
+	display: inline;
+}
+
 /* ============  */
 .container .header,
 .container .about,

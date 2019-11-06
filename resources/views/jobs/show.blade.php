@@ -156,28 +156,42 @@
 
 					<div class="responsibility bg-white">
 						<h4>Responsibility</h4>
-						@foreach(explode(',', $job->responsibility) as $res)
-						<p> - {{ $res }}</p>
-						@endforeach
+						<?php $responsibilities = explode(',', $job->responsibility); ?>
+                        <ul>
+                            @foreach($responsibilities as $responsibility)
+                            <li>{{ $responsibility }}</li>
+                            @endforeach
+                        </ul>
 					</div>
 					
 					<div class="requirements bg-white">
 						<h4>Job requirements</h4>
-						@foreach(explode(',', $job->requirements) as $requirement)
-						<p> - {{ $requirement }}</p>
-						@endforeach
+						<?php $requirements = explode(',', $job->requirements); ?>
+                        <ul>
+                            @foreach($requirements as $requirement)
+                            <li>{{ $requirement }}</li>
+                            @endforeach
+                        </ul>
 					</div>
 					<div class="skills bg-white">
 						<h4>Skills needed</h4>
-						@foreach(explode(',', $job->skills) as $skill)
-						<p> - {{ $skill }}</p>
-						@endforeach
+						<?php $skills = explode(',', $job->skills); ?>
+                        <ul>
+                            @foreach($skills as $skill)
+                            <li>{{ $skill }}</li>
+                            @endforeach
+                        </ul>
 					</div>
 
 					<hr>
 					<div class="actions bg-white">
 						<form method="post" action="/jobs">
 							<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> class="btn btn-info <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn';?> " type="submit" value="Save" name="savejob">
+
+							@if(auth()->user()->id == $job->user_id)
+								<a href="/company/{{auth()->user()->id}}/job/{{$job->slug}}/edit" class="btn btn-primary">Edit</a>
+							@endif
+
 						</form>
 						@guest
 						<span>Please <a href="/login">{{ __('Sign in') }}</a> to apply</span>

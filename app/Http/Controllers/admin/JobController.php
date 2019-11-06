@@ -68,6 +68,7 @@ class JobController extends Controller
             $rules = [
                 'title' => 'required|string|min:20|max:100',
                 'subtitle' => 'nullable|string|min:20|max:200',
+                'slug' => 'string|min:20|max:200',
                 'job_description' => 'required|min:20|max:1000',
                 'job_type' => 'required|string|min:5|max:20',
                 'exp_from' => 'required|integer',
@@ -76,6 +77,7 @@ class JobController extends Controller
                 'requirements' => 'required|min:50|max:1000',
                 'skills' => 'required|min:20|max:1000',
                 'salary' => 'required|min:4|max:100',
+                'work_place' => 'required|min:4|max:100',
                 'category_id' => 'required|integer',
             ];
 
@@ -83,6 +85,7 @@ class JobController extends Controller
 
             if($request->has('title')) {
                 $job->title = $request->title;
+                $job->slug = implode('-', explode(' ', $job->title));
             }
             if($request->has('subtitle')) {
                 $job->subtitle = $request->subtitle;
@@ -111,17 +114,34 @@ class JobController extends Controller
             if($request->has('salary')) {
                 $job->salary = $request->salary;
             }
+            if($request->has('work_place')) {
+                $job->work_place = $request->work_place;
+            }
             if($request->has('category_id')) {
                 $job->category_id = $request->category_id;
             }
 
-            if($job->isClean()) {
-                return redirect('/admin/jobs/'. $job->id .'/edit')->withStatus('Nothing changed');
-            }else {
-                if($job->save()) {
-                    return redirect('/admin/jobs')->withStatus('Job successfully updated');
+            if($request->fromadmin) {
+               
+                if($job->isClean()) {
+                    return redirect('/admin/jobs/'. $job->id .'/edit')->withStatus('Nothing changed');
                 }else {
-                    return redirect('/admin/jobs/' . $job->id .'/edit')->withStatus('Something Wrong, Try again');
+                    if($job->save()) {
+                        return redirect('/admin/jobs')->withStatus('Job successfully updated');
+                    }else {
+                        return redirect('/admin/jobs/' . $job->id .'/edit')->withStatus('Something Wrong, Try again');
+                    }
+                }
+            }else {
+
+                if($job->isClean()) {
+                    return redirect('/company/{{ auth()->user()->id }}/job/'. $job->slug .'/edit')->withStatus('Nothing changed');
+                }else {
+                    if($job->save()) {
+                        return redirect('/company/'.auth()->user()->id)->withStatus('Job successfully updated');
+                    }else {
+                        return redirect('/company/{{ auth()->user()->id }}/job/'. $job->slug .'/edit')->withStatus('Something wrong, Try again');
+                    }
                 }
             }
         }

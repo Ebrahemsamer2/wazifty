@@ -48,6 +48,9 @@
 .job-about .about-list li{
 	display: inline;
 }
+.job-about .col-sm-4 {
+	margin-bottom: 20px;
+}
 .job-description, 
 .job-about,
 .job-skills,

@@ -2,8 +2,7 @@
 
 // Resume Routes
 
-Route::get('/resume/{resume}','admin\ResumeController@viewResume');
-
+Route::get('/resume/{id}/download', 'admin\ResumeController@download')->middleware('auth');
 
 // Auth Routes
 
@@ -48,6 +47,14 @@ Route::get('/newjob', 'JobController@createjob')->middleware(['auth','onlycompan
 
 Route::post('/newjob', 'JobController@storeJob')->middleware(['auth','onlycompany']);
 
+Route::get('/company/{id}/job/{slug}/edit', 'JobController@edit')->middleware(['auth','onlycompany']);
+
+// Route::patch('/company/{id}/job/{slug}/edit', 'JobController@update')->middleware(['auth','onlycompany']);
+
+
+Route::patch('/company/{id}', 'JobController@active')->middleware(['auth','onlycompany']);
+
+
 // user edit profile
 
 Route::get('/user/profile', 'UserProfileController@index');
@@ -75,7 +82,6 @@ Route::post('/company/profile', 'CompanyProfileController@updatePicture');
 Route::get('/company/{id}', 'CompanyProfileController@show');
 
 
-
 // Managing users applications by company
 
 Route::get("/company/{id}/job/{slug}/applications", 'JopApplicationsManagerController@jobApplications');
@@ -87,6 +93,7 @@ Route::patch("/company/{id}/job/{slug}/applications", 'JopApplicationsManagerCon
 Route::get('/company/jobs/applications', 'ApplicationQuestionController@index');
 
 Route::get('/company/jobs/applications/{id}', 'ApplicationQuestionController@show');
+
 Route::post('/company/jobs/applications/{id}', 'ApplicationQuestionController@addquestions');
 
 

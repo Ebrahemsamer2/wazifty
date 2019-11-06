@@ -48,21 +48,25 @@
                                                 <h4>About job</h4>
 
                                                 <div class="row">
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-4">
                                                         <h5 class="text-center">Category</h5>
                                                         <h5 class="text-center">{{ Str::limit($job->category->name, 20) }}</h5>
                                                     </div>
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-4">
                                                         <h5 class="text-center">Job type</h5>
                                                         <h5 class="text-center">{{ $job->job_type }}</h5>
                                                     </div>
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-4">
                                                         <h5 class="text-center">Experience needed</h5>
                                                         <h5 class="text-center">{{ $job->exp_from }} - {{ $job->exp_to }} years</h5>
                                                     </div>
-                                                    <div class="col-sm-3">
+                                                    <div class="col-sm-4">
                                                         <h5 class="text-center">Job salary</h5>
-                                                        <h5 class="text-center">{{ Str::limit($job->salary, 20) }}</h5>
+                                                        <h5 class="text-center">{{ $job->salary }}</h5>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <h5 class="text-center">Work place</h5>
+                                                        <h5 class="text-center">{{ $job->work_place }}</h5>
                                                     </div>
 
                                                 </div>
