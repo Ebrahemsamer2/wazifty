@@ -79,14 +79,24 @@ class User extends Authenticatable
 
     // Lets check if user has unreadmessages or not 
 
-    public function checkUnReadMessages() {
-
-        $result = DB::table('chats')->where('user_id', $this->id)->where('company_id', auth()->user()->id)->select('read')->get();
-
-        foreach ($result as $res) {
-            if(! $res->read) {
-                return 1;
+    public function checkUnReadMessages($for) {
+        $result = '';
+        if($for == "company") {
+            $result = DB::table('chats')->where('user_id', $this->id)->where('company_id', auth()->user()->id)->select('read')->get();
+        }else if($for == "user"){
+            $result = DB::table('chats')->where('company_id', $this->id)->where('user_id', auth()->user()->id)->select('read')->get();
+        }else {
+            $result = DB::table('chats')->where('user_id', auth()->user()->id)->select('read')->get();
+        }
+        
+        if(count($result) > 0) {
+            foreach ($result as $res) {
+                if(! $res->read) {
+                    return 1;
+                }
             }
+        }else {
+            return 0;
         }
     }
 

@@ -124,13 +124,20 @@
 		                    Login
 		                </a>
 		                @endguest
+		                @auth
+		                @if(auth()->user()->checkUnReadMessages("nothing"))
 
-		                <!-- <a id="messagerLink" href="/user//contact" >
-		                	
+		                <a id="messagerLink" href="/company/contacts">
 		                	<i id="messagerIcon" style="font-size: 25px; margin-left: 15px; color: #5e72e4;" class="fab fa-facebook-messenger"></i>
+		                </a>
+		                @else
 
-		                </a> -->
+		                <a id="messagerLink" href="/company/contacts">
+		                	<i id="" style="font-size: 25px; margin-left: 15px; color: #5e72e4;" class="fab fa-facebook-messenger"></i>
+		                </a>
 
+		                @endif
+		                @endauth
 <!-- 		                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
 		                        aria-label="Toggle navigation">
 		                   	<span class="navbar-toggler-icon"></span>

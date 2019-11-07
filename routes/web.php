@@ -99,12 +99,19 @@ Route::post('/company/jobs/applications/{id}', 'ApplicationQuestionController@ad
 
 
 
-// Chat Routes
+// Chat Routes For Companies
 
-Route::get('/user/{id}/contact', 'ChatController@getChat');
+Route::get('/user/{id}/contact', 'ChatController@getUserChat')->middleware('onlycompany');
 
-Route::post('/user/{id}/contact', 'ChatController@send');
+Route::post('/user/{id}/contact', 'ChatController@send')->middleware('onlycompany');
 
+
+
+// Chat Routes For Users
+
+// Route::get('/company/contact', 'ChatController@getCompanyChat');
+
+Route::get('/company/{id}/contact', 'ChatController@getCompanyChat')->middleware('onlyuser');
 
 
 // Admin Dashboard Controllers For main website

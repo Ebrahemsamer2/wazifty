@@ -9,10 +9,10 @@ use App\Chat;
 class ChatController extends Controller
 {
     public function __construct() {
-    	$this->middleware(['auth', 'onlycompany']);
+    	$this->middleware(['auth']);
     }
 
-    public function getChat($id) {
+    public function getUserChat($id) {
 
     	$user = User::findOrFail($id);
 
@@ -60,4 +60,30 @@ class ChatController extends Controller
             'fail' => $fail,
 	    ], 200);
     }
+
+    public function getCompanyChat($id) {
+
+        $user = User::findOrFail($id);
+        
+        if(! $user || $user->emp_type == "employee") {
+            return abort(404);
+        }
+        $messages = Chat::where(function($query) use ($id) {
+            $query->where('company_id', $id)->where('user_id', auth()->user()->id);
+        })->get();
+
+        $contact_users = Chat::where('user_id', auth()->user()->id)
+        ->select('company_id')->groupBy('company_id')->get();
+
+        if($messages) {
+            Chat::where('company_id', $user->id)->where('user_id', auth()->user()->id)->update(['read' => 1]);
+           return view('chat.userchat', compact('user', 'messages', 'contact_users'));
+        }else {
+            return abort(404);
+        }
+    }
+
+
+
+
 }

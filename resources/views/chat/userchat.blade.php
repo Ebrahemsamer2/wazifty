@@ -22,14 +22,14 @@
           
           <div class="list-group">
             @foreach($contact_users as $contact)
+              {{ dd($contact_users) }}
+              <a href="/company/{{ $contact->company_id }}/contact" class="list-group-item list-group-item-action contactUser {{$contact->company_id == $user->id ? 'active':''}}">
+                @if($user = \App\User::findOrFail($contact->company_id))
+                  {{ $user->name }}
+                @endif
 
-              <a href="/user/{{ $contact->user_id }}/contact" class="list-group-item list-group-item-action contactUser {{$contact->user_id == $user->id ? 'active':''}}">
-                {{ \App\User::findOrFail($contact->user_id)->name }}
-
-                @if(\App\User::findOrFail($contact->user_id)->checkUnReadMessages("company"))
-
+                @if(\App\User::findOrFail($contact->company_id)->checkUnReadMessages("user"))
                   <i class="fas fa-circle"></i>
-
                 @endif 
 
               </a>
@@ -54,10 +54,11 @@
             <main id="msger-chat" class="msger-chat">
               @if(count($messages) > 0)
             @foreach($messages as $message)
-            @if($message->from == "user")
+
+            @if($message->from == "company")
             <div class="msg left-msg">
               <div>
-                @if(auth()->user()->picture)
+                @if(\App\User::findOrFail($message->company_id)->picture)
                 <img src="/images/{{ \App\User::findOrFail($message->company_id)->picture->filename }}" width="50" height="50">
                 @else
                 <img src="/images/user.jpg" width="50" height="50">

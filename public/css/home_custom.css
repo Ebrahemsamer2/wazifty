@@ -100,13 +100,13 @@
 }
 #messagerIcon:after {
 	content: " ";
-	width: 6px;
-	height: 6px;
-	background-color: red;
-	position: absolute;
-	border-radius: 50%;
-	bottom: -5px;
-	right: 5px;
+    width: 5px;
+    height: 5px;
+    background-color: red;
+    position: absolute;
+    border-radius: 50%;
+    bottom: -4px;
+    right: 7px;
 }
 
 

@@ -36,8 +36,8 @@ class UserProfileController extends Controller
 			$rules = [
 				'name' => 'required|string|min:5|max:50',
 				'email' => 'required|email',
-				'address' => 'required|string|max:100',
-				'phone' => 'required|string|min:10',
+				'address' => 'string|max:100',
+				'phone' => 'string|min:10',
 			];
 
 			$this->validate($request, $rules);
