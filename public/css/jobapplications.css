@@ -82,6 +82,7 @@ span.date {
 
 .container .job-applications .applications .application .actions form {
 	margin-top: 10px;
+	margin-bottom: 5px;
 }
 .container .job-applications .applications .application .actions form a,
 .container .job-applications .applications .application .actions form button {
@@ -93,4 +94,17 @@ span.date {
 	position: absolute;
 	top: 15px;
 	right: 10px;
+}
+
+/* Model CSS */
+
+#send {
+	margin-top: 10px;
+	width: 100px;
+	font-size: 15px;
+	font-weight: 400;
+}
+
+#conversationLink {
+	padding-top: 15px;
 }

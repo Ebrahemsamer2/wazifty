@@ -9,6 +9,12 @@ class HomeController extends Controller
 
     public function index() {
         $messages = DB::table('user_messages')->where("active", 1)->limit(2)->get();
+        $newMessages = '';
+
+        // if(auth()->user()->emp_type == "employer") {
+        //     $newMessages = DB::table('chats')->where('company_id', auth()->user()->id)->where('read', 0)->where('from', 'user')->get();
+        // }
+
     	return view('home', compact('messages'));
     }
 

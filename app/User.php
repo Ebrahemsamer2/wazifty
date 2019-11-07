@@ -6,6 +6,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+use Illuminate\Support\Arr;
+
 use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
@@ -73,5 +75,19 @@ class User extends Authenticatable
     public function isSaved($job_id) {
         return $this->saved_jobs()->where('job_id', $job_id)->first();
     }
-    
+
+
+    // Lets check if user has unreadmessages or not 
+
+    public function checkUnReadMessages() {
+
+        $result = DB::table('chats')->where('user_id', $this->id)->where('company_id', auth()->user()->id)->select('read')->get();
+
+        foreach ($result as $res) {
+            if(! $res->read) {
+                return 1;
+            }
+        }
+    }
+
 }

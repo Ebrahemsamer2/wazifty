@@ -127,30 +127,6 @@ $(function() {
 	});
 
 
-	// Reject Form using ajax
-
-	$("#rejectButton, #acceptButton").click(function(evt) {
-		
-	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
 	function hideModal() {
 		$('#addquestion').modal('toggle');
@@ -272,5 +248,31 @@ $(function() {
 
 
 
-	
+	// Sending message using ajax call
+
+	$("#messageForm").on('submit', function(e) {
+
+		e.preventDefault();
+
+		let userid = $("#messageForm input[name='userid']").val();
+		let data = $(this).serialize();
+		$.ajax({
+			url:"/user/"+userid+"/contact",
+			method: "POST",
+			headers: {
+		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    },
+			data: data,
+			dataType: 'json',
+			success: function(data) {
+				$("#output").html(data.success);
+				$("#messageForm")[0].reset();
+				$('#output').delay(3000).fadeOut(500, function() {
+					$('#output').css('display', 'none');
+				});
+			},
+		});
+	});
+
+
 });

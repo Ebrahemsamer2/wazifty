@@ -1,7 +1,7 @@
 
 /* 
 	Main Color: #5e72e4;
-	Second Color: #eaeaea;
+	Second Color: #yellowgreen;
 
 */
 .bg-white {
@@ -26,7 +26,7 @@
 
 /* Navbar */
 .en header .header {
-	border-bottom: 1px solid rgb(217, 221, 228);
+	border-bottom: 1px solid yellowgreen;
 }
 .en header .header nav .logo {
 	font-size: 25px;
@@ -52,14 +52,14 @@
 }
 .en header .navbar ul li.active a {
 	font-weight: 500;
-	color: #a57711;
+	color: yellowgreen;
 }
 .en header .navbar ul li a {
 	color: #525f7f;
 	transition: .3s ease-in-out;
 }
 .en header .navbar ul li a:hover {
-	color: #a57711;
+	color: yellowgreen;
 }
 
 .en header .btn-login {
@@ -94,6 +94,21 @@
 	top: -5px;
 	color: #fff;
 }
+
+#messagerIcon {
+	position: relative;
+}
+#messagerIcon:after {
+	content: " ";
+	width: 6px;
+	height: 6px;
+	background-color: red;
+	position: absolute;
+	border-radius: 50%;
+	bottom: -5px;
+	right: 5px;
+}
+
 
 /* Dropdown Button */
 .dropbtn {
@@ -207,7 +222,7 @@
 	height: 2px;
     display: block;
     margin: 0 auto;
-    background-color: #a57711;;
+    background-color: yellowgreen;
     content: " ";
     width: 100px;
     margin: 0 auto;

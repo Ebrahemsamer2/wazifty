@@ -99,7 +99,11 @@ Route::post('/company/jobs/applications/{id}', 'ApplicationQuestionController@ad
 
 
 
+// Chat Routes
 
+Route::get('/user/{id}/contact', 'ChatController@getChat');
+
+Route::post('/user/{id}/contact', 'ChatController@send');
 
 
 
