@@ -124,18 +124,16 @@
 		                    Login
 		                </a>
 		                @endguest
-		                @auth
-		                @if(auth()->user()->checkUnReadMessages("nothing"))
 
-		                <a id="messagerLink" href="/company/contacts">
-		                	<i id="messagerIcon" style="font-size: 25px; margin-left: 15px; color: #5e72e4;" class="fab fa-facebook-messenger"></i>
+		                @auth
+		                @if(auth()->user()->emp_type == 'employer')
+		                <a id="messagerLink" href="/user/{{auth()->user()->getFirstChat()}}/contact">
+		                	<i id="<?php if(auth()->user()->checkUnReadMessages('nothing') == 1) echo 'messangerIcon' ; ?>" style="font-size: 25px; margin-left: 15px; color: #5e72e4;" class="fab fa-facebook-messenger"></i>
 		                </a>
 		                @else
-
-		                <a id="messagerLink" href="/company/contacts">
-		                	<i id="" style="font-size: 25px; margin-left: 15px; color: #5e72e4;" class="fab fa-facebook-messenger"></i>
+		                <a id="messagerLink" href="/company/{{auth()->user()->getFirstChat()}}/contact">
+		                	<i id="<?php if(auth()->user()->checkUnReadMessages('nothing') == 1) echo 'messangerIcon'; ?>" style="font-size: 25px; margin-left: 15px; color: #5e72e4;" class="fab fa-facebook-messenger"></i>
 		                </a>
-
 		                @endif
 		                @endauth
 <!-- 		                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"

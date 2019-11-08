@@ -95,10 +95,10 @@
 	color: #fff;
 }
 
-#messagerIcon {
+#messangerIcon {
 	position: relative;
 }
-#messagerIcon:after {
+#messangerIcon:after {
 	content: " ";
     width: 5px;
     height: 5px;

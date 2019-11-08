@@ -88,7 +88,7 @@ class User extends Authenticatable
         }else {
 
             if(auth()->user()->emp_type == "employer") {
-                $result = DB::table('chats')->where('user_id', auth()->user()->id)->where('from','user')->select('read')->get();
+                $result = DB::table('chats')->where('company_id', auth()->user()->id)->where('from','user')->select('read')->get();
             }else {
                 $result = DB::table('chats')->where('user_id', auth()->user()->id)->where('from','company')->select('read')->get();
             }
@@ -103,5 +103,30 @@ class User extends Authenticatable
             return 0;
         }
     }
+
+
+
+    // Get the first chat user id or company id
+
+    public function getFirstChat() {
+
+        if(auth()->user()->emp_type == "employer") {
+            $first_chat = Chat::where('company_id', auth()->user()->id)->first();
+            if($first_chat) {
+                return $first_chat->user_id;
+            }else {
+                return abort(404);
+            }
+        } else {
+            $first_chat = Chat::where('user_id', auth()->user()->id)->first();
+            if($first_chat) {
+                return $first_chat->company_id;
+            }else {
+                return abort(404);
+            }
+        }
+
+    }
+
 
 }

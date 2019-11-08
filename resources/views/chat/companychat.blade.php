@@ -57,8 +57,12 @@
             @if($message->from == "user")
             <div class="msg left-msg">
               <div>
+                @if(\App\User::findOrFail($user->id)->picture)
                 @if(\App\User::findOrFail($user->id)->picture->filename)
                 <img src="/images/{{ \App\User::findOrFail($user->id)->picture->filename }}" width="50" height="50">
+                @else
+                <img src="/images/user.jpg" width="50" height="50">
+                @endif
                 @else
                 <img src="/images/user.jpg" width="50" height="50">
                 @endif
