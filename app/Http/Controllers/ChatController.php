@@ -27,7 +27,7 @@ class ChatController extends Controller
         ->select('user_id')->groupBy('user_id')->get();
 
         if($messages) {
-            Chat::where('user_id', $user->id)->where('company_id', auth()->user()->id)->update(['read' => 1]);
+            Chat::where('user_id', $user->id)->where('company_id', auth()->user()->id)->where('from', 'user')->update(['read' => 1]);
     	   return view('chat.companychat', compact('user', 'messages', 'contact_users'));
         }else {
             return abort(404);
@@ -50,8 +50,35 @@ class ChatController extends Controller
 
         $success = '';
         $fail = '';
-    	if(Chat::create($data)) {
-    	   $success = "<div class='alert alert-success'>Message has been sent.</div>";
+    	if($chat = Chat::create($data)) {
+    	    $success = "<div class='msg right-msg'>";
+            $success .= "<div>";
+            if(auth()->user()->picture){
+                $success .= "<img src='/images/".auth()->user()->picture->filename." ' width='50' height='50'>";
+            }else {
+                $success .= "<img src='/images/user.jpg' width='50' height='50'>";
+            }
+            $success .= "</div>";
+            $success .= "<div class='msg-bubble'>";
+            $success .= "<div class='msg-info'>";
+            $success .= "<div class='msg-info-name'>";
+            $success .= auth()->user()->name;
+            $success .= "</div>";
+
+            if($chat->created_at) {
+                $success .= "<div class='msg-info-time'>";
+                $success .= $chat->created_at->diffForHumans();
+                $success .= "</div>";
+            }
+            $success .= "</div>";
+
+            $success .= "<div class='msg-text'>";
+            $success .= $chat->message;
+            $success .= "</div>";
+            $success .= "</div>";
+            $success .= "</div>";
+            $success .= "</div>";
+
     	}else {
             $fail = "<div class='alert alert-danger'>Something is wrong, Try again.</div>";
         }
@@ -76,7 +103,7 @@ class ChatController extends Controller
         ->select('company_id')->groupBy('company_id')->get();
 
         if($messages) {
-            Chat::where('company_id', $user->id)->where('user_id', auth()->user()->id)->update(['read' => 1]);
+            Chat::where('company_id', $user->id)->where('user_id', auth()->user()->id)->where('from','company')->update(['read' => 1]);
            return view('chat.userchat', compact('user', 'messages', 'contact_users'));
         }else {
             return abort(404);

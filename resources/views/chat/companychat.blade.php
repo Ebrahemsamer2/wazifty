@@ -52,13 +52,13 @@
           </header>
 
             <main id="msger-chat" class="msger-chat">
-              @if(count($messages) > 0)
+            @if(count($messages) > 0)
             @foreach($messages as $message)
             @if($message->from == "user")
             <div class="msg left-msg">
               <div>
-                @if(auth()->user()->picture)
-                <img src="/images/{{ \App\User::findOrFail($message->company_id)->picture->filename }}" width="50" height="50">
+                @if(\App\User::findOrFail($user->id)->picture->filename)
+                <img src="/images/{{ \App\User::findOrFail($user->id)->picture->filename }}" width="50" height="50">
                 @else
                 <img src="/images/user.jpg" width="50" height="50">
                 @endif
@@ -100,11 +100,25 @@
                 </div>
               </div>
             </div>
+            
+
             @endif
             @endforeach
             @endif
           </main>
 
+
+          <form autocomplete="off" id="messageForm" method="POST" action="/user/{{$user->id}}/contact" class="msger-inputarea">
+
+            @csrf
+            <input type="hidden" name="user_id" value="{{$user->id}}">
+            <input type="hidden" name="company_id" value="{{auth()->user()->id}}">
+            <input type="hidden" name="from" value="company">
+            <input type="hidden" name="read" value="0">
+
+            <input name="message" autofocus type="text" class="msger-input" placeholder="Enter your message...">
+            <button type="submit" class="msger-send-btn">Send</button>
+          </form>
 
         </section>
       </div>

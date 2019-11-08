@@ -22,7 +22,6 @@
           
           <div class="list-group">
             @foreach($contact_users as $contact)
-              {{ dd($contact_users) }}
               <a href="/company/{{ $contact->company_id }}/contact" class="list-group-item list-group-item-action contactUser {{$contact->company_id == $user->id ? 'active':''}}">
                 @if($user = \App\User::findOrFail($contact->company_id))
                   {{ $user->name }}
@@ -52,7 +51,7 @@
           </header>
 
             <main id="msger-chat" class="msger-chat">
-              @if(count($messages) > 0)
+            @if(count($messages) > 0)
             @foreach($messages as $message)
 
             @if($message->from == "company")
@@ -106,6 +105,17 @@
             @endif
           </main>
 
+          <form autocomplete="off" id="usermessageForm" method="POST" action="/company/{{$user->id}}/contact" class="msger-inputarea">
+
+            @csrf
+            <input type="hidden" name="user_id" value="{{auth()->user()->id}}">
+            <input type="hidden" name="company_id" value="{{$user->id}}">
+            <input type="hidden" name="from" value="user">
+            <input type="hidden" name="read" value="0">
+
+            <input name="message" autofocus type="text" class="msger-input" placeholder="Enter your message...">
+            <button type="submit" class="msger-send-btn">Send</button>
+          </form>
 
         </section>
       </div>

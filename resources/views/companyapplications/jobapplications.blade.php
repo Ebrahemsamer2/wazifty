@@ -85,7 +85,7 @@
 									@method('PATCH')
 									@if($accepted >= 0)
 
-									<a data-target="#contactModel" data-toggle="modal" <?php echo "{$attr}" ?> href="/user/{{$user->id}}/contact" class="btn btn-info btn-sm {$class}">Contact
+									<a <?php echo "{$attr}" ?> href="/user/{{$user->id}}/contact" class="btn btn-info btn-sm {$class}">Contact
 									</a>
 
 									@endif
@@ -97,7 +97,6 @@
 									<input type="submit" value="{{$acceptValue}}" <?php echo "{$attr}" ?> id="acceptButton" class="btn btn-success btn-sm {{$class}}" name="accept" />
 
 								</form>
-								<a style="font-size: 14px;" target="_blank" href="/user/{{ $user->id }}/contact">Conversation history</a>
 							</div>
 						</div>
 
@@ -111,36 +110,5 @@
 			</div>
 		</div>
 	</div>
-
-@if($accepted >= 0)
-	<!-- Modal -->
-<div class="modal fade" id="contactModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">{{auth()->user()->name}} message: {{ $user->name }}</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-      	<div id="output"></div>
-        <form id="messageForm" method="POST" action="{{ $_SERVER['PHP_SELF'] }}">
-        	
-        	@csrf
-        	<input type="hidden" name="user_id" value="{{ $user->id }}">
-        	<input type="hidden" name="company_id" value="{{ auth()->user()->id }}">
-        	<input type="hidden" name="from" value="company">
-        	<input type="hidden" name="read" value="0">
-        	<textarea class="form-control" name="message" id="message" placeholder="You message"></textarea>
-
-        	<button id="send" type="submit" class="btn btn-success btn-sm float-right">Send</button>
-        	<a target="_blank" id="conversationLink" href="/user/{{ $user->id }}/contact" class="float-left">Conversation history</a>
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-@endif
-
+	
 @endsection

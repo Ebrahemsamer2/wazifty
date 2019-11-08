@@ -113,6 +113,11 @@ Route::post('/user/{id}/contact', 'ChatController@send')->middleware('onlycompan
 
 Route::get('/company/{id}/contact', 'ChatController@getCompanyChat')->middleware('onlyuser');
 
+Route::post('/company/{id}/contact', 'ChatController@send')->middleware('onlyuser');
+
+
+
+
 
 // Admin Dashboard Controllers For main website
 

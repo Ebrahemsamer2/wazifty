@@ -82,13 +82,17 @@ class User extends Authenticatable
     public function checkUnReadMessages($for) {
         $result = '';
         if($for == "company") {
-            $result = DB::table('chats')->where('user_id', $this->id)->where('company_id', auth()->user()->id)->select('read')->get();
+            $result = DB::table('chats')->where('user_id', $this->id)->where('company_id', auth()->user()->id)->where('from', 'user')->select('read')->get();
         }else if($for == "user"){
-            $result = DB::table('chats')->where('company_id', $this->id)->where('user_id', auth()->user()->id)->select('read')->get();
+            $result = DB::table('chats')->where('company_id', $this->id)->where('user_id', auth()->user()->id)->where('from', 'company')->select('read')->get();
         }else {
-            $result = DB::table('chats')->where('user_id', auth()->user()->id)->select('read')->get();
+
+            if(auth()->user()->emp_type == "employer") {
+                $result = DB::table('chats')->where('user_id', auth()->user()->id)->where('from','user')->select('read')->get();
+            }else {
+                $result = DB::table('chats')->where('user_id', auth()->user()->id)->where('from','company')->select('read')->get();
+            }
         }
-        
         if(count($result) > 0) {
             foreach ($result as $res) {
                 if(! $res->read) {

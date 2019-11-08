@@ -255,6 +255,7 @@ $(function() {
 		e.preventDefault();
 
 		let userid = $("#messageForm input[name='userid']").val();
+		console.log(userid);
 		let data = $(this).serialize();
 		$.ajax({
 			url:"/user/"+userid+"/contact",
@@ -265,14 +266,40 @@ $(function() {
 			data: data,
 			dataType: 'json',
 			success: function(data) {
-				$("#output").html(data.success);
+				$("#msger-chat").append(data.success);
 				$("#messageForm")[0].reset();
-				$('#output').delay(3000).fadeOut(500, function() {
-					$('#output').css('display', 'none');
-				});
+				let d = $('#msger-chat');
+  				$('#msger-chat').scrollTop(d.prop("scrollHeight"));
 			},
 		});
 	});
 
+
+	// Sending message using ajax call
+
+	$("#usermessageForm").on('submit', function(e) {
+
+		e.preventDefault();
+
+		let userid = $("#usermessageForm input[name='userid']").val();
+		console.log(userid);
+		let data = $(this).serialize();
+		$.ajax({
+			url:"/company/"+userid+"/contact",
+			method: "POST",
+			headers: {
+		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    },
+			data: data,
+			dataType: 'json',
+			success: function(data) {
+				$("#msger-chat").append(data.success);
+				$("#usermessageForm")[0].reset();
+				let d = $('#msger-chat');
+  				$('#msger-chat').scrollTop(d.prop("scrollHeight"));
+			},
+		});
+	});
+	
 
 });

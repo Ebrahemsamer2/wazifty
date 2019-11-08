@@ -20,7 +20,7 @@
         <div class="all-applications">
             <div class="heading ml-2" style="margin-bottom: 50px;">
                 <h1>You applications</h1>
-                <span style="margin-left: 10px;">Note: Every job is related to a specific job, to add more question to any of your jobs click the show button.</span>
+                <span style="margin-left: 10px;">Note: Every application is related to a specific job, to add more question to any of your jobs click the show button.</span>
             </div>
             <div class="row">
             @foreach($applications as $application)
