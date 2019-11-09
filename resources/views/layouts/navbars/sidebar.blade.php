@@ -166,29 +166,45 @@
                         <i class="fas fa-comment-alt text-blue"></i> {{ __('Users messages') }}
                     </a>
                 </li>
+
+
             </ul>
+            
             <!-- Divider -->
             <hr class="my-3">
-            <!-- Heading -->
-            <!-- <h6 class="navbar-heading text-muted">Documentation</h6> -->
-            <!-- Navigation -->
-            <!-- <ul class="navbar-nav mb-md-3">
-                <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html">
-                        <i class="ni ni-spaceship"></i> Getting started
+
+            <ul class="navbar-nav">
+
+                <li class="nav-item <?php if(\Request::is('admin/blog/posts*')) echo 'active' ?>">
+                    <a class="nav-link" href="#posts" data-toggle="collapse" role="button" aria-expanded="false" aria-controls="posts">
+                        <i class="far fa-newspaper text-blue"></i>
+                        <span class="nav-link-text">{{ __('Posts') }}</span>
+                    </a>
+
+                    <div class="collapse" id="posts">
+                        <ul class="nav nav-sm flex-column">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/blog/posts">
+                                    {{ __('All Posts') }}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/admin/blog/posts/create">
+                                    {{ __('New Post') }}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+                <li class="nav-item <?php if(\Request::is('admin/blog/categories*')) echo 'active' ?>">
+                    <a class="nav-link" href="/admin/blog/categories">
+                        <i class="fas fa-list text-blue"></i> {{ __('Categories') }}
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/foundation/colors.html">
-                        <i class="ni ni-palette"></i> Foundation
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/components/alerts.html">
-                        <i class="ni ni-ui-04"></i> Components
-                    </a>
-                </li>
-            </ul> -->
+
+
+            </ul>
         </div>
     </div>
 </nav>

@@ -19,11 +19,7 @@
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
         <!-- Argon CSS -->
         <link type="text/css" href="{{ asset('argon') }}/css/argon.css?v=1.0.0" rel="stylesheet">
-
-
-        <!-- Favicon -->
-        <!-- <link href="/assets/img/brand/favicon.png" rel="icon" type="image/png"> -->
-
+        
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
@@ -36,7 +32,6 @@
         <!-- My Admin Custom CSS -->
         <link type="text/css" href="/css/admin_custom.css" rel="stylesheet">
 
-        <script src="{{ asset('js') }}/functions.js"></script>
     </head>
     <body class="{{ $class ?? '' }}">
         @auth()
@@ -64,6 +59,6 @@
         <script src="{{ asset('argon') }}/js/argon.js?v=1.0.0"></script>
         <script src="{{ asset('js') }}/admin_custom.js"></script>
 
-
+        @yield('script')
     </body>
 </html>

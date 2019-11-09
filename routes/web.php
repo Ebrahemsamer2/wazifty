@@ -167,6 +167,12 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	Route::delete('/admin/usermessages', 'admin\UsersMessagesController@delete');
 
 
+
+	// Admin Blog Area
+
+	Route::resource('/admin/blog/categories', 'blog\CategoryController');
+
+
 });
 
 // Language Route
