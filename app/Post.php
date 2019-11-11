@@ -3,20 +3,24 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Laravelista\Comments\Commentable;
 
 class Post extends Model
-{
+{   
+    use Commentable;
+    
     protected $fillable = [
     	'title',
-    	'slug',
+        'slug',
 		'excerpt',
 		'body',
 		'tags',
-		'category_id',
+		'user_id',
+        'category_id',
     ];
 
     public function category() {
-    	return $this->hasOne('App\PostCategory','category_id');
+    	return $this->hasOne('App\PostCategory','id','category_id');
     }
 
     public function user() {

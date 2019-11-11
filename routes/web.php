@@ -171,7 +171,10 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	// Admin Blog Area
 
 	Route::resource('/admin/blog/categories', 'blog\CategoryController');
+	
+	Route::resource('/admin/blog/posts', 'blog\PostController');
 
+	
 
 });
 

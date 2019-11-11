@@ -16,11 +16,6 @@ class Handler extends ExceptionHandler
         //
     ];
 
-    /**
-     * A list of the inputs that are never flashed for validation exceptions.
-     *
-     * @var array
-     */
     protected $dontFlash = [
         'password',
         'password_confirmation',
@@ -37,6 +32,9 @@ class Handler extends ExceptionHandler
             if ($exception->getStatusCode() == 404) {
                 return response()->view('errors.' . '404', [], 404);
             }
+        }
+        if($exception instanceof \BadMethodCallException) {
+            return response()->view('errors.' . '404', [], 404);
         }
         return parent::render($request, $exception);
     }

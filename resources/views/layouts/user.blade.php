@@ -48,7 +48,7 @@
 		                	<li class=""><a href="#how-it-works">How it works</a></li>
 		                	<li class=""><a href="#why-us">Why us</a></li>
 		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="#contact">Contact</a></li>
-		                	<li>
+		                	<!-- <li>
 		                		<div class="dropdown">
 									<button class="dropbtn">Languages <i style="font-size: 12px;" class="fas fa-sort-down"></i></button>
 									<div class="dropdown-content">
@@ -56,7 +56,7 @@
 									    <a href="/en">English</a>
 									  </div>
 								</div>
-		                	</li>
+		                	</li> -->
 		                </ul>
 		                <span class="search-toggler" style="margin-right: 20px; cursor: pointer;">
 		                    <i class="fas fa-search"></i>

@@ -13,6 +13,7 @@
         "laravel-frontend-presets/argon": "^1.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "laravelista/comments": "^3.1",
         "writingink/wink": "^0.1.0"
     },
     "require-dev": {

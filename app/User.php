@@ -10,9 +10,11 @@ use Illuminate\Support\Arr;
 
 use Illuminate\Support\Facades\DB;
 
+use Laravelista\Comments\Commenter;
+
 class User extends Authenticatable
 {
-    use Notifiable;
+    use Notifiable, Commenter;
     
     protected $fillable = [
         'name',
@@ -115,18 +117,15 @@ class User extends Authenticatable
             if($first_chat) {
                 return $first_chat->user_id;
             }else {
-                return abort(404);
+                return User::where('emp_type', 'employee')->get()->random()->id;
             }
         } else {
             $first_chat = Chat::where('user_id', auth()->user()->id)->first();
             if($first_chat) {
                 return $first_chat->company_id;
             }else {
-                return abort(404);
+                return User::where('emp_type', 'employer')->get()->random()->id;
             }
         }
-
     }
-
-
 }
