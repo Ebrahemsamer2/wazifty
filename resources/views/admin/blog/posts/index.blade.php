@@ -40,7 +40,7 @@
                                 <div class="post">
                                     
                                     <div class="card" style="width: 18rem;">
-                                      <img src="/blog/images/{{$post->thumbnail->filename}}" class="card-img-top" alt="...">
+                                      <img src="/blog_assets/images/{{$post->thumbnail->filename}}" class="card-img-top" alt="...">
                                       <div class="card-body">
                                         <h5 class="card-title">{{$post->title}}</h5>
                                         <p class="card-text">{{ $post->excerpt ? \Str::limit($post->excerpt, 100) : \Str::limit(strip_tags($post->body), 100) }}</p>

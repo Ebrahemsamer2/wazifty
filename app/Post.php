@@ -7,8 +7,6 @@ use Laravelista\Comments\Commentable;
 
 class Post extends Model
 {   
-    use Commentable;
-    
     protected $fillable = [
     	'title',
         'slug',
@@ -20,7 +18,7 @@ class Post extends Model
     ];
 
     public function category() {
-    	return $this->hasOne('App\PostCategory','id','category_id');
+    	return $this->belongsTo('App\PostCategory');
     }
 
     public function user() {

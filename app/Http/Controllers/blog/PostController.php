@@ -52,7 +52,7 @@ class PostController extends Controller
                     'filesize' => $filesize,
                     'post_id' => $post->id,
                 ])) {
-                    $file->move('blog/images', $file_to_store);
+                    $file->move('blog_assets/images', $file_to_store);
                 }
             }
             return redirect('/admin/blog/posts')->withStatus("Post successfully created");
@@ -111,8 +111,8 @@ class PostController extends Controller
                 $old_post_thumbnail_filename = $post->thumbnail->filename;
                 $old_post_thumbnail_id = $post->thumbnail->id;
                 Thumbnail::destroy($old_post_thumbnail_id);
-                if(file_exists('blog/images/'. $old_post_thumbnail_filename)) {
-                    unlink('blog/images/'.$old_post_thumbnail_filename);
+                if(file_exists('blog_assets/images/'. $old_post_thumbnail_filename)) {
+                    unlink('blog_assets/images/'.$old_post_thumbnail_filename);
                 }
             }
 
@@ -121,7 +121,7 @@ class PostController extends Controller
                 'filesize' => $filesize,
                 'post_id' => $post->id,
             ]);
-            $file->move('blog/images', $file_to_store);
+            $file->move('blog_assets/images', $file_to_store);
         }
 
         if($post->save()) {
@@ -144,8 +144,8 @@ class PostController extends Controller
         // delete its images and from server and DB
         $deleted_thumbnail = Thumbnail::where('post_id', $post_id)->first();
         if($post->thumbnail) {
-            if(file_exists('blog/images'. $deleted_thumbnail->filename)){
-                unlink('blog/images'.$deleted_thumbnail->filename);
+            if(file_exists('blog_assets/images'. $deleted_thumbnail->filename)){
+                unlink('blog_assets/images'.$deleted_thumbnail->filename);
             }
         }
         $deleted_thumbnail->delete();

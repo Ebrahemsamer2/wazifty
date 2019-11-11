@@ -121,7 +121,6 @@
                                         </span>
                                     @endif
                                 </div>
-
                                 <div class="text-center">
                                     <input value="Update" id="save-post" type="submit" class="btn btn-success mt-4" />
                                 </div>

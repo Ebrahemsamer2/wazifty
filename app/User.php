@@ -10,11 +10,9 @@ use Illuminate\Support\Arr;
 
 use Illuminate\Support\Facades\DB;
 
-use Laravelista\Comments\Commenter;
-
 class User extends Authenticatable
 {
-    use Notifiable, Commenter;
+    use Notifiable;
     
     protected $fillable = [
         'name',
@@ -64,6 +62,10 @@ class User extends Authenticatable
         return $this->hasOne('App\Picture');
     }
 
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
+
     // Functions
     public function isOwner() {
         return $this->email == 'Soltan_Algaram41@yahoo.com';
@@ -77,6 +79,7 @@ class User extends Authenticatable
     public function isSaved($job_id) {
         return $this->saved_jobs()->where('job_id', $job_id)->first();
     }
+
 
 
     // Lets check if user has unreadmessages or not 

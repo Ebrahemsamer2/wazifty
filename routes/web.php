@@ -116,7 +116,9 @@ Route::get('/company/{id}/contact', 'ChatController@getCompanyChat')->middleware
 Route::post('/company/{id}/contact', 'ChatController@send')->middleware('onlyuser');
 
 
+// Blog Routes for users
 
+Route::get('/blog', 'blog\HomeController@index');
 
 
 // Admin Dashboard Controllers For main website
@@ -174,7 +176,6 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	
 	Route::resource('/admin/blog/posts', 'blog\PostController');
 
-	
 
 });
 
