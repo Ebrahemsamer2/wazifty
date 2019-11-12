@@ -41,6 +41,8 @@
 	background-color: unset;
 }
 
+
+
 /* posts */
 
 .home {
@@ -59,22 +61,26 @@
 }
 .home .post .post-heading a {
 	color: black;
+	
 }
 .home .post .post-heading a h5 {
 	font-weight: 300;
 }
 
-
 .home .post .post-excerpt {
-	padding: 15px 20px;
+	padding: 15px 20px;	
 }
-
+.home .post .post-excerpt .lead {
+	font-size: 1rem;
+	margin-top: 0;
+}
 .home .post .actions {
 	margin-top: 5px;
 	margin-left: 20px;
 	margin-bottom: 10px;
 }
 
+/* Categories  */
 .home .categories {
 	border-bottom: 1px solid rgb(217, 221, 228);
 	box-shadow: 0 0 2px -1px;
@@ -105,37 +111,55 @@
 	color: #00bcd4;
 }
 
-.home .hottest-posts {
+/* Hottest Posts */
+.home .hottest-posts,
+.content .latest-posts,
+.content .hottest-posts {
 	border-bottom: 1px solid rgb(217, 221, 228);
 	box-shadow: 0 0 2px -1px;
 	margin-top: 50px;
 }
 
-.home .hottest-posts .header {
+.home .hottest-posts .header,
+.content .latest-posts .header,
+.content .hottest-posts .header {
 	padding: 10px 20px;
     background: #234fa0;
 }
-.home .hottest-posts .header h4 {
+.home .hottest-posts .header h4,
+.content .hottest-posts .header h4,
+.content .latest-posts .header h4 {
 	color: #fff;
 	font-weight: 300;
     font-size: 20px;
     margin: 0;
+    
 }
-.home .hottest-posts .body .post a h6 {
+.home .hottest-posts .body .post a h6,
+.content .hottest-posts .body .post a h6,
+.content .latest-posts .body .post a h6 {
 	font-size: 13px;
 	color: #2066a2;
 	margin-bottom: 0;
+	
 }
-.home .hottest-posts .body .post {
+.home .hottest-posts .body .post,
+.content .hottest-posts .body .post,
+.content .latest-posts .body .post {
 	margin-top: 10px;
 }
-
-.home .hottest-posts .body .post span {
+.content .latest-posts {
+	margin-top: 0;
+}
+.home .hottest-posts .body .post span,
+.content .hottest-posts .body .post span,
+.content .latest-posts .body .post span {
 	font-size: 12px;
 	color: gray;
 }
 
 /* Hottest Authors */
+
 .home .hottest-authors {
 	border-bottom: 1px solid rgb(217, 221, 228);
 	box-shadow: 0 0 2px -1px;
@@ -166,4 +190,27 @@
 .home .hottest-authors .body .author span {
 	font-size: 12px;
 	color: gray;
+}
+
+
+/* Singlepost page */
+
+.banner .caption h2 {
+	font-size: 50px;
+	color: #fff;
+	font-weight: 400;
+}
+.banner .caption {
+	margin-left: -20px;
+	padding-top: 150px;
+}
+
+.content {
+	margin-top: 50px;
+	padding: 10px;
+}
+
+.content .post-content p {
+	font-size: 20px;
+	font-weight: 300;
 }

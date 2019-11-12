@@ -120,6 +120,7 @@ Route::post('/company/{id}/contact', 'ChatController@send')->middleware('onlyuse
 
 Route::get('/blog', 'blog\HomeController@index');
 
+Route::get('/blog/post/{slug}', 'blog\PostController@show');
 
 // Admin Dashboard Controllers For main website
 

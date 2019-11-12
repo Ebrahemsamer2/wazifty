@@ -135,6 +135,17 @@ class PostController extends Controller
         }
     }
 
+    public function show($slug) {
+        $post = Post::where('slug', $slug)->first();
+        $latest_posts = Post::orderBy('id', 'desc')->limit(5)->get();
+        $hottest_posts = Post::all();
+        if($post) {
+            return view('blog.singlepost', compact('post', 'latest_posts','hottest_posts'));
+        }else {
+            return abort(404);
+        }
+    }
+
     public function destroy(Post $post)
     {   
         $post_id = $post->id;
