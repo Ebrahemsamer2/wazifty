@@ -98,7 +98,6 @@ Route::post('/company/jobs/applications/{id}', 'ApplicationQuestionController@ad
 
 
 
-
 // Chat Routes For Companies
 
 Route::get('/user/{id}/contact', 'ChatController@getUserChat')->middleware('onlycompany');
@@ -121,6 +120,8 @@ Route::post('/company/{id}/contact', 'ChatController@send')->middleware('onlyuse
 Route::get('/blog', 'blog\HomeController@index');
 
 Route::get('/blog/post/{slug}', 'blog\PostController@show');
+
+Route::post('/blog/post/{slug}', 'blog\CommentController@store');
 
 // Admin Dashboard Controllers For main website
 
@@ -177,6 +178,7 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	
 	Route::resource('/admin/blog/posts', 'blog\PostController');
 
+	Route::resource('/admin/blog/comments', 'blog\CommentController');
 
 });
 

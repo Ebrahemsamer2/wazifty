@@ -203,6 +203,11 @@
                     </a>
                 </li>
 
+                <li class="nav-item <?php if(\Request::is('admin/blog/comments*')) echo 'active' ?>">
+                    <a class="nav-link" href="/admin/blog/comments">
+                        <i class="fas fa-comments text-blue"></i> {{ __('Comments') }}
+                    </a>
+                </li>
 
             </ul>
         </div>

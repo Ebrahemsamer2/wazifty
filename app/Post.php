@@ -28,4 +28,8 @@ class Post extends Model
     public function thumbnail() {
     	return $this->hasOne('App\Thumbnail');
     }
+
+    public function comments() {
+        return $this->hasMany('App\Comment');
+    }
 }

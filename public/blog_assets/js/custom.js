@@ -61,6 +61,44 @@ $(function () {
             }
         });
     }
+
+
+    // Adding comment using ajax
+
+    $("#addcommentform").on("submit", function(e) {
+
+        e.preventDefault();
+
+        let comment = $("#addcommentform textarea[name='comment']").val();
+        let slug = $("#addcommentform input[name='slug']").val();
+
+        if(comment.length > 500) {
+            $("#comment-error").css('display', 'block');
+            return false;
+        }   
+
+        let data = $(this).serialize();
+        $.ajax({
+            url: "/blog/post/"+slug,
+            method: "POST",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: data,
+            dataType: 'json',
+            success: function(data) {
+                $("#comments").prepend(data.success);
+                $("#addcommentform")[0].reset();
+            },
+            fail: function(data) {
+                $("#comments").appent(data.fail);
+                $("#addcommentform")[0].reset();
+            }
+        });
+
+    });
+
+
 });
 
 // Page loading animation
@@ -92,3 +130,5 @@ $(window).scroll(function () {
         $("header").removeClass("background-header");
     }
 });
+
+
