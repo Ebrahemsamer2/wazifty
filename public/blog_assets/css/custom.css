@@ -261,3 +261,10 @@
 .add-comment h4 {
 	margin-bottom: 20px;
 }
+
+
+/* Comment Modal */
+
+.modal-dialog {
+	margin-top: 4.50rem;
+}

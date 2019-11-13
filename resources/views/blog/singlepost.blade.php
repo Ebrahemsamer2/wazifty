@@ -35,7 +35,7 @@
     					<div id="comments">
     						
     					@foreach($comments as $comment)
-    					<div class="row {{ $comment->comment_type == 'reply' ? 'reply' : '' }}">
+    					<div class="comment{{$comment->id}} row {{ $comment->comment_type == 'reply' ? 'reply' : '' }}">
     						<div class="col-sm-2">
     							<div class="commenter-image">
     								@if($comment->user->picture)
@@ -46,24 +46,68 @@
     							</div>
     						</div>
     						<div class="col-sm">
-    							<div class="comment" id="comment{{$comment->id}}">
+    							<div class="comment">
     								<span class="text-gray">{{$comment->created_at ? $comment->created_at->diffForHumans() : ''}}
     								</span>
-    								<p>{{ $comment->comment }}</p>
+    								<p class="c{{$comment->id}}">{{ $comment->comment }}</p>
     								@auth
     								@if(auth()->user()->id == $comment->user_id)
-    								<form method="post" action="">
-    									<a href="" class="btn btn-secondary btn-sm">Edit</a>
-    									@if($comment->comment_type == 'comment')
-    									<a href="" class="btn btn-info btn-sm">Reply</a>
-    									@endif
-    									<input type="submit" value="Delete" class="btn btn-danger btn-sm" />
+    								<form class="deletecomment" method="post" action="/blog/post/{{$comment->post->slug}}">
+    									@csrf
+    									@method('DELETE')
+
+    									<a data-target="#updatecomment{{$comment->id}}" data-toggle="modal" href="" class="btn btn-secondary btn-sm">Edit</a>
+    									<input type="hidden" name="comment_id" value="{{ $comment->id }}">
+    									<input type="hidden" name="slug" value="{{ $comment->post->slug }}">
+    									<input onclick="return confirm('Are you sure?');" type="submit" value="Delete" class="btn btn-danger btn-sm" />
     								</form>
     								@endif
     								@endauth
     							</div>
     						</div>
     					</div>
+
+
+
+
+
+
+
+
+
+
+
+
+    					<div class="modal fade" id="updatecomment{{$comment->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  							<div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <h5 class="modal-title">Update you comment</h5>
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							          <span aria-hidden="true">&times;</span>
+							        </button>
+							      </div>
+							      <div class="modal-body">
+							        <form method="POST" action="" class="updatecommentform">
+							        	@csrf
+							        	@method('PUT')
+
+							        	<input type="hidden" name="comment_id" value="{{$comment->id}}">
+							        	<input type="hidden" name="slug" value="{{$comment->post->slug}}">
+							        	<textarea class="form-control" name="comment" >{{ $comment->comment }}</textarea>
+							        	<p class="edit-comment-error js-error">Your comment is too long ( Maximum: 500 characters ).</p>
+							        	<input type="submit" class="btn btn-success mt-2 float-right" name="updatecomment" value="Update">
+							        </form>
+							      </div>
+							      
+							    </div>
+						  	</div>
+						</div>
+
+
+
+
+
     					@endforeach
     					<hr>
     					<div class="add-comment">
@@ -75,7 +119,6 @@
     						<form id="addcommentform" method="post" action="{{ route('comments.store') }}">
     							@csrf
 
-    							<input type="hidden" name="comment_type" value="comment">
     							<input type="hidden" name="post_id" value="{{$post->id}}">
     							<input type="hidden" name="slug" value="{{$post->slug}}">
     							<textarea name="comment" placeholder="Your comment..." rows="4" class="form-control mb-2"></textarea>

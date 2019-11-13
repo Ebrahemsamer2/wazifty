@@ -123,10 +123,19 @@ Route::get('/blog/post/{slug}', 'blog\PostController@show');
 
 Route::post('/blog/post/{slug}', 'blog\CommentController@store');
 
+Route::delete('/blog/post/{slug}', 'blog\CommentController@destroyComment');
+
+Route::patch('/blog/post/{slug}', 'blog\CommentController@updateComment');
+
+
+
+
+
+
+
 // Admin Dashboard Controllers For main website
 
 Route::group(['middleware' => ['auth', 'admin'] ], function () {
-
 	
 	Route::get('/admin/dashboard', 'admin\HomeController@index')->name('dashboard');
 

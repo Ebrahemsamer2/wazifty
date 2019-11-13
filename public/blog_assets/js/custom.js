@@ -63,10 +63,15 @@ $(function () {
     }
 
 
+
+
+
+
+
+
     // Adding comment using ajax
 
     $("#addcommentform").on("submit", function(e) {
-
         e.preventDefault();
 
         let comment = $("#addcommentform textarea[name='comment']").val();
@@ -95,7 +100,59 @@ $(function () {
                 $("#addcommentform")[0].reset();
             }
         });
+    });
 
+    // Delete Comment by ajax calls
+
+    $(document).on("submit",".deletecomment", function(e) {
+        e.preventDefault();
+
+        let slug = $(".deletecomment input[name='slug']").val();
+        let data = $(this).serialize();
+        $.ajax({
+            url: '/blog/post/'+slug,
+            method: "Delete",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: data,
+            dataType: 'json',
+            success: function(data) {
+                $(".comment"+data.success).remove();
+            },
+
+        });
+    });
+
+    //  Updating Comment using ajax
+
+    $(".updatecommentform").on("submit", function(e) {
+        e.preventDefault();
+
+        let comment = $(".updatecommentform textarea[name='comment']").val();
+        let slug = $(".updatecommentform input[name='slug']").val();
+        let comment_id = $(".updatecommentform input[name='comment_id']").val();
+
+        if(comment.length > 500) {
+            $("#edit-comment-error").css('display', 'block');
+            return false;
+        }   
+
+        let data = $(this).serialize();
+        $.ajax({
+            url: "/blog/post/"+slug,
+            method: "PATCH",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: data,
+            dataType: 'json',
+            success: function(data) {
+                $("p.c"+data.id+"").text(data.success);
+                $(".updatecommentform")[0].reset();
+                $(".comment"+data.id).next(".modal").modal('hide');
+            }
+        });
     });
 
 

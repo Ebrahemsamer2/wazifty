@@ -139,7 +139,7 @@ class PostController extends Controller
         $post = Post::where('slug', $slug)->first();
         $latest_posts = Post::orderBy('id', 'desc')->limit(5)->get();
         $hottest_posts = Post::all();
-        $comments = $post->comments()->orderBy('id', 'desc')->get();
+        $comments = $post->comments()->orderBy('id', 'asc')->get();
         if($post) {
             return view('blog.singlepost', compact('post', 'latest_posts','hottest_posts', 'comments'));
         }else {
