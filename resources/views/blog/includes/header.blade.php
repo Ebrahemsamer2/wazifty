@@ -20,7 +20,7 @@
     <!-- Icons -->
         <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
         <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-<link href="/argon/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+        <link href="/argon/vendor/nucleo/css/nucleo.css" rel="stylesheet">
         <link href="/argon/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
@@ -58,13 +58,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/aboutus">About Us</a>
+                <a class="nav-link" href="/blog/aboutus">About Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/services">Our Services</a>
+                <a class="nav-link" href="/blog/services">Our Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contact">Contact Us</a>
+                <a class="nav-link" href="/blog/contact">Contact Us</a>
               </li>
             </ul>
           </div>

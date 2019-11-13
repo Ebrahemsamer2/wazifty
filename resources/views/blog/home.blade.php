@@ -51,7 +51,7 @@
                         </a>
                       </div>
                       <div class="post-heading">
-                        <a href="/blog/{{$post->slug}}"><h5>{{$post->title}}</h5></a>
+                        <a href="/blog/post/{{$post->slug}}"><h5>{{$post->title}}</h5></a>
                       </div>
                       <div class="post-excerpt">
                         <a href="/blog/post/{{$post->slug}}">

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class UsersMessagesController extends Controller
 {
     public function index() {
-    	$messages = DB::table('user_messages')->paginate(10);
+    	$messages = DB::table('user_messages')->whereNotNull('username')->paginate(10);
     	return view('admin.usermessages.index', compact('messages'));
     }
 

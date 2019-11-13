@@ -2,19 +2,30 @@
 
 	
     <!-- Banner Starts Here -->
-    <div style="background-color: #000;">
-    <div class="banner" style="background-image: url(/blog_assets/images/{{$post->thumbnail->filename}}); opacity: .8;">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="header-text caption post">
-              <h2 class="post-title">{{$post->title}}</h2>
-            </div>
-          </div>
-        </div>
-      </div>
+
+<div class="image-box">
+    <div class="image-box__background" style="--image-url: url('/blog_assets/images/{{$post->thumbnail->filename}}')"
+    ></div>
+    <div class="image-box__overlay"></div>
+    <div class="image-box__content header-text caption post">
+        <h1 class="post-title">{{ $post->title }}
+        <br><br><a href="/blog/author/{{$post->user->name}}" style="color: #bbbbbb;
+    font-size: 18px;
+    margin-left: 30%;
+    margin-top: 20px;">
+        	@if($post->user->picture)
+        		<img style="margin-right: 10px;" class="rounded-circle" width="60" height="60" src="/images/{{$post->user->picture->filename}}">
+        	@else
+        		<img class="rounded-circle" width="60" height="60" src="/images/user.jpg">
+        	@endif
+        	{{$post->user->name}}<span style="font-size: 12px;margin-left: 15px;">
+        	{{$post->created_at->diffForHumans()}}</span>
+        </a>
+        </h1>
     </div>
 </div>
+
+
     <!-- Banner Ends Here -->
 
     <div class="content">
@@ -28,11 +39,11 @@
     					<p class="content-text">{!! $post->body !!}</p>
 
     					<div class="post-info">
-    						<p class="cat"><i class="fas fa-list"></i> Category: <span > <a href="/">{{$post->category->name}}</a></span></p>
+    						<p class="cat"><i class="fas fa-list"></i> Category: <span > <a href="/blog/category/{{$post->category->name}}">{{$post->category->name}}</a></span></p>
     						<p class="tags"><i class="fas fa-tag"></i> Tags: 
     							@foreach(explode(' ', $post->tags) as $tag)
     							<span>
-    							<a href="/">{{$tag}}</a>
+    							<a href="/blog/tag/{{$tag}}">{{$tag}}</a>
     							</span>
     							@endforeach
     						</p>

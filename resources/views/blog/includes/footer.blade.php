@@ -17,9 +17,9 @@
                 <h2>Blog links</h2>
               </div>
               <ul class="footer-list">
-                <li><a href="/">Home</a></li>
-                <li><a href="/aboutus">About us</a></li>
-                <li><a href="/services">Our services</a></li>
+                <li><a href="/blog">Home</a></li>
+                <li><a href="/blog/aboutus">About us</a></li>
+                <li><a href="/blog/services">Our services</a></li>
                 <li><a href="/login">Login</a></li>
                 <li><a href="/register">Register</a></li>
               </ul>

@@ -134,6 +134,20 @@ Route::get('/blog/tag/{tag}', 'blog\HomeController@getPostsByTag');
 
 Route::get('/blog/author/{author}', 'blog\HomeController@getPostsByAuthor');
 
+Route::get('/blog/aboutus', function() {
+	return view('blog.about');
+});
+
+Route::get('/blog/services', function() {
+	return view('blog.services');
+});
+
+Route::get('/blog/contact', function() {
+	return view('blog.contact');
+});
+
+Route::post('/blog/contact', 'blog\ContactController@sendEmail');
+
 
 
 

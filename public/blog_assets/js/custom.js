@@ -156,6 +156,26 @@ $(function () {
     });
 
 
+    $("#contact").on("submit", function(e) {
+
+        e.preventDefault();
+        let data = $(this).serialize();
+        $.ajax({
+            url: '/blog/contact',
+            method: "POST",
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            data: data,
+            dataType: 'json',
+            success: function(data) {
+                $("#contactform_output").html(data.success);
+                $("#contact")[0].reset();
+            },
+        });
+
+    });
+
 });
 
 // Page loading animation

@@ -40,9 +40,14 @@
 	                                
 									<div class="card" style="max-width: 22rem;">
 										<div class="top-section"></div>
-										
-							  			<img class="rounded-circle m-auto" width="70" height="70" src="/images/2.jpg" class="" alt="User picture">
-
+										@if($picture = \App\User::where('email', $message->email)->first()->picture)
+                                        
+                                        @if($picture->filename)
+                                        @if(file_exists('images/'.$picture->filename))
+							  			<img class="rounded-circle m-auto" width="70" height="70" src="/images/{{$picture->filename}}" class="" alt="User picture">
+                                        @endif
+                                        @endif
+                                        @endif
 								  		<div class="card-body text-center">
 										    <h3 class="card-title">{{ $message->username }}</h3>
 										    <h5 class="card-title">{{ $message->email }}</h5>
