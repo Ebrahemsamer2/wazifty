@@ -25,15 +25,25 @@
     			
     			<div class="col-sm-8">
     				<div class="post-content">
-    		
     					<p class="content-text">{!! $post->body !!}</p>
 
-    				</div>
+    					<div class="post-info">
+    						<p class="cat"><i class="fas fa-list"></i> Category: <span > <a href="/">{{$post->category->name}}</a></span></p>
+    						<p class="tags"><i class="fas fa-tag"></i> Tags: 
+    							@foreach(explode(' ', $post->tags) as $tag)
+    							<span>
+    							<a href="/">{{$tag}}</a>
+    							</span>
+    							@endforeach
+    						</p>
+    					</div>
+
+					</div>
 <hr>
     				<div class="comment-section">
     					<h3>Comments</h3>
     					<div id="comments">
-    						
+    					@if(count($comments))
     					@foreach($comments as $comment)
     					<div class="comment{{$comment->id}} row {{ $comment->comment_type == 'reply' ? 'reply' : '' }}">
     						<div class="col-sm-2">
@@ -109,6 +119,9 @@
 
 
     					@endforeach
+    					@else
+    					<p>There're no comments</p>
+    					@endif
     					<hr>
     					<div class="add-comment">
     						<h4>Add comment</h4>
@@ -133,6 +146,50 @@
 
     			<div class="col-sm">
     				
+
+
+    				<div class="author-posts">
+              
+		              <div class="header">
+		                <h4>{{explode(' ', $post->user->name)[0]}}'s Latest posts</h4>
+		              </div>
+
+		              <div class="body">
+
+		                  @foreach($author_posts as $post)
+		                  <div class="post">
+		                    
+		                    <div class="row">
+		                      <div class="col-sm-3">
+		                        <div class="img">
+		                          <a href="/blog/post/{{$post->slug}}">
+		                            @if($post->thumbnail)
+
+		                              @if(file_exists('blog_assets/images/'.$post->thumbnail->filename))
+		                                <img class="ml-2" width="80" height="60" src="/blog_assets/images/{{$post->thumbnail->filename}}">
+		                                @else
+		                                <img class="ml-2" width="80" height="60" src="/blog_assets/mainimages/post_placeholder.jpg">
+		                              @endif
+		                            @else
+		                            <img class="ml-2" width="80" height="60" src="/blog_assets/mainimages/post_placeholder.jpg">
+		                            @endif
+		                          </a>
+		                        </div>
+		                      </div>
+		                      <div class="col-sm">
+		                        <a href="/blog/post/{{$post->slug}}"><h6>{{ $post->title }}</h6></a>
+		                        <span class="text-grey">{{ $post->created_at->diffForHumans() }}</span>
+		                      </div>
+		                    </div>
+		                  </div>
+		                  @endforeach
+		                
+		              </div>
+		            </div>
+
+
+
+
 					<div class="latest-posts">
               
 		              <div class="header">

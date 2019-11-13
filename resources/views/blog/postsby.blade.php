@@ -1,41 +1,62 @@
 @include('blog.includes.header')
 
-    <!-- Page Content -->
+	
     <!-- Banner Starts Here -->
-    <div class="banner">
+    <div style="background-color: #000;">
+    <div class="banner" style="padding: 100px 0; background-image: url(/blog_assets/mainimages/background.jpg); opacity: .8;">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 offset-md-2">
-            <div class="header-text caption">
-              <h2>Search your article</h2>
-              <div id="search-section">
-              	<form id="suggestion_form" name="gs" method="get" action="#">
-                  <div class="searchText">
-                  
-                    <input type="text" name="q" class="searchText" placeholder="what do you want to read..." autocomplete="off">
+          <div class="col-md-12">
+            <div class="header-text caption post">
 
-                  </div>
-                    <input type="submit" name="results" class="main-button" value="Search Now">
-                 </form>
-               <div class="advSearch_chkbox">
-               </div>
-              </div>
+            	  @isset($author)
+
+              	<h2 style="margin-bottom: 0;" class="post-title">Author: {{$author->name}}</h2>
+
+              	@endisset
+
+              	@isset($tag)
+
+              	<h2 style="margin-bottom: 0;" class="post-title">Tag: {{$tag}}</h2>
+
+              	@endisset
+
+              	@isset($category)
+
+              	<h2 style="margin-bottom: 0;" class="post-title">Category: {{$category->name}}</h2>
+
+              	@endisset
             </div>
           </div>
         </div>
       </div>
     </div>
+</div>
     <!-- Banner Ends Here -->
 
-
-
-
-    <!-- Posts -->
     <div class="home">
-      
-      <div class="container">
-        
-        <div class="row">
+    	
+    	<div class="container">
+    		
+			     @isset($author)
+
+          	<h4 style="margin-bottom: 20px;" class="">{{$author->name}} posts</h4>
+
+          	@endisset
+
+          	@isset($tag)
+
+          	<h4 style="margin-bottom: 20px;"  class="">Tag: {{$tag}}</h4>
+
+          	@endisset
+
+          	@isset($category)
+
+          	<h4 style="margin-bottom: 20px;" class="">Category: {{$category->name}}</h4>
+
+          	@endisset
+
+    	<div class="row">
           <div class="col-sm-9">
             
             <div class="posts">
@@ -71,7 +92,6 @@
             </div>
           </div>
 
-
           <div class="col-sm">
             
             @include('blog.includes.category_sidebar')
@@ -79,11 +99,12 @@
             @include('blog.includes.hottest_posts_sidebar')
 
             @include('blog.includes.hottest_authors_sidebar')
-            
+
           </div>
         </div>
         {{ $posts->links() }}
-      </div>
+    	</div>
     </div>
 
 @include('blog.includes.footer')
+

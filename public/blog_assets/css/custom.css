@@ -48,6 +48,9 @@
 	display: none;
 }
 
+.banner #search-section input.main-button {
+	right: 20px;
+}
 /* posts */
 
 .home {
@@ -85,6 +88,8 @@
 	margin-bottom: 10px;
 }
 
+
+
 /* Categories  */
 .home .categories {
 	border-bottom: 1px solid rgb(217, 221, 228);
@@ -119,6 +124,7 @@
 /* Hottest Posts */
 .home .hottest-posts,
 .content .latest-posts,
+.content .author-posts,
 .content .hottest-posts {
 	border-bottom: 1px solid rgb(217, 221, 228);
 	box-shadow: 0 0 2px -1px;
@@ -126,12 +132,14 @@
 }
 
 .home .hottest-posts .header,
+.content .author-posts .header,
 .content .latest-posts .header,
 .content .hottest-posts .header {
 	padding: 10px 20px;
     background: #234fa0;
 }
 .home .hottest-posts .header h4,
+.content .author-posts .header h4,
 .content .hottest-posts .header h4,
 .content .latest-posts .header h4 {
 	color: #fff;
@@ -141,6 +149,7 @@
     
 }
 .home .hottest-posts .body .post a h6,
+.content .author-posts .body .post a h6,
 .content .hottest-posts .body .post a h6,
 .content .latest-posts .body .post a h6 {
 	font-size: 13px;
@@ -149,15 +158,17 @@
 	
 }
 .home .hottest-posts .body .post,
+.content .author-posts .body .post,
 .content .hottest-posts .body .post,
 .content .latest-posts .body .post {
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
-.content .latest-posts {
+.content .author-posts {
 	margin-top: 0;
 }
 .home .hottest-posts .body .post span,
+.content .author-posts .body .post span,
 .content .hottest-posts .body .post span,
 .content .latest-posts .body .post span {
 	font-size: 12px;
@@ -221,6 +232,46 @@
 	font-size: 20px;
 	font-weight: 300;
 }
+.post-info {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+.post-info i {
+	font-size: 12px;
+}
+.post-info p {
+	font-size: 15px !important;
+}
+p.cat span a {
+    background-color: #175bc1;
+    padding: 2px 10px;
+    font-size: 15px;
+    border-radius: 20px;
+    transition: .3s ease-in-out;
+    color: #d8d8d8;
+    margin-left: 15px;
+}
+p.cat span a:hover {
+	color: #fff;
+}
+p.tags {
+	margin-top: 20px;
+}
+p.tags span a {
+	margin-left: 5px;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 2px 10px;
+    background: grey;
+    color: #fff;
+    border-radius: 20px;
+}
+
+p.tags span a:nth-child(1) {
+	margin-left: 15;
+}
+
+
 
 
 /* Comments */

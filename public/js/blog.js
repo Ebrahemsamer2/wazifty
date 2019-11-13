@@ -32,7 +32,7 @@ $(function() {
 		let tags = $("#create-post input[name='tags']").val();
 		let category_id = $("#create-post select[name='category_id']").val();
 
-		if(title.length < 50 || title.length > 150) {
+		if(title.length < 20 || title.length > 150) {
 			$(".title-error").css("display", "block");
 			return false;
 		}

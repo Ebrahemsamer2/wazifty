@@ -26,7 +26,7 @@ class PostController extends Controller
     {   
 
         $rules = [
-            'title' => 'required|min:50|max:150',
+            'title' => 'required|min:20|max:150',
             'body' => 'required|min:500|max:10000',
             'category_id' => 'required|integer',
             'user_id' => 'required|integer',
@@ -70,7 +70,7 @@ class PostController extends Controller
     {
          
         $rules = [
-            'title' => 'required|min:50|max:150',
+            'title' => 'required|min:20|max:150',
             'body' => 'required|min:500|max:10000',
             'category_id' => 'required|integer',
         ];
@@ -138,10 +138,11 @@ class PostController extends Controller
     public function show($slug) {
         $post = Post::where('slug', $slug)->first();
         $latest_posts = Post::orderBy('id', 'desc')->limit(5)->get();
-        $hottest_posts = Post::all();
-        $comments = $post->comments()->orderBy('id', 'asc')->get();
+        $hottest_posts = Post::withCount('comments')->orderBy('comments_count', 'desc')->take(5)->get();
         if($post) {
-            return view('blog.singlepost', compact('post', 'latest_posts','hottest_posts', 'comments'));
+            $author_posts = Post::with('user')->where('user_id', $post->user->id)->orderBy('id','desc')->take(2)->get();
+            $comments = $post->comments()->orderBy('id', 'asc')->get();
+            return view('blog.singlepost', compact('post', 'latest_posts','hottest_posts', 'comments', 'author_posts'));
         }else {
             return abort(404);
         }

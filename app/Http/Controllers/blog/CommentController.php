@@ -35,17 +35,14 @@ class CommentController extends Controller
             $comment = Comment::create([
                 'user_id' => auth()->user()->id,
                 'post_id' => $request->post_id,
-                'comment_type' => $request->comment_type,
                 'comment' => $request->comment,
             ]);
             if($request->ajax()) {
 
                 $success = '<div ';
-                if($comment->comment_type == "comment") {
-                    $success .= 'class="row comment' . $comment->id . '">';
-                }else {
-                    $success .= 'class="row reply comment' . $comment->id . ' ">';
-                }
+                
+                $success .= 'class="row comment' . $comment->id . '">';
+                
                 $success .= '<div class="col-sm-2">';
                 $success .= '<div class="commenter-image">';
                 if($comment->user->picture) {

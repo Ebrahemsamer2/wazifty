@@ -117,7 +117,7 @@ Route::post('/company/{id}/contact', 'ChatController@send')->middleware('onlyuse
 
 // Blog Routes for users
 
-Route::get('/blog', 'blog\HomeController@index');
+Route::get('/blog', 'blog\HomeController@index')->name('blog');
 
 Route::get('/blog/post/{slug}', 'blog\PostController@show');
 
@@ -128,7 +128,11 @@ Route::delete('/blog/post/{slug}', 'blog\CommentController@destroyComment');
 Route::patch('/blog/post/{slug}', 'blog\CommentController@updateComment');
 
 
+Route::get('/blog/category/{category}', 'blog\HomeController@getPostsByCategory');
 
+Route::get('/blog/tag/{tag}', 'blog\HomeController@getPostsByTag');
+
+Route::get('/blog/author/{author}', 'blog\HomeController@getPostsByAuthor');
 
 
 

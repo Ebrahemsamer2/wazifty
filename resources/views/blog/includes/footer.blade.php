@@ -33,11 +33,11 @@
                 <h2>WZIFTY Links</h2>
               </div>
               <ul class="footer-list">
-                <li><a href="#">Browse Jobs</a></li>
-                <li><a href="#">How it works</a></li>
-                <li><a href="#">Why us</a></li>
-                <li><a href="#">What users say?</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="/jobs">Browse Jobs</a></li>
+                <li><a href="/#how-it-works">How it works</a></li>
+                <li><a href="/#why-us">Why us</a></li>
+                <li><a href="/#what-users-say">What users say?</a></li>
+                <li><a href="/#contact">Contact</a></li>
               </ul>
             </div>
           </div>
