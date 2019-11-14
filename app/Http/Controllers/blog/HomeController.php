@@ -69,4 +69,25 @@ class HomeController extends Controller
     		return abort(404);
     	}
     }
+
+
+    public function search(Request $request) {
+        $categories = PostCategory::orderBy('id', 'desc')->get();
+
+        $hottest_posts = Post::withCount('comments')->orderBy('comments_count', 'desc')->take(5)->get();
+
+        $hottest_authors = User::withCount('posts')->orderBy('posts_count', 'desc')->limit(5)->get();
+        $q = $request->q ;
+
+        $results = Post::where('title','LIKE','%'.$q.'%')->orWhere('body','LIKE','%'.$q.'%')->orWhere('tags','LIKE','%'.$q.'%')->get();
+
+        $category_result = PostCategory::with('posts')->where('name','LIKE','%'.$q.'%')->first();
+        if($category_result){
+            if(count($category_result->posts)) {
+                $results = $category_result->posts->merge($results);
+            }
+        }
+
+        return view('blog.search', compact('results','categories','hottest_posts','hottest_authors', 'q'));
+    }
 }

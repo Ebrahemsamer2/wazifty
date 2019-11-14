@@ -134,6 +134,9 @@ Route::get('/blog/tag/{tag}', 'blog\HomeController@getPostsByTag');
 
 Route::get('/blog/author/{author}', 'blog\HomeController@getPostsByAuthor');
 
+Route::get('/blog/search', 'blog\HomeController@search');
+
+
 Route::get('/blog/aboutus', function() {
 	return view('blog.about');
 });
@@ -147,7 +150,6 @@ Route::get('/blog/contact', function() {
 });
 
 Route::post('/blog/contact', 'blog\ContactController@sendEmail');
-
 
 
 

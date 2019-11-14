@@ -9,7 +9,7 @@
     <meta name="author" content="TemplateMo">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-    <title>WAZIFTY blog</title>
+    <title>WAZIFTY BLOG</title>
 
     <!-- Bootstrap core CSS -->
     <link href="/argon/css/argon.css" rel="stylesheet">

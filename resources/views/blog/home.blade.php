@@ -9,13 +9,13 @@
             <div class="header-text caption">
               <h2>Search your article</h2>
               <div id="search-section">
-              	<form id="suggestion_form" name="gs" method="get" action="#">
+              	<form id="search_form" autocomplete="off" method="get" action="/blog/search">
                   <div class="searchText">
                   
-                    <input type="text" name="q" class="searchText" placeholder="what do you want to read..." autocomplete="off">
+                    <input type="text" name="q" class="searchText" placeholder="what do you want to read..." required>
 
                   </div>
-                    <input type="submit" name="results" class="main-button" value="Search Now">
+                    <input type="submit" class="main-button" value="Search Now">
                  </form>
                <div class="advSearch_chkbox">
                </div>
