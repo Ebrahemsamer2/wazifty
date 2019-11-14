@@ -182,8 +182,10 @@ class JobController extends Controller
     }
 
 
-    public function search($key) {
-        $jobs = Job::search($key)->paginate(20);
+    public function search(Request $request) {
+        $key = $request->q;
+        
+        $jobs = Job::where('title', 'LIKE','%'.$key.'%')->orWhere('subtitle', 'LIKE','%'.$key.'%')->orWhere('job_description', 'LIKE','%'.$key.'%')->orWhere('skills', 'LIKE','%'.$key.'%')->paginate(20);
         $cairo_jobs = Job::where('active', 1)->where('work_place', 'cairo')->orderBy('id', 'desc')->limit(3)->get();
         $alex_jobs = Job::where('active', 1)->where('work_place','LIKE','alex%')->orderBy('id', 'desc')->limit(3)->get();
         

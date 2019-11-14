@@ -31,6 +31,8 @@ Route::post('/user/saved-jobs', 'UserSavedJobsController@save');
 
 // Jobs 
 
+Route::get('/jobs/search', 'JobController@search');
+
 Route::get('/jobs', 'JobController@index');
 
 Route::post('/jobs', 'UserSavedJobsController@save')->middleware('auth');
@@ -48,8 +50,6 @@ Route::get('/newjob', 'JobController@createjob')->middleware(['auth','onlycompan
 Route::post('/newjob', 'JobController@storeJob')->middleware(['auth','onlycompany']);
 
 Route::get('/company/{id}/job/{slug}/edit', 'JobController@edit')->middleware(['auth','onlycompany']);
-
-Route::get('/jobs/search/{key}', 'JobController@search');
 
 // Route::patch('/company/{id}/job/{slug}/edit', 'JobController@update')->middleware(['auth','onlycompany']);
 

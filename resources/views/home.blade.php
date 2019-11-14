@@ -12,7 +12,7 @@
 @section('main-header')
 
 	<div class="main-header">
-		
+		<div style="background-color: #000;"></div>
 		<div class="main-intro text-center">	
 			<p>Find your job from home.</p>
 			<p>Join many employees who have found their jobs here.</p>
@@ -131,7 +131,7 @@
 
 
 
-		<div id="features" class="text-center">
+		<div id="why-us" class="text-center">
 			<h1>Get your dream job in the easiest way</h1>
 
 			<div class="row">

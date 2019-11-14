@@ -77,7 +77,7 @@ class HomeController extends Controller
         $hottest_posts = Post::withCount('comments')->orderBy('comments_count', 'desc')->take(5)->get();
 
         $hottest_authors = User::withCount('posts')->orderBy('posts_count', 'desc')->limit(5)->get();
-        $q = $request->q ;
+        $q = $request->q;
 
         $results = Post::where('title','LIKE','%'.$q.'%')->orWhere('body','LIKE','%'.$q.'%')->orWhere('tags','LIKE','%'.$q.'%')->get();
 

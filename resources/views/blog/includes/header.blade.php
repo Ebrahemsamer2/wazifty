@@ -15,7 +15,7 @@
     <link href="/argon/css/argon.css" rel="stylesheet">
     <link href="/blog_assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/blog_assets/css/templatemo-host-cloud.css">
+    <!-- <link rel="stylesheet" href="/blog_assets/css/templatemo-host-cloud.css"> -->
 
     <!-- Logo -->
     <link href="{{ asset('argon') }}/img/brand/browser_logo.jpg" rel="icon" type="image/png">

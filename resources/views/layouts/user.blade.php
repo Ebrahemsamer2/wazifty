@@ -8,7 +8,7 @@
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         <title>@yield('title')</title>
-        
+       	
         <!-- Logo -->
         <link href="{{ asset('argon') }}/img/brand/browser_logo.jpg" rel="icon" type="image/png">
         
@@ -30,14 +30,21 @@
         <!-- Argon CSS -->
         <link type="text/css" href="/argon/css/argon.min.css" rel="stylesheet">
 
+        <link rel="stylesheet" type="text/css" href="/css/footer.css">
+
         @yield('css')
-      
+      	
+      	<style>
+      		body .main-content {
+      			padding-top: 50px;
+      		}
+      	</style>
     </head>
     <body class="{{ app()->getlocale() ? app()->getlocale() : 'en' }}">
     	
-	    <header>
+	    <header style="width: 100%;z-index:999;position:fixed;">
 	        <div class="header">
-		        <nav class="navbar navbar-light">
+		        <nav class="navbar navbar-light" id="navbarSupportedContent">
 		            <div class="container">
 		                <a class="navbar-brand mr-auto" href="/">
 		                    <span class="logo"><span>W</span>AZIFTY</span>
@@ -45,26 +52,17 @@
 		                <ul class="list-unstyled">
 		                	<li class="{{ \Request::is('/') ? 'active':'' }}"><a href="/">Home</a></li>
 		                	<li class="{{ \Request::is('jobs') ? 'active':'' }}"><a href="/jobs">Jobs</a></li>
-		                	<li class=""><a href="#how-it-works">How it works</a></li>
-		                	<li class=""><a href="#why-us">Why us</a></li>
-		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="#contact">Contact</a></li>
-		                	<!-- <li>
-		                		<div class="dropdown">
-									<button class="dropbtn">Languages <i style="font-size: 12px;" class="fas fa-sort-down"></i></button>
-									<div class="dropdown-content">
-									    <a href="/ar">Arabic</a>
-									    <a href="/en">English</a>
-									  </div>
-								</div>
-		                	</li> -->
+		                	<li class=""><a href="/#how-it-works">How it works</a></li>
+		                	<li class=""><a href="/#why-us">Why us</a></li>
+		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="/#contact">Contact</a></li>
+		                	
 		                </ul>
 		                <span class="search-toggler" style="margin-right: 20px; cursor: pointer;">
 		                    <i class="fas fa-search"></i>
-		                    <div class="search-form">
+		                    <div style="@guest {{'right: 184px;'}} @endguest" class="search-form">
 		                    	<i class="fas fa-arrow-up"></i>
-		                    	<form autocomplete="off" method="post" action="">
-		                    		@csrf
-		                    		<input id="search" class="form-control" type="text" name="q" placeholder="Search jobs or companies...">
+		                    	<form autocomplete="off" method="get" action="/jobs/search">
+		                    		<input id="search" class="form-control" type="text" name="q" placeholder="Search jobs">
 		                    	</form>
 		                    </div>
 		                </span>
@@ -136,10 +134,6 @@
 		                </a>
 		                @endif
 		                @endauth
-<!-- 		                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-		                        aria-label="Toggle navigation">
-		                   	<span class="navbar-toggler-icon"></span>
-		                </button> -->
 		            </div>
 		        </nav>
 	    	</div>
@@ -152,6 +146,75 @@
 			@yield('content')
 		
 		</div>
+
+
+		<!-- Footer Starts Here -->
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>About Us</h2>
+              </div>
+              <p>WAZIFTY is provided by Ebrahem for free of charge. Anyone can use this website for free you can find you job read useful articles.</p>
+            </div>
+          </div>
+          
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>Blog links</h2>
+              </div>
+              <ul class="footer-list">
+                <li><a href="/blog">Home</a></li>
+                <li><a href="/blog/aboutus">About us</a></li>
+                <li><a href="/blog/services">Our services</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>WZIFTY Links</h2>
+              </div>
+              <ul class="footer-list">
+                <li><a href="/jobs">Browse Jobs</a></li>
+                <li><a href="/#how-it-works">How it works</a></li>
+                <li><a href="/#why-us">Why us</a></li>
+                <li><a href="/#what-users-say">What users say?</a></li>
+                <li><a href="/#contact">Contact</a></li>
+              </ul>
+            </div>
+          </div>
+          
+          <div class="col-md-3 col-sm-6 col-xs-12">
+            <div class="footer-item">
+              <div class="footer-heading">
+                <h2>More Information</h2>
+              </div>
+              <ul class="footer-list">
+                <li>Phone: <a href="#">010-020-0560</a></li>
+                <li>Email: <a href="#">mail@wazifty.com</a></li>
+                <li>Support: <a href="#">support@wazifty.com</a></li>
+                <li>Website: <a href="#">www.wazifty.com</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="sub-footer">
+              <p>Copyright &copy; 2020 WAZIFTY Company
+				- Designed by <a rel="nofollow" href="http://ebrahemsamer2.000webhostapp.com">Ebrahem Samer</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Footer Ends Here -->
 
 		<!-- Scripts -->
 

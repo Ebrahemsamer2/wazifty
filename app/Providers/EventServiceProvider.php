@@ -26,6 +26,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         'App\Events\ProfileSeen' => [
             'App\Listeners\ProfileSeenListener',
+        ],
+        'App\Events\EmployeeContact' => [
+            'App\Listeners\EmployeeContactListener',
         ]
     ];
 

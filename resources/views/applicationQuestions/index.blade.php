@@ -37,6 +37,7 @@
     					    	<p class="application-time">{{ $application->created_at->diffForHumans() }} <span style="margin-left: 15px; font-weight: bold;" class="{{ $application->job->active == 1 ? 'text-success': 'text-warning' }}">{{ $application->job->active == 1 ? 'Activated job': 'Deactivated job' }}</span></p>
     						  	<div class="card-footer bg-transparent border-success">
     						  	<a class="btn btn-info btn-sm" href="/company/jobs/applications/{{ $application->id }}">Show</a>
+                                <a class="btn btn-primary btn-sm"  target="_blank" href="/company/{{auth()->user()->id}}/job/{{$application->job->slug}}/applications"> Applicants </a>
     						  	</div>
     					  	</div>
     					</div>

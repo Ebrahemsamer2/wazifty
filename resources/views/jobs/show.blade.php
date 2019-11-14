@@ -86,7 +86,7 @@
 
 								@else
 								<div class="col-sm-8 mt-2">
-									<span class="text-green">You've already applied to this job <a href="/">View application</a></span>
+									<span class="text-green">You've already applied to this job <a href="/user/applications">View application</a></span>
 								</div>
 								@endif
 								@endauth

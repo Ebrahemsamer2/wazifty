@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Chat;
 
+use App\Events\EmployeeContact;
+
 class ChatController extends Controller
 {
     public function __construct() {
@@ -28,6 +30,9 @@ class ChatController extends Controller
 
         if($messages) {
             Chat::where('user_id', $user->id)->where('company_id', auth()->user()->id)->where('from', 'user')->update(['read' => 1]);
+
+            event(new EmployeeContact($user, auth()->user()->id));
+
     	   return view('chat.companychat', compact('user', 'messages', 'contact_users'));
         }else {
             return abort(404);

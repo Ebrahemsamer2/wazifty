@@ -1,7 +1,7 @@
 
 /* 
 	Main Color: #5e72e4;
-	Second Color: #yellowgreen;
+	Second Color: #00bcd4;
 
 */
 .bg-white {
@@ -26,7 +26,7 @@
 
 /* Navbar */
 .en header .header {
-	border-bottom: 1px solid yellowgreen;
+	border-bottom: 1px solid #00bcd4;
 }
 .en header .header nav .logo {
 	font-size: 25px;
@@ -46,20 +46,21 @@
 .en header .navbar ul li {
 	display: inline;
 	margin-right: 12px;
-	font-size: 19px;
+	font-size: 17px;
+	margin-left: 15px;
 	font-weight: 500;
 	font-family: 'Lato', sans-serif;
 }
 .en header .navbar ul li.active a {
 	font-weight: 500;
-	color: yellowgreen;
+	color: #00bcd4;
 }
 .en header .navbar ul li a {
 	color: #525f7f;
 	transition: .3s ease-in-out;
 }
 .en header .navbar ul li a:hover {
-	color: yellowgreen;
+	color: #00bcd4;
 }
 
 .en header .btn-login {
@@ -79,8 +80,8 @@
 .en .search-form {
 	position: absolute;
 	width: 400px;
-	right: 180px;
-	top: 58px;
+	right: 196px;
+    top: 59px;
 	z-index: 10;
 	display: none;
 }
@@ -204,7 +205,7 @@
 
 .en #how-it-works h1,
 .en #people-say h1,
-.en #features h1,
+.en #why-us h1,
 .en #contact h1 {
 	font-family: 'lato';
 	display: inline-block;
@@ -217,12 +218,12 @@
 
 .en #how-it-works h1:after,
 .en #people-say h1:after,
-.en #features h1:after,
+.en #why-us h1:after,
 .en #contact h1:after {
 	height: 2px;
     display: block;
     margin: 0 auto;
-    background-color: yellowgreen;
+    background-color: #00bcd4;
     content: " ";
     width: 100px;
     margin: 0 auto;
@@ -321,28 +322,28 @@
 }
 
 
-/* Features */
+/* why-us */
 
-#features {
+#why-us {
 	margin-top: 50px;
 	margin-bottom: 100px;
 }
 
-.en #features .row i {
+.en #why-us .row i {
 	color: #5e72e4;
 	font-size: 40px;
 	margin-top: 30px;
 }
-.en #features .row {
+.en #why-us .row {
 	margin-top: 50px;
 }
 
-.en #features h2 {
+.en #why-us h2 {
 	font-size: 28px;
 	font-weight: 400;
 }
 
-.en #features p {
+.en #why-us p {
 	font-weight: 400;
 	font-size: 18px;
 	margin-top: 20px;
