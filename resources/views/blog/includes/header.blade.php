@@ -17,10 +17,13 @@
 
     <link rel="stylesheet" href="/blog_assets/css/templatemo-host-cloud.css">
 
+    <!-- Logo -->
+    <link href="{{ asset('argon') }}/img/brand/browser_logo.jpg" rel="icon" type="image/png">
+
     <!-- Icons -->
-        <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
-        <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
-        <link href="/argon/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+    <link href="{{ asset('argon') }}/vendor/nucleo/css/nucleo.css" rel="stylesheet">
+    <link href="{{ asset('argon') }}/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
+    <link href="/argon/vendor/nucleo/css/nucleo.css" rel="stylesheet">
         <link href="/argon/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
 
     <!-- Additional CSS Files -->
@@ -90,7 +93,7 @@
                         </span>
                         @endif
                         <div class="media-body ml-2 d-none d-lg-block">
-                            <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
+                            <span class="mb-0 text-sm  font-weight-bold">{{ \Str::limit(auth()->user()->name, 13) }}</span>
                         </div>
                     </div>
                 </a>
@@ -140,6 +143,10 @@
                         <i class="ni ni-user-run "></i>
                         <span>{{ __('text.logout') }}</span>
                     </a>
+
+                    <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </li>
           </ul>
