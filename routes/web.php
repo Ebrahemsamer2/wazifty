@@ -6,7 +6,7 @@ Route::get('/resume/{id}/download', 'admin\ResumeController@download')->middlewa
 
 // Auth Routes
 
-Auth::routes();
+Auth::routes(['verify' => true]);
 
 Route::get('/', 'HomeController@index')->name('home');
 

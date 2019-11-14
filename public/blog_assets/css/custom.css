@@ -1,3 +1,5 @@
+/* Constants */
+
 .image-box {
     position: relative;
 }
@@ -55,10 +57,19 @@ to place the content appropriately
   justify-content: center;
 }
 
+.testimonial-item p {
+	font-size: 19px;
+    font-weight: 300;
+    font-style: italic;
+    margin-top: 20px;
+    line-height: 35px;
+    margin-bottom: 35px;
+}
 
 
-
-/* Constants */
+.icon {
+	margin: auto;
+}
 
 	/* Scrolling */
 #style-7::-webkit-scrollbar

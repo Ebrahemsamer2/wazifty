@@ -52,19 +52,19 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
+              <li class="nav-item @if(\Request::is('blog')) {{'active'}} @endif">
                 <a class="nav-link" href="/blog">Home
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
-              <li class="nav-item">
+              <li class="nav-item @if(\Request::is('blog/aboutus')) {{'active'}} @endif">
                 <a class="nav-link" href="/blog/aboutus">About Us</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/blog/services">Our Services</a>
+              <li class="nav-item @if(\Request::is('blog/contact')) {{'active'}} @endif">
+                <a class="nav-link" href="/blog/contact">Contact Us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/blog/contact">Contact Us</a>
+                <a class="nav-link" href="/">Back to wazifty</a>
               </li>
             </ul>
           </div>
