@@ -5,7 +5,7 @@ $(function() {
 	}
 
 	// Job Form Validation
-	$("#create-job").submit(function() {
+	$("#create-job").on('submit', function() {
 		let title = $("#create-job #input-title").val();
 		let subtitle = $("#create-job #input-subtitle").val();
 		let job_description = $("#create-job #input-job-desc").val();
@@ -79,10 +79,8 @@ $(function() {
 			hideModal();
 			return false;
 		}
-		
-		$("#save-job").trigger("click");
+		// $("#save-job").trigger("click");
 		return true;
-
 	});
 
 	// Question Form submition and validation

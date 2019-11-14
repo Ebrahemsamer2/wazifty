@@ -121,7 +121,7 @@
                                     <label class="form-control-label inline-lebel" for="input-skills">{{ __('Job Skills') }} <p class="hint">Please seperate every skill with comma ( , ).</p></label>
 
                                     <textarea name="skills" id="input-skills" class="form-control form-control-alternative{{ $errors->has('skills') ? ' is-invalid' : '' }}" placeholder="{{ __('Job Skills') }}" required></textarea>
-                                    <p class="job-responsibility-error js-error">Job skiils must be between 20 - 1000 characters seperated by comma ( , ) </p>
+                                    <p class="job-skills-error js-error">Job skiils must be between 20 - 1000 characters seperated by comma ( , ) </p>
                                     @if ($errors->has('skills'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('skills') }}</strong>

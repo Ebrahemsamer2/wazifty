@@ -49,6 +49,8 @@ Route::post('/newjob', 'JobController@storeJob')->middleware(['auth','onlycompan
 
 Route::get('/company/{id}/job/{slug}/edit', 'JobController@edit')->middleware(['auth','onlycompany']);
 
+Route::get('/jobs/search/{key}', 'JobController@search');
+
 // Route::patch('/company/{id}/job/{slug}/edit', 'JobController@update')->middleware(['auth','onlycompany']);
 
 

@@ -181,4 +181,12 @@ class JobController extends Controller
 
     }
 
+
+    public function search($key) {
+        $jobs = Job::search($key)->paginate(20);
+        $cairo_jobs = Job::where('active', 1)->where('work_place', 'cairo')->orderBy('id', 'desc')->limit(3)->get();
+        $alex_jobs = Job::where('active', 1)->where('work_place','LIKE','alex%')->orderBy('id', 'desc')->limit(3)->get();
+        
+        return view('jobs.index', compact('jobs', 'cairo_jobs', 'alex_jobs'));
+    }
 }

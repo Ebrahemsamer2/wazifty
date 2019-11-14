@@ -63,7 +63,7 @@
 						{{ \Session::get('status') }}
 					</div>
 					@endif
-					
+					@if(count($jobs))
 					@foreach($jobs as $job)
 					<div class="job bg-white">
 						<div class="row">
@@ -115,6 +115,9 @@
 						</div>
 					</div>
 					@endforeach
+					@else
+					<p>There're no jobs to show</p>
+					@endif
 				</div>
 				<div class="pagination">
 					{{ $jobs->links() }}
