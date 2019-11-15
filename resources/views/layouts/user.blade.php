@@ -31,9 +31,9 @@
         <link type="text/css" href="/argon/css/argon.min.css" rel="stylesheet">
 
         <link rel="stylesheet" type="text/css" href="/css/footer.css">
-
         @yield('css')
-      	
+
+      	<link rel="stylesheet" type="text/css" href="/css/media.css">
       	<style>
       		body .main-content {
       			padding-top: 50px;
@@ -49,18 +49,24 @@
 		                <a class="navbar-brand mr-auto" href="/">
 		                    <span class="logo"><span>W</span>AZIFTY</span>
 		                </a>
+
 		                <ul class="list-unstyled">
 		                	<li class="{{ \Request::is('/') ? 'active':'' }}"><a href="/">Home</a></li>
 		                	<li class="{{ \Request::is('jobs') ? 'active':'' }}"><a href="/jobs">Jobs</a></li>
 		                	<li class=""><a href="/#how-it-works">How it works</a></li>
 		                	<li class=""><a href="/#why-us">Why us</a></li>
-		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="/#contact">Contact</a></li>
-		                	
+		                	<li class="{{ \Request::is('contact') ? 'active':'' }}"><a href="/#contact">Contact</a></li>    	
 		                </ul>
+
+
+                    <a href="javascript:void(0);" class="icon">
+                      <i class="fa fa-bars"></i>
+                    </a>
+
+
 		                <span class="search-toggler" style="margin-right: 20px; cursor: pointer;">
 		                    <i class="fas fa-search"></i>
 		                    <div style="@guest {{'right: 184px;'}} @endguest" class="search-form">
-		                    	<i class="fas fa-arrow-up"></i>
 		                    	<form autocomplete="off" method="get" action="/jobs/search">
 		                    		<input id="search" class="form-control" type="text" name="q" placeholder="Search jobs">
 		                    	</form>
@@ -76,7 +82,7 @@
 		                    	@endif
 							  </a>
 
-							  <div class="dropdown-menu" aria-labelledby="user_menu">
+                <div class="dropdown-menu" aria-labelledby="user_menu">
 							  	@auth
 							  		@if(auth()->user()->admin == 1)
 							    	<a class="dropdown-item" href="/admin/dashboard"><i class="ni ni-tv-2 text-primary text-blue"></i> Admin dashboard</a>
@@ -135,6 +141,7 @@
 		                @endif
 		                @endauth
 		            </div>
+
 		        </nav>
 	    	</div>
 		</header>
@@ -229,5 +236,27 @@
 
         @yield('scripts')
 
+        <script>
+          
+          $("a.icon").on("click", function(e) {
+            
+            if($(".header nav ul").attr("class") == "responsive") {
+                $(".header nav ul").removeAttr('class');
+                $(".header nav ul li").css({
+                "display":"inline",
+              });
+            }else {
+              $(".header nav ul").attr('class', 'responsive');
+              $(".header nav ul.responsive li").css({
+                "display":"block",
+              });
+            }
+            
+          });
+
+        </script>
+        <style>
+          
+        </style>
     </body>
 </html>

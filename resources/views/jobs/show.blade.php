@@ -187,10 +187,11 @@
 					<div class="actions bg-white">
 						<form method="post" action="/jobs">
 							<input <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled'; ?> class="btn btn-info <?php if(! auth()->user() || auth()->user()->emp_type == "employer") echo 'disabled-btn';?> " type="submit" value="Save" name="savejob">
-
+							@auth
 							@if(auth()->user()->id == $job->user_id)
 								<a href="/company/{{auth()->user()->id}}/job/{{$job->slug}}/edit" class="btn btn-primary">Edit</a>
 							@endif
+							@endauth
 
 						</form>
 						@guest
@@ -203,7 +204,7 @@
 			<div class="col-sm">
 					
 				<div class="about-company bg-white">
-					<h3>About <a href="/"> {{ $job->user->name }}</a></h3>
+					<h3>About <a href="/company/{{$job->user->id}}"> {{ $job->user->name }}</a></h3>
 					<hr>
 					<div class="content">
 						@if($job->user->companyprofile)

@@ -89,11 +89,9 @@
 	width: 116%;
 	border-radius: 0;
 }
-.en .search-form .fa-arrow-up {
-	position: absolute;
-	left: 350px;
-	top: -5px;
-	color: #fff;
+
+#user_menu + .dropdown-menu {
+	left: -40px;
 }
 
 #messangerIcon {
@@ -158,6 +156,18 @@
 	min-width: 10rem;
 	left: -10px;
 } 
+
+
+
+/* Collapsed navbar */
+
+.icon {
+	display: none;
+}
+.icon i {
+	margin-top: 12px;
+	font-size: 25px;
+}
 
 
 /* Main Header */

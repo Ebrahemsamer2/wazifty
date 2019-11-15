@@ -69,8 +69,8 @@
 						<div class="row">
 							<div class="col-sm-8">
 								<div class="head">
-									<h2><a href="/jobs/{{$job->slug}}">{{ $job->title }}</a></h2>
-									<h4>{{ $job->subtitle }}</h4>
+									<h2><a href="/jobs/{{$job->slug}}">{{ \Str::limit($job->title, 50) }}</a></h2>
+									<h4>{{ \Str::limit($job->subtitle, 100) }}</h4>
 								</div>
 							</div>
 							<div class="col-sm">
@@ -83,7 +83,7 @@
 						</div>
 						<hr>
 						<div class="content">
-							<p>{{ $job->job_description }}</p>
+							<p>{{ \Str::limit($job->job_description, 200) }}</p>
 						</div>
 						<div class="info">
 							<span>{{ $job->created_at->diffForHumans() }}</span>

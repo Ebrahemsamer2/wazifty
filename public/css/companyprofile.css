@@ -38,6 +38,10 @@ hr {
 	margin-left: 10px;
 	width: 100%;
 }
+.container .header {
+	margin-left: 0;
+	width: 101%;
+}
 
 .container .header,.container .company-info {
 	max-height: 130px;

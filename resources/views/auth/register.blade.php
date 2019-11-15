@@ -6,9 +6,9 @@
     <div class="container mt--8 pb-5">
         <!-- Table -->
         <div class="row justify-content-center">
-            <div class="col-lg-6 col-md-8">
+            <div style="margin-top: -65px;" class="col-lg-6 col-md-8">
                 <div class="card bg-secondary shadow border-0">
-                    <div class="card-header bg-transparent pb-5">
+                    <div class="card-header bg-transparent pb-3">
                         <div class="text-muted text-center mt-2 mb-4"><small>{{ __('Sign up with') }}</small></div>
                         <div class="text-center">
                             <a href="#" class="btn btn-neutral btn-icon mr-4">

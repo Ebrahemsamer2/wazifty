@@ -8,12 +8,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Traffic</h5>
-                                    <span class="h2 font-weight-bold mb-0">350,897</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Jobs</h5>
+                                    <span class="h2 font-weight-bold mb-0">{{$jobs_count}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
-                                        <i class="fas fa-chart-bar"></i>
+                                        <i class="fas fa-briefcase"></i>
                                     </div>
                                 </div>
                             </div>
@@ -29,12 +29,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
-                                    <span class="h2 font-weight-bold mb-0">2,356</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Users</h5>
+                                    <span class="h2 font-weight-bold mb-0">{{$users_count}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
-                                        <i class="fas fa-chart-pie"></i>
+                                        <i class="fas fa-users"></i>
                                     </div>
                                 </div>
                             </div>
@@ -50,12 +50,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                                    <span class="h2 font-weight-bold mb-0">924</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Posts</h5>
+                                    <span class="h2 font-weight-bold mb-0">{{$posts_count}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
-                                        <i class="fas fa-users"></i>
+                                        <i class="far fa-newspaper"></i>
                                     </div>
                                 </div>
                             </div>
@@ -71,12 +71,12 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
-                                    <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                                    <span class="h2 font-weight-bold mb-0">49,65%</span>
+                                    <h5 class="card-title text-uppercase text-muted mb-0">Comments</h5>
+                                    <span class="h2 font-weight-bold mb-0">{{$comments_count}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-info text-white rounded-circle shadow">
-                                        <i class="fas fa-percent"></i>
+                                        <i class="fas fa-comments"></i>
                                     </div>
                                 </div>
                             </div>

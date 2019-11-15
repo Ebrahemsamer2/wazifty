@@ -1,0 +1,196 @@
+/* Navbar (All screens) */
+
+@media only screen and (max-width: 1183px) {
+
+	.en #people-say .row .card:nth-child(1) {
+		margin-left: 48px !important;
+	}
+
+}
+
+@media only screen and (max-width: 992px) {
+
+	/* Navbar */
+	.navbar .container {
+		max-width: 100%;
+	}
+	#people-say .card {
+		width: 100%;
+		margin-left: 0;
+	}
+	.en #people-say .row .card:nth-child(1) {
+		margin-left: 0!important;
+	}
+	.en #why-us .row i {
+		font-size: 30px;
+	}
+	.en #why-us h2 {
+		font-size: 20px;
+	}
+	.en #why-us p {
+		font-size: 15px;
+	}
+	.en #our-blog p {
+		font-size: 15px;
+	}
+	.en .search-form {
+		right: 100px!important;
+	}
+	/* Jobs */
+	.all-jobs {
+		margin-left: -90px !important;
+	}
+	.jobs + .col-sm {
+		margin-right: -100px !important;
+	}
+
+}
+@media only screen and (max-width: 995px) {
+
+	.job .row .col-sm img {
+		margin-left: 1.5rem !important;
+	}
+	.all-jobs .jobs-heading h1 {
+		font-size: 20px;
+	}
+	.all-jobs {
+		margin-left: -50px !important;
+	}
+	.jobs + .col-sm {
+		margin-right: -50px !important;
+	}
+}
+
+@media only screen and (max-width: 860px) {
+	.all-jobs {
+		margin-left: 0px !important;
+	}
+	.jobs + .col-sm {
+		margin-right: -30px !important;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+	.all-jobs {
+		margin-left: -50px !important;
+	}
+	.jobs + .col-sm {
+		margin-right: -80px !important;
+	}
+
+	.job .row .col-sm img {
+		margin-left: 0rem !important;
+	}
+	.all-jobs .jobs-heading h1 {
+		font-size: 18px;
+	}
+	.job .head h2 a {
+		font-size: 15px;
+	}
+
+	.job .head h4 {
+		font-size: 14px;
+	}
+}
+
+@media only screen and (max-width: 720px) {
+
+	.all-jobs {
+		margin-left: -35px !important;
+	}
+	.jobs + .col-sm {
+		margin-right: -50px !important;
+	}
+	.all-jobs .jobs-heading h1 {
+		font-size: 15px;
+	}
+
+}
+
+@media only screen and (max-width: 588px) {
+
+	.all-jobs {
+		margin-left: -10px !important;
+	}
+	.jobs + .col-sm {
+		margin-right: -10px !important;
+	}
+	.all-jobs .jobs-heading h1 {
+		font-size: 15px;
+	}
+}
+
+@media only screen and (max-width: 570px) {
+
+	.all-jobs {
+		margin-left: 20px !important;
+	}
+	.jobs + .col-sm {
+		margin-right: 20px !important;
+	}
+	.all-jobs .jobs-heading h1 {
+		font-size: 20px;
+		text-align: center;
+		margin-bottom: 15px;
+	}
+	.all-jobs .jobs-heading .row .col-sm-6 {
+		margin-bottom: 10px;
+	}
+
+}
+
+@media only screen and (max-width: 790px) {
+	.en #our-blog a {
+		width: 70% !important;
+	}
+}
+
+@media only screen and (max-width: 785px) {
+
+	.header nav ul {
+		display: none;
+	}
+
+	.icon {
+		display: block;
+	}
+
+.header nav ul.responsive {
+    display: block;
+    position: absolute;
+    float: right;
+    top: 70px;
+    background: #fff;
+    width: 90%;
+    border-radius: 2px;
+    padding: 10px;
+    }
+
+	.en .main-header .main-intro p:nth-child(1) {
+		font-size: 30px;
+	}
+	.en #how-it-works .row div p {
+	 	font-size: 15px;
+	}
+	.en .search-form {
+		top: 70px!important;
+	}
+}
+
+@media only screen and (max-width: 767px) {
+
+	.en #people-say .row #c2 {
+		margin-left: 90px !important;
+	}
+
+	.en #our-blog a {
+		width: 75% !important;
+	}
+
+}
+@media only screen and (max-width: 575px) {
+	.en #our-blog a {
+		width: 100% !important;
+		margin-left: 0 !important;
+	}
+}

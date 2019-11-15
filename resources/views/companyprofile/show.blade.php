@@ -15,7 +15,7 @@
 
 @section('content')
 
-	<div class="container">
+	<div class="container" style="margin-top: 50px;">
 		<div class="row">
 			<div class="col-sm-8">
 				
@@ -36,7 +36,7 @@
 							<div class="company-info">
 								
 								<h2>{{ $company->name }}</h2>
-								<p class="spec">Specialization</p>
+								<p class="spec">{{$company->specialization}}</p>
 								<p>{{ $company->companyprofile->address }}</p>
 							</div>
 
