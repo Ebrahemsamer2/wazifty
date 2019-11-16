@@ -45,22 +45,6 @@
                                     @endif
                                 </div>
 
-                                <div class="form-group{{ $errors->has('emp_type') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">{{ __('Email') }}</label>
-                                    <select required name="emp_type" class="form-control form-control-alternative">
-                                        
-                                        <option <?php if($user->emp_type == 'employee') echo 'selected' ?> value="employee">Employee</option>
-                                        <option <?php if($user->emp_type == 'employer') echo 'selected' ?> value="employer">Employer</option>
-
-                                    </select>
-
-                                    @if ($errors->has('emp_type'))
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $errors->first('emp_type') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-
 
                                 <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-password">{{ __('Password') }}</label>

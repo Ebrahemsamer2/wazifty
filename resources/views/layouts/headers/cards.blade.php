@@ -8,8 +8,9 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col">
+
                                     <h5 class="card-title text-uppercase text-muted mb-0">Jobs</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{$jobs_count}}</span>
+                                    <span class="h2 font-weight-bold mb-0">{{\DB::table('jobs')->count()}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
@@ -30,7 +31,7 @@
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Users</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{$users_count}}</span>
+                                    <span class="h2 font-weight-bold mb-0">{{\DB::table('users')->count()}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
@@ -51,7 +52,7 @@
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Posts</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{$posts_count}}</span>
+                                    <span class="h2 font-weight-bold mb-0">{{\DB::table('posts')->count()}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
@@ -72,7 +73,7 @@
                             <div class="row">
                                 <div class="col">
                                     <h5 class="card-title text-uppercase text-muted mb-0">Comments</h5>
-                                    <span class="h2 font-weight-bold mb-0">{{$comments_count}}</span>
+                                    <span class="h2 font-weight-bold mb-0">{{\DB::table('comments')->count()}}</span>
                                 </div>
                                 <div class="col-auto">
                                     <div class="icon icon-shape bg-info text-white rounded-circle shadow">

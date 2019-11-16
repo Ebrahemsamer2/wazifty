@@ -45,7 +45,7 @@
                                 </div>
 
                                 <div class="form-group{{ $errors->has('emp_type') ? ' has-danger' : '' }}">
-                                    <label class="form-control-label" for="input-email">{{ __('Email') }}</label>
+                                    <label class="form-control-label" for="input-email">{{ __('Employment_type') }}</label>
                                     <select required name="emp_type" class="form-control form-control-alternative">
                                         
                                         <option value="employee">Employee</option>

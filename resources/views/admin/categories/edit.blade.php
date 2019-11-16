@@ -13,7 +13,7 @@
                                 <h3 class="mb-0">{{ __('Categories') }}</h3>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('categories.index') }}" class="btn btn-sm btn-primary">{{ __('Add category') }}</a>
+                                <a href="{{ route('jobcategories.index') }}" class="btn btn-sm btn-primary">{{ __('Add category') }}</a>
                             </div>
                         </div>
                     </div>
@@ -39,9 +39,9 @@
                         @endif
                     </div>
                     <div class="col-12">
-                    	<form autocomplete="off" id="postcategory-form" method="POST" action="{{ route('categories.update', $category->id) }}">
+                    	<form autocomplete="off"  method="POST" action="{{ route('jobcategories.update', $category->id) }}">
                     		@csrf
-                            @method('PUT')
+                            @method('PATCH')
 
                     		<div class="row">
                     			<div class="col-sm-10">

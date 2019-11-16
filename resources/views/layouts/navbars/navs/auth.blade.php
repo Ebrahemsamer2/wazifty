@@ -38,7 +38,7 @@
                     <div class="media align-items-center">
                         @if(auth()->user()->picture)
                         <span class="avatar avatar-sm rounded-circle">
-                            <img alt="Image placeholder" src="{{ asset('images') }}/{{ auth()->user()->picture->filename }}">
+                            <img alt="Image placeholder" width="40" height="40" src="{{ asset('images') }}/{{ auth()->user()->picture->filename }}">
                         </span>
                         @else
                         <span class="avatar avatar-sm rounded-circle">

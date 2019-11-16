@@ -49,7 +49,7 @@ class CategoryController extends Controller
     	$this->validate($request, $rules);
 
     	if($category->update($request->all())) {
-    		return redirect('/admin/categories/'.$category->id.'/edit')->withStatus("Category successfully updated");
+    		return redirect('/admin/blog/categories/'.$category->id.'/edit')->withStatus("Category successfully updated");
     	}else {
     		return redirect()->back()->withStatus("Something wrong, Try again");
     	}

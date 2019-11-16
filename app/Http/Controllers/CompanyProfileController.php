@@ -26,8 +26,7 @@ class CompanyProfileController extends Controller
 public function update(Request $request) {
 
 	$user = auth()->user();
-	$profile = $user->companyprofile;
-
+	
 	if($request->has('submitbasicinfo')){
 		
 		$rules = [

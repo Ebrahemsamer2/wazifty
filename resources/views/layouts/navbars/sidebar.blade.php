@@ -151,6 +151,13 @@
                         </ul>
                     </div>
                 </li>
+
+                <li class="nav-item <?php if(\Request::is('admin/jobcategories*')) echo 'active' ?>">
+                    <a class="nav-link" href="/admin/jobcategories">
+                        <i class="fas fa-list text-blue"></i> {{ __('Categories') }}
+                    </a>
+                </li>
+
                 <li class="nav-item <?php if(\Request::is('admin/applications*')) echo 'active' ?>">
                     <a class="nav-link" href="/admin/applications">
                         <i class="fas fa-poll-h text-blue"></i> {{ __('Applications') }}

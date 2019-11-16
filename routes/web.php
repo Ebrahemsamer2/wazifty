@@ -51,11 +51,6 @@ Route::post('/newjob', 'JobController@storeJob')->middleware(['auth','onlycompan
 
 Route::get('/company/{id}/job/{slug}/edit', 'JobController@edit')->middleware(['auth','onlycompany']);
 
-// Route::patch('/company/{id}/job/{slug}/edit', 'JobController@update')->middleware(['auth','onlycompany']);
-
-
-Route::patch('/company/{id}', 'JobController@active')->middleware(['auth','onlycompany']);
-
 
 // user edit profile
 
@@ -82,6 +77,9 @@ Route::post('/company/profile', 'CompanyProfileController@updatePicture');
 // Visitation view for users and companies
 
 Route::get('/company/{id}', 'CompanyProfileController@show');
+
+
+Route::patch('/company/{id}', 'JobController@active')->middleware(['auth','onlycompany']);
 
 
 // Managing users applications by company
@@ -180,6 +178,8 @@ Route::group(['middleware' => ['auth', 'admin'] ], function () {
 	Route::resource('admin/admins', 'admin\AdminController');
 
 	Route::resource('/admin/jobs', 'admin\JobController');
+
+	Route::resource('/admin/jobcategories', 'admin\JobCategoryController');
 
 	Route::resource('/admin/applications', 'admin\ApplicationController');
 

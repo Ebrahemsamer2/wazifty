@@ -8,6 +8,8 @@ use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Hash;
+use App\Events\CreatingUserProfile;
+use App\Events\CreatingCompanyProfile;
 
 use App\Http\Controllers\Controller;
 
@@ -33,8 +35,12 @@ class UserController extends Controller
 
     public function store(UserRequest $request, User $model)
     {
-        $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
-
+        $user = $model->create($request->merge(['password' => Hash::make($request->get('password'))])->all());
+        if($user->emp_type == 'employee') {
+            event(new CreatingUserProfile($user));
+        }else {
+            event(new CreatingCompanyProfile($user));
+        }
         return redirect()->route('users.index')->withStatus(__('User successfully created.'));
     }
 
@@ -55,11 +61,16 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         if($user->emp_type == "employee") {
-            $user->userprofile->delete();
+            if($user->userprofile) {
+                $user->userprofile->delete();
+            }
         }else {
-            $user->companyprofile->delete();
+            if($user->companyprofile) {
+                $user->companyprofile->delete();
+            }
         }
         $user->delete();
-        return redirect()->route('users.index')->withStatus(__('User successfully deleted.'));
+        return back()->withStatus(__('User successfully deleted.'));
     }
+
 }

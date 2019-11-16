@@ -19,7 +19,7 @@ $(function() {
 		let work_place = $("#create-job #input-work-place").val();
 		let category_id = $("#create-job #input-category-id").val();
 
-		if(title.length < 10 || title.length > 100) {
+		if(title.length < 20 || title.length > 100) {
 			$(".title-error").css("display", "block");
 			hideModal();
 			return false;
@@ -134,6 +134,28 @@ $(function() {
 			$(this).next("form").submit();
 		}
 
+	});
+
+
+	// Adding Category By Ajax
+
+	$("#category-form").on("submit", function(e) {
+		e.preventDefault();
+
+		let data = $(this).serialize();
+		$.ajax({
+			url: "/admin/jobcategories",
+			method: "POST",
+			headers: {
+		        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    },
+			data: data,
+			dataType: 'json',
+			success: function(data) {
+				$("div table tbody").prepend(data.success);
+				$("#category-form")[0].reset();
+			}
+		});
 	});
 
 });
