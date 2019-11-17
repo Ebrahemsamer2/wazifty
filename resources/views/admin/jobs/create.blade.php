@@ -25,7 +25,7 @@
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-title">{{ __('Job Title') }}</label>
                                     <input type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Job Title') }}" value="{{ old('title') }}" required autofocus>
-                                    <p class="title-error js-error">Job title must be between 10 - 100 characters, specific and alphabets only</p>
+                                    <p class="title-error js-error">Job title must be between 20 - 100 characters, specific and alphabets only</p>
                                     @if ($errors->has('title'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('title') }}</strong>

@@ -1,0 +1,7 @@
+/* Single Post (All screens) */
+
+@media only screen and (max-width: 1200px) {
+	.content .col-lg-8 {
+		margin-left: -40px !important;
+	}
+}

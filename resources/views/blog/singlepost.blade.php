@@ -28,14 +28,16 @@
 
     <!-- Banner Ends Here -->
 
-    <div class="content">
+    <div class="content single">
     	
     	<div class="container">
     		
     		<div class="row">
     			
-    			<div class="col-sm-8">
+    			<div class="col-lg-8 col-md-12">
+
     				<div class="post-content">
+    				
     					<p class="content-text">{!! $post->body !!}</p>
 
     					<div class="post-info">
@@ -155,7 +157,7 @@
     				</div>
     			</div>
 
-    			<div class="col-sm">
+    			<div class="col-sm col-md">
     				
 
 

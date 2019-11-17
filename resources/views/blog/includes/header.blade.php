@@ -31,6 +31,9 @@
     <link rel="stylesheet" href="/blog_assets/css/templatemo-host-cloud.css">
     <link rel="stylesheet" href="/blog_assets/css/owl.css">
     <link rel="stylesheet" href="/blog_assets/css/custom.css">
+    
+    <!-- Media Query -->
+    <link rel="stylesheet" href="/blog_assets/css/media.css">
 
   </head>
 

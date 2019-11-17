@@ -57,7 +57,7 @@
           	@endisset
 
     	<div class="row">
-          <div class="col-sm-9">
+          <div class="col-lg-9 col-md-12">
             
             <div class="posts">
               
@@ -92,7 +92,7 @@
             </div>
           </div>
 
-          <div class="col-sm">
+          <div class="col-sm col-md">
             
             @include('blog.includes.category_sidebar')
 
