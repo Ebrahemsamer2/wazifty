@@ -9,13 +9,13 @@
             <div style="margin-top: -65px;" class="col-lg-6 col-md-8">
                 <div class="card bg-secondary shadow border-0">
                     <div class="card-header bg-transparent pb-3">
-                        <div class="text-muted text-center mt-2 mb-4"><small>{{ __('Sign up with') }}</small></div>
+                        <div class="text-muted text-center mt-2 mb-4"><small>{{ __('Sign up as an Employee with') }}</small></div>
                         <div class="text-center">
-                            <a href="#" class="btn btn-neutral btn-icon mr-4">
+                            <a href="/login/github" class="btn btn-neutral btn-icon mr-4">
                                 <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/github.svg"></span>
                                 <span class="btn-inner--text">{{ __('Github') }}</span>
                             </a>
-                            <a href="#" class="btn btn-neutral btn-icon">
+                            <a href="/login/google" class="btn btn-neutral btn-icon">
                                 <span class="btn-inner--icon"><img src="{{ asset('argon') }}/img/icons/common/google.svg"></span>
                                 <span class="btn-inner--text">{{ __('Google') }}</span>
                             </a>

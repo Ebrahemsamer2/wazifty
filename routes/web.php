@@ -1,5 +1,12 @@
 <?php
 
+// Socialite package
+
+Route::get('login/{service}', 'Auth\LoginController@redirectToProvider');
+
+Route::get('login/{service}/callback', 'Auth\LoginController@handleProviderCallback');
+
+
 // Resume Routes
 
 Route::get('/resume/{id}/download', 'admin\ResumeController@download')->middleware('auth');
