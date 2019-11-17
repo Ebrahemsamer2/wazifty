@@ -53,7 +53,7 @@
                                             <button class="btn btn-danger btn-sm" type="button"onclick="confirm('{{ __("Are you sure you want to delete this user?") }}') ? this.parentElement.submit() : ''">
                                             {{ __('Delete') }}
                                             </button>
-                                            <a target="_blank" class="btn btn-default btn-sm" href="{{ route('posts.show', $post) }}">{{ __('Preview') }}</a>
+                                            <a target="_blank" class="btn btn-default btn-sm" href="/blog/post/{{$post->slug}}">{{ __('Preview') }}</a>
                                         </form>
 
                                       </div>

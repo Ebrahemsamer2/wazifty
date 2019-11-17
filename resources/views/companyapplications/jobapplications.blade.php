@@ -39,7 +39,7 @@
 				<div class="row">
 					@if(count($users_applications))
 					@foreach($users_applications as $user)
-					<div class="col-sm-3">
+					<div class="col-lg-3 col-md-6">
 						
 						<div class="application">
 

@@ -135,8 +135,8 @@ class UserProfileController extends Controller
 					$fileextension = $resume->getClientOriginalExtension();
 					$filesize = $resume->getSize();
 
-					if(! in_array($fileextension,['pdf', 'txt', 'PNG','jpg','doc'])) {
-						return redirect()->back()->withStatus('Only PDF, TXT, PNG, JPG and DOC are allowed');
+					if(! in_array($fileextension,['pdf', 'txt', 'PNG','jpg'])) {
+						return redirect()->back()->withStatus('Only PDF, TXT, PNG, and JPG files are allowed');
 					}else if( $filesize > 15000000) {
 						return redirect()->back()->withStatus('Your filesize can not be greater than 1.5M');
 					}
@@ -144,19 +144,18 @@ class UserProfileController extends Controller
 					$fileToStore = auth()->user()->id.explode('.', $filename)[0] .'_'.time().'_.'.$fileextension;
 
 					// delete the old resume
-		            $oldResume = Resume::where('user_id', auth()->user()->id);
+		            $oldResume = Resume::where('user_id', auth()->user()->id)->first();
 
-		            if($oldResume->first()) {
-		            	$oldResumeFileName = $oldResume->first()->filename;
+		            if($oldResume) {
+		            	$oldResumeFileName = $oldResume->filename;
 		            	$oldResume->delete();
 
 		            	if(file_exists('resumes/'.$oldResumeFileName)) {
 		            		unlink('resumes/'.$oldResumeFileName);
 		            	}
-
 		            }
 
-		            if(Resume::create(['filename' => $fileToStore, 'filesize' => $filesize,'user_id'=>auth()->user()->id])) {
+		            if(Resume::create(['filename' => $fileToStore, 'filesize' => $filesize,'user_id' => auth()->user()->id])) {
 		                // Store the picture on the serve
 		                $resume->move(public_path('resumes'), $fileToStore);
 					}

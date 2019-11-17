@@ -44,6 +44,16 @@
 		margin-right: -100px !important;
 	}
 
+	/* Company Profile */
+
+	.container .header, .container .about {
+		width: 140%!important;
+	}
+	.container .c-j {
+		width: 110% !important;
+	}
+
+
 }
 @media only screen and (max-width: 995px) {
 
@@ -91,6 +101,12 @@
 	.job .head h4 {
 		font-size: 14px;
 	}
+
+	.basic-info img,
+	.basic-info button {
+		margin-left: -50px!important;
+	}
+
 }
 
 @media only screen and (max-width: 720px) {
@@ -192,5 +208,12 @@
 	.en #our-blog a {
 		width: 100% !important;
 		margin-left: 0 !important;
+	}
+
+	.basic-info .row {
+		margin-left: 40%;
+	}
+	.basic-info .row .col-sm-7 {
+		margin-left: -60px;
 	}
 }

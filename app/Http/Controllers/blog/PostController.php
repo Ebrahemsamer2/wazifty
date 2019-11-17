@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use App\Post;
 use App\Thumbnail;
 
+use Purifier;
+
 class PostController extends Controller
 {
 
@@ -38,6 +40,7 @@ class PostController extends Controller
         $data = $request->except(['thumbnail']);
         
         $data['slug'] = implode('-', explode(' ', $data['title']));
+        $data['body'] = Purifier::clean($data['body']);
         if($post = Post::create($data)) {
 
             if($file = $request->file('thumbnail')) {
@@ -84,7 +87,7 @@ class PostController extends Controller
             $post->excerpt = $request->excerpt;
         }
         if($request->has('body')) {
-            $post->body = $request->body;
+            $post->body = Purifier::clean($request->body);
         }
         if($request->has('category_id')) {
             $post->category_id = $request->category_id;

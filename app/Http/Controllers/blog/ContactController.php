@@ -21,8 +21,9 @@ class ContactController extends Controller
     	$this->validate($request, $rules);
 
     	$data = $request->all();
-    	Mail::to("Soltan_algaram41@yahoo.com")->send(new contactMail($data));
-        $success = "<div class='alert alert-success'>We've recieved your message, thanks you.<div>";
+        if( Mail::to("Soltan_algaram41@yahoo.com")->send(new contactMail($data))){
+            $success = "<div class='alert alert-success'>We've recieved your message, thanks you.<div>";
+        }
         return response()->json(['success' => $success], 200);
     }
 }

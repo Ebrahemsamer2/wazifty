@@ -40,7 +40,7 @@
 			<div class="row">
 				<?php $i = 0; ?>
 				@foreach($applications as $application)
-				<div class="col-sm-3">
+				<div class="col-lg-3 col-md-6">
 					<div class="application">
 						
 					<h2>{{ $application->job->title }}</h2>

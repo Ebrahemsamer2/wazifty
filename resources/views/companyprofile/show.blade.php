@@ -114,7 +114,7 @@
 			</div>
 		</div>
 
-					<div class="row">
+					<div class="row c-j">
 						<div class="col-sm-8">
 							
 						<div class="company-jobs">

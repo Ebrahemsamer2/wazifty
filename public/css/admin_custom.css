@@ -109,6 +109,7 @@ form.hidden {
 
 .all-applications .application {
 	margin-left: 10px;
+	width: 100%;
 }
 
 .all-applications .application .card .card-body .application-time {

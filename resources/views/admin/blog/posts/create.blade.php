@@ -5,7 +5,8 @@
     <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: '#postcontent'
+            selector: '#postcontent',
+            height: 500,
         });
     </script>
 
@@ -36,7 +37,7 @@
                                 <div class="form-group{{ $errors->has('title') ? ' has-danger' : '' }}">
                                     <label class="form-control-label" for="input-title">{{ __('Post Title') }}</label>
                                     <input type="text" name="title" id="input-title" class="form-control form-control-alternative{{ $errors->has('title') ? ' is-invalid' : '' }}" placeholder="{{ __('Post Title') }}" value="{{ old('title') }}" required autofocus>
-                                    <p class="title-error js-error">Post title must be between 50 - 150 characters, specific and alphabets only</p>
+                                    <p class="title-error js-error">Post title must be between 20 - 150 characters, specific and alphabets only</p>
                                     @if ($errors->has('title'))
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $errors->first('title') }}</strong>
@@ -120,4 +121,8 @@
         
         @include('layouts.footers.auth')
     </div>
+@endsection
+
+@section('script')
+<script src="/js/blog.js"></script>
 @endsection
