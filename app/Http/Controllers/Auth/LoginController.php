@@ -14,7 +14,6 @@ use App\User;
 class LoginController extends Controller
 {
 
-
     use AuthenticatesUsers;
 
     protected $redirectTo = '/home';
