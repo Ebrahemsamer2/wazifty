@@ -46,7 +46,7 @@ class CommentController extends Controller
                 $success .= '<div class="col-sm-2">';
                 $success .= '<div class="commenter-image">';
                 if($comment->user->picture) {
-                    $success .= '<img src="/images/ ' . $comment->user->picture->filename . '" width="80" height="80">';
+                    $success .= '<img src="/images/' . $comment->user->picture->filename . '" width="80" height="80">';
                 }else {
                     $success .= '<img src="/images/user.jpg" width="80" height="80">';
                 }

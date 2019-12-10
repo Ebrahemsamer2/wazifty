@@ -72,7 +72,7 @@
     							<div class="comment">
     								<span class="text-gray">{{$comment->created_at ? $comment->created_at->diffForHumans() : ''}}
     								</span>
-    								<p class="c{{$comment->id}}">{{ $comment->comment }}</p>
+    								<p class="{{$comment->id}}">{{ $comment->comment }}</p>
     								@auth
     								@if(auth()->user()->id == $comment->user_id)
     								<form class="deletecomment" method="post" action="/blog/post/{{$comment->post->slug}}">

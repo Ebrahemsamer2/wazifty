@@ -44,32 +44,16 @@ return [
         ],
     ],
 
-    // 'google' => [
-    //     'client_id' => env('GOOGLE_CLIENT_ID'),
-    //     'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-    //     'redirect' => 'http://wazifty.com/login/google/callback',
-    // ],
-
-    // 'github' => [
-    //     'client_id' => env('GITHUB_CLIENT_ID'),
-    //     'client_secret' => env('GITHUB_CLIENT_SECRET'),
-    //     'redirect' => 'http://wazifty.com/login/github/callback',
-    // ],
-
-
-
-    // online services 
-
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://wazifty.000webhostapp.com/login/google/callback',
+        'redirect' => 'http://wazifty.com/login/google/callback',
     ],
 
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://wazifty.000webhostapp.com/login/github/callback',
+        'redirect' => 'http://wazifty.com/login/github/callback',
     ],
 
 ];

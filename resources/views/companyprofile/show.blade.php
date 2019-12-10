@@ -196,14 +196,18 @@
                                     @csrf
                                     @method('PATCH')
                                 	<input type="hidden" name="job_id" value="{{ $job->id }}">
-                                    @if($job->active == 1)
-                                        <input type="hidden" value="0" name="active">
-                                        <input type="submit" value="Deactivate" class="btn btn-warning btn-sm">
-                                    @else
-                                        <input type="hidden" value="1" name="active">
-                                        <input class="btn btn-success btn-sm" type="submit" value="Activate">
-                                    @endif
 
+                                	@if($company->id == auth()->user()->id)
+
+	                                    @if($job->active == 1)
+	                                        <input type="hidden" value="0" name="active">
+	                                        <input type="submit" value="Deactivate" class="btn btn-warning btn-sm">
+	                                    @else
+	                                        <input type="hidden" value="1" name="active">
+	                                        <input class="btn btn-success btn-sm" type="submit" value="Activate">
+	                                    @endif
+
+                                    @endif
                                     @if(auth()->user()->id == $job->user_id && auth()->user()->emp_type == "employer")
 
                                     <a href="/company/{{auth()->user()->id}}/job/{{$job->slug}}/edit" class="btn btn-primary btn-sm">Edit</a>
